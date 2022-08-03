@@ -1,0 +1,54 @@
+{
+  "_from": "git+https://github.com/fabiorogeriosj/cordova-plugin-sensors.git",
+  "_id": "cordova-plugin-sensors@0.7.0",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/cordova-plugin-sensors",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/fabiorogeriosj/cordova-plugin-sensors.git",
+    "rawSpec": "https://github.com/fabiorogeriosj/cordova-plugin-sensors.git",
+    "saveSpec": "git+https://github.com/fabiorogeriosj/cordova-plugin-sensors.git",
+    "fetchSpec": "https://github.com/fabiorogeriosj/cordova-plugin-sensors.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/fabiorogeriosj/cordova-plugin-sensors.git#ba28519305ba09e58d96ea62376b576d82b20af7",
+  "_spec": "https://github.com/fabiorogeriosj/cordova-plugin-sensors.git",
+  "_where": "/home/android/Desktop/mobile apps/ionic apps/myfedha",
+  "author": {
+    "name": "Fábio Rogério SJ"
+  },
+  "bugs": {
+    "url": "https://github.com/fabiorogeriosj/cordova-plugin-sensors/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "com.fabiorogeriosj.sensors",
+    "platforms": [
+      "android"
+    ]
+  },
+  "deprecated": false,
+  "description": "This plugin gives Cordova's applications access to Android's sensors",
+  "engines": {
+    "cordova": ">=3.4.0"
+  },
+  "homepage": "https://github.com/fabiorogeriosj/cordova-plugin-sensors#readme",
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "sensors"
+  ],
+  "license": "",
+  "name": "cordova-plugin-sensors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabiorogeriosj/cordova-plugin-sensors.git"
+  },
+  "version": "0.7.0"
+}

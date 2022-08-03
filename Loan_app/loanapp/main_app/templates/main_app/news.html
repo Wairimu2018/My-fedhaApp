@@ -1,0 +1,83 @@
+{% extends 'main_app/base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+    <!-- Featured Title -->
+    <div id="featured-title" class="clearfix featured-title-left">
+        <div id="featured-title-inner" class="container clearfix">
+            <div class="featured-title-inner-wrap">
+                <div id="breadcrumbs">
+                    <div class="breadcrumbs-inner">
+                        <div class="breadcrumb-trail">
+                            <a href="{% url 'mainAppNamespace:HomeName' %}" title="Construct" rel="home" class="trail-begin">Home</a>
+                            <span class="sep"><span class="fa fa-angle-right" aria-hidden="true"></span></span>
+                            <span class="trail-end">News</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-title-heading-wrap">
+                    <h1 class="featured-title-heading">News</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Featured Title -->
+
+    <!-- Main Content -->
+    <div id="main-content" class="site-main clearfix">
+        <div id="content-wrap" class="container clearfix">
+            <div class="row">
+
+                {% for news in newsList %}
+
+                <div class="col-md-3 col-sm-6">
+                    <article class="news-item style-2">
+                        <div class="post-media clearfix">
+                            <a class="post-img" href="{% url 'mainAppNamespace:NewsDetailsName' news_slug=news.slug %}">
+                                <img src="{{news.image.url}}" alt="Image">
+                            </a><!-- /.post image -->
+                        </div>
+
+                        <div class="post-content-wrap">
+                            <h2 class="post-title">
+                                <a href="{% url 'mainAppNamespace:NewsDetailsName' news_slug=news.slug %}" rel="bookmark">{{news.title}}</a>
+                            </h2><!-- .post-title -->
+
+                            <div class="post-meta">
+                                <span class="meta author"><a href="#">{{news.author.first_name}} {{news.author.last_name}}</a></span>
+                                <span class="meta sep">|</span>
+                                <span class="meta date">{{news.posted_on_date_time}}</span>
+                            </div><!-- /.post meta -->
+                        </div><!-- /.entry-content-wrap -->
+                    </article><!-- /.news-item -->
+                </div>
+
+                {% endfor %}
+
+                <div class="col-md-12">
+                    <div class="pagination-page clearfix">
+                        <ul>
+                            {% if newsList.has_previous %}
+                                <li><a class="page prev" href="?page={{ newsList.previous_page_number }}"><i class="fa fa-angle-left"></i></a></li> <!-- aria-hidden="true" -->
+                            {% endif %}
+
+                            <li><a class="page curent">{{ newsList.number }}</a></li>
+
+                            {% if newsList.has_next %}
+                                <li><a class="page next" href="?page={{ newsList.next_page_number }}"><i class="fa fa-angle-right"></i></a></li> <!-- aria-hidden="true" -->
+                            {% endif %}
+
+                            <br/><br/><br/><br/>
+                        </ul>
+                    </div>
+                </div>
+
+            </div><!-- /.row -->
+        </div><!-- /#content-wrap -->
+    </div>
+    <!-- /Main Content -->
+
+{% endblock %}

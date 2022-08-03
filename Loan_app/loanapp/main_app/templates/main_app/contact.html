@@ -1,0 +1,163 @@
+{% extends 'main_app/base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+    <!-- Featured Title -->
+    <div id="featured-title" class="clearfix featured-title-left">
+        <div id="featured-title-inner" class="container clearfix">
+            <div class="featured-title-inner-wrap">
+                <div id="breadcrumbs">
+                    <div class="breadcrumbs-inner">
+                        <div class="breadcrumb-trail">
+                            <a href="{% url 'mainAppNamespace:HomeName' %}" title="Construct" rel="home" class="trail-begin">Home</a>
+                            <span class="sep"><span class="fa fa-angle-right" aria-hidden="true"></span></span>
+                            <span class="trail-end">Contact</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-title-heading-wrap">
+                    <h1 class="featured-title-heading">Contact</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Featured Title -->
+
+    <!-- Main Content -->
+    <div id="main-content" class="site-main clearfix">
+        <div id="content-wrap">
+            <div id="site-content" class="site-content clearfix">
+                <div id="inner-content" class="inner-content-wrap">
+                    <div class="page-content">
+
+                        <!-- Contact  -->
+
+                        {% for companyData in companyDetails %}
+
+                        <div class="row-contact-2">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="wprt-headings text-center clearfix">
+                                            <h2 class="heading font-size-30">Welcome to {{companyData.company_name}}!</h2>
+
+                                            <div class="sub-heading wd-850">
+                                                For your compliments, inquiries, requests and support, please fill in the form below.
+                                            </div>
+                                        </div><!-- /.wprt-headings -->
+
+                                        <!-- <div class="wprt-spacer clearfix" data-desktop="54" data-mobi="30" data-smobi="30"></div>
+
+                                        <div class="wprt-gmap-2 gmap clearfix" data-lat="40.6616346" data-lng="-73.6894069" data-zoom="14" data-scrollwheel="false" data-icon="http://maps.google.com/mapfiles/marker_green.png"></div> -->
+                                
+                                        <div class="wprt-spacer clearfix" data-desktop="40" data-mobi="30" data-smobi="30"></div>
+                                        
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <div class="wprt-content-box style-2">
+                                                    <h4>Telephone</h4>
+                                                    <div class="wrap-text">
+                                                        <p>{{companyData.tel1}}</p>
+                                                        <p>
+                                                            {% if companyData.tel2 %}
+
+                                                            {{companyData.tel2}}
+
+                                                            {% endif %}                                                            
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="wprt-spacer clearfix" data-desktop="0" data-mobi="40" data-smobi="30"></div>
+                                            </div>
+
+                                            <div class="col-sm-4">
+                                                <div class="wprt-content-box style-2">
+                                                    <h4>Email</h4>
+                                                    <div class="wrap-text">
+                                                        <p>{{companyData.email}}</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="wprt-spacer clearfix" data-desktop="0" data-mobi="40" data-smobi="30"></div>
+                                            </div>
+
+                                            <div class="col-sm-4">
+                                                <div class="wprt-content-box style-2">
+                                                    <h4>Physical Address</h4>
+                                                    <div class="wrap-text">
+                                                        <p>{{companyData.address}}</p>
+                                                        <p>{{companyData.town}}, {{companyData.country}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                            
+                                        <div class="wprt-spacer clearfix" data-desktop="45" data-mobi="40" data-smobi="30"></div>
+
+                                        <div class="wprt-line"></div>
+
+                                        <div class="wprt-spacer clearfix" data-desktop="45" data-mobi="40" data-smobi="30"></div>
+
+                                        <!-- <div class="wprt-headings text-center clearfix">
+                                            <h2 class="heading font-size-30">Contact Form!</h2>
+
+                                            <div class="sub-heading">Fill out the form below to recieve a free and confidential intial consultation.</div>
+                                        </div> --><!-- /.wprt-headings -->
+
+                                        <div class="wprt-spacer clearfix" data-desktop="35" data-mobi="30" data-smobi="20"></div>
+
+                                        <form action="" method="post" class="contact-form wpcf7-form">
+                                        {% csrf_token %}
+
+                                            <div class="wprt-contact-form-5">
+                                                <span class="wpcf7-form-control-wrap name">
+                                                    <input type="text" tabindex="2" id="name" name="fullname" value="" class="wpcf7-form-control" placeholder="Full Name *" required>
+                                                </span>
+
+                                                <span class="wpcf7-form-control-wrap email">
+                                                    <input type="email" tabindex="3" id="email" name="email" value="" class="wpcf7-form-control" placeholder="E-mail *" required>
+                                                </span>
+
+                                                <span class="wpcf7-form-control-wrap website">
+                                                    <input type="text" tabindex="3" id="website" name="subject" value="" class="wpcf7-form-control" placeholder="Subject *" required>
+                                                </span>
+
+                                                <span class="wpcf7-form-control-wrap message">
+                                                    <textarea name="message" tabindex="1" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" placeholder="Message *" required></textarea>
+                                                </span>
+
+                                                <div class="wrap-submit text-center">
+                                                    <input type="submit" value="Send Message" class="submit wpcf7-form-control wpcf7-submit" id="submit" name="submit">
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    
+                                        <div class="wprt-spacer clearfix" data-desktop="80" data-mobi="60" data-smobi="40"></div>
+                                    </div>
+                                </div><!-- /.row -->
+                            </div><!-- /.container -->
+                        </div>
+
+                        {% endfor %}
+
+                        <!-- /Contact  -->
+                    </div><!-- /.page-content -->
+                </div><!-- /#inner-content -->
+            </div><!-- /#site-content -->
+        </div><!-- /#content-wrap -->
+    </div>
+    <!-- /Main Content -->
+
+{% endblock %}
+
+
+
+
+
+

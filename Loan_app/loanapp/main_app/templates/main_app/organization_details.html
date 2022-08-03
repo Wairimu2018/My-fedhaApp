@@ -1,0 +1,318 @@
+{% extends 'main_app/base.html' %}
+
+{% load staticfiles %}
+{% load humanize %}
+
+{% block content %}
+
+    <!-- Featured Title -->
+    <div id="featured-title" class="clearfix featured-title-left">
+        <div id="featured-title-inner" class="container clearfix">
+            <div class="featured-title-inner-wrap">
+                <div id="breadcrumbs">
+                    <div class="breadcrumbs-inner">
+                        <div class="breadcrumb-trail">
+                            <a href="{% url 'mainAppNamespace:HomeName' %}" title="Construct" rel="home" class="trail-begin">Home</a>
+                            <span class="sep"><span class="fa fa-angle-right" aria-hidden="true"></span></span>
+                            <span class="trail-end">Organization Data</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-title-heading-wrap">
+                	{% for organization in organizationData %}
+                    <h1 class="featured-title-heading">{{organization.name_of_organization}}</h1>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Featured Title -->
+
+    <!-- Main Content -->
+    <div id="main-content" class="site-main clearfix">
+        <div id="content-wrap">
+            <div id="site-content" class="site-content clearfix">
+                <div id="inner-content" class="inner-content-wrap">
+                    <div class="page-content">
+
+                        <!-- Service Details -->
+                        <div class="row-services-2">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="wprt-spacer clearfix" data-desktop="34" data-mobi="30" data-smobi="20"></div>
+
+                                        {% for organization in organizationData %}
+
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="wprt-image-video w60">
+
+                                                    {% if organization.organization_logo == '' %}
+                                                        <img alt="image" src="{% static 'main_app/img/company_logo.png' %}">
+                                                    {% else %}
+                                                        <img alt="image" src="{{organization.organization_logo.url}}">
+                                                    {% endif %}
+                                                    <!-- <a class="icon-wrap popup-video" href="https://www.youtube.com/watch?v=HQzR7iiO5H4"></a> -->
+                                                </div>
+
+                                                <div class="wprt-spacer clearfix" data-desktop="30" data-mobi="30" data-smobi="20"></div>
+                                            </div><!-- /.col-md-5 -->
+
+                                            <div class="col-md-7">
+                                                
+                                                <div class="wprt-toggles style-1 no-icon">
+                                                     <table style="border: 2px transparent solid !important;">
+
+                                                        <tr>
+                                                            <th class="no-border-table-row">Organization Category</th>
+                                                            {% if organization.organization_category == 'Others' or organization.organization_category == 'Other' %}
+                                                            <th class="no-border-table-row no-bold">{{organization.organization_specified_category}}</th>
+                                                            {% else %}
+                                                            <th class="no-border-table-row no-bold">{{organization.organization_category.category_name}}</th>
+                                                            {% endif %}
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Email</th>
+                                                            <th class="no-border-table-row no-bold">{{organization.organization_email}}</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Telephone</th>
+                                                            <th class="no-border-table-row no-bold">{{organization.organization_telephone}}</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Fax</th>
+                                                            <th class="no-border-table-row no-bold">{{organization.organization_fax}}</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">P.O Box</th>
+                                                            <th class="no-border-table-row no-bold">{{organization.organization_postal_address}}</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Address</th>
+                                                            <th class="no-border-table-row no-bold">{{organization.organization_physical_address}}</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Facebook</th>
+                                                            <th class="no-border-table-row no-bold"><a href="{{organization.facebook_profile_link}}" target="_blank">Profile</a></th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Twitter</th>
+                                                            <th class="no-border-table-row no-bold"><a href="{{organization.twitter_profile_link}}" target="_blank">Profile</a></th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Linkedin</th>
+                                                            <th class="no-border-table-row no-bold"><a href="{{organization.linkedin_profile_link}}" target="_blank">Profile</a></th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Total number of staff</th>
+                                                            <th class="no-border-table-row no-bold">{{organization.organization_total_number_of_staff}}</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Membership Registered On</th>
+                                                            <th class="no-border-table-row no-bold">{{organization.membership_requested_on_date_time}}</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Registration Certificate</th>
+                                                            <th class="no-border-table-row no-bold"><a href="{{organization.organization_copy_of_registration_certificate}}" target="_blank">View certificate</a></th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Brochure</th>
+                                                            {% if organization.physical_pre_membership_registration_form == '' %}
+                                                            <th class="no-border-table-row no-bold"><a href="" target="_blank">View brochure</a></th>
+                                                            {% else %}
+                                                            <th class="no-border-table-row no-bold"><a href="{{organization.organization_brochure.url}}" target="_blank">View brochure</a></th>
+                                                            {% endif %}
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Approval</th>
+                                                            {% if organization.pre_membership_approved == 'True' or organization.organization_category == True or organization.organization_category == true or organization.organization_category == 'true' %}
+                                                            <th class="no-border-table-row no-bold" style="color: green !important;">Approved</th>
+                                                            {% else %}
+                                                            <th class="no-border-table-row no-bold" style="color: red !important;">Not Approved</th>
+                                                            {% endif %}
+                                                        </tr>
+
+                                                        {% if organization.pre_membership_approved == 'True' or organization.organization_category == True or organization.organization_category == true or organization.organization_category == 'true' %}
+
+                                                        <tr>
+                                                            <th class="no-border-table-row">Approved On</th>
+                                                            <th class="no-border-table-row no-bold">{{organization.pre_membership_approved_on_date_time}}</th>
+                                                        </tr>
+
+                                                        {% endif %}
+
+                                                        {% if organization.pre_membership_approved == 'True' or organization.organization_category == True or organization.organization_category == true or organization.organization_category == 'true' %}
+
+                                                        <tr>
+                                                            <th class="no-border-table-row">Approved By</th>
+                                                            <th class="no-border-table-row no-bold">{{organization.pre_membership_approved_by.first_name}} {{organization.pre_membership_approved_by.last_name}}</th>
+                                                        </tr>
+
+                                                        {% endif %}
+
+                                                        <tr>
+                                                            <th class="no-border-table-row">Physical Registration form</th>
+
+                                                            {% if organization.physical_pre_membership_registration_form == '' %}
+
+                                                            <th class="no-border-table-row no-bold"><a href="" target="_blank">View</a></th>
+
+                                                            {% else %}
+
+                                                            <th class="no-border-table-row no-bold"><a href="{{organization.physical_pre_membership_registration_form.url}}" target="_blank">View</a></th>
+
+                                                            {% endif %}
+                                                        </tr>
+
+                                                      </table>
+
+                                                </div>
+                                            </div><!-- /.col-md-7 -->
+
+
+
+
+
+                                            <div class="col-md-12">
+                                                <div class="wprt-spacer clearfix" data-desktop="25" data-mobi="20" data-smobi="20"></div>
+
+                                                <div class="wprt-tabs style-3 clearfix">
+                                                    <ul>
+                                                        <!-- <li class="active">SAVINGS</li>
+                                                        <li>LOAN ACCOUNT</li> -->
+
+                                                        {% if userIsAdmin == True or userIsAdmin == 'True' or userIsAdmin == true or userIsAdmin == 'true' %}
+                                                            <li>EDIT</li>
+                                                        {% endif %}
+
+                                                    </ul>
+                                                    
+                                                    <div class="tab-content clearfix">
+
+                                                        {% if userIsAdmin == True or userIsAdmin == 'True' or userIsAdmin == true or userIsAdmin == 'true' %}
+
+                                                        <div class="content-3">
+                                                            <div class="wprt-spacer clearfix" data-desktop="25" data-mobi="20" data-smobi="20"></div>
+
+                                                             <div class="wprt-content-box text-center-991">
+                                                                <div class="wprt-spacer clearfix" data-desktop="34" data-mobi="25" data-smobi="20"></div>
+
+                                                                <form action="" method="post" enctype="multipart/form-data" class="contact-form wpcf7-form">
+                                                                {% csrf_token %}
+                                                                    <div class="wprt-contact-form-3">
+
+                                                                        {# Include the hidden fields in the form #}
+                                                                        {% if editOrganizationRegistrationForm.non_field_errors %}
+                                                                        <div style="color:red !important">
+                                                                          {% for err in editOrganizationRegistrationForm.non_field_errors %}
+                                                                          <div style="color:red !important">{{ err }}</div>
+                                                                          {% endfor %}
+                                                                        </div>  
+                                                                        {% endif %}
+                                                                        {% for hidden in editOrganizationRegistrationForm.hidden_fields %}
+                                                                           {{ hidden }}
+                                                                        {% endfor %}
+                                                                        {% for field in editOrganizationRegistrationForm.visible_fields %}
+                                                                          <div {% if field.errors %}class="field_error"{% endif %} class="wpcf7-form-control-wrap">
+                                                                            {{ field.label_tag }}
+                                                                            {{ field }}
+                                                                            {% for err in field.errors %}
+                                                                            <span style="color:red !important">{{ err }}</span>
+                                                                            {% endfor %}
+                                                                          </div>
+                                                                        {% endfor %}
+
+                                                                        <div class="wrap-submit">
+                                                                            <div class="button-wrap has-icon icon-right">
+                                                                                <button type="submit" class="wprt-button very-light btn-small">
+                                                                                    <span>UPDATE</span>
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+
+                                                        </div>
+
+                                                        {% endif %}
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+
+                                        {% endfor %}
+
+                                    </div>
+
+                                    {% for organization in organizationData %}
+
+                                    {% if userIsAdmin == True or userIsAdmin == 'True' or userIsAdmin == true or userIsAdmin == 'true' %}
+
+                                    {% if organization.pre_membership_approved == False or organization.pre_membership_approved == 'False' or organization.pre_membership_approved == false or organization.pre_membership_approved == 'false' %}
+
+                                    <div class="col-md-3">
+
+                                        <form action="" method="post" enctype="multipart/form-data" class="contact-form wpcf7-form">
+                                            {% csrf_token %}
+
+                                            <div class="wprt-contact-form-3">
+                                                {# Include the hidden fields in the organizationRegistrationConfirmationForm #}
+                                                {% if organizationRegistrationConfirmationForm.non_field_errors %}
+                                                <div style="color:red !important">
+                                                    {% for err in organizationRegistrationConfirmationForm.non_field_errors %}
+                                                    <div style="color:red !important">{{ err }}</div>
+                                                    {% endfor %}
+                                                </div>
+                                                {% endif %}
+                                                {% for hidden in organizationRegistrationConfirmationForm.hidden_fields %}
+                                                {{ hidden }}
+                                                {% endfor %}
+                                                {% for field in organizationRegistrationConfirmationForm.visible_fields %}
+                                                <div {% if field.errors %}class="field_error"{% endif %} class="wpcf7-form-control-wrap">
+                                                    {{ field.label_tag }}
+                                                    {{ field }}
+                                                    {% for err in field.errors %}
+                                                    <span style="color:red !important">{{ err }}</span>
+                                                    {% endfor %}
+                                                </div>
+                                                {% endfor %}
+
+                                                <div class="wrap-submit">
+                                                    <div class="button-wrap has-icon icon-right">
+                                                        <button type="submit" class="wprt-button very-light btn-small">
+                                                            <span>CONFIRM REGISTRATION</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                    </div>
+
+                                    {% endif %}
+
+                                    {% endif %}
+
+                                    {% endfor %}
+                                
+                                    <div class="col-md-12">
+                                        <div class="wprt-spacer clearfix" data-desktop="80" data-mobi="60" data-smobi="40"></div>
+                                    </div>
+                                </div><!-- /.Row -->
+                            </div><!-- /.container -->
+                        </div>
+                        <!-- /Service Details -->
+                    </div><!-- /.page-content -->
+                </div><!-- /#inner-content -->
+            </div><!-- /#site-content -->
+        </div><!-- /#content-wrap -->
+    </div>
+    <!-- /Main Content -->
+
+{% endblock %}

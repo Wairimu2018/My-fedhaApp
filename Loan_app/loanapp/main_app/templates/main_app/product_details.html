@@ -1,0 +1,190 @@
+{% extends 'main_app/base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+    <!-- Featured Title -->
+    <div id="featured-title" class="clearfix featured-title-left">
+        <div id="featured-title-inner" class="container clearfix">
+            <div class="featured-title-inner-wrap">
+                <div id="breadcrumbs">
+                    <div class="breadcrumbs-inner">
+                        <div class="breadcrumb-trail">
+                            <a href="{% url 'mainAppNamespace:HomeName' %}" title="Construct" rel="home" class="trail-begin">Home</a>
+                            <span class="sep"><span class="fa fa-angle-right" aria-hidden="true"></span></span>
+                            <span class="trail-end">Product Details</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-title-heading-wrap">
+                    <h1 class="featured-title-heading">Details</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Featured Title -->
+
+    <!-- Main Content -->
+    <div id="main-content" class="site-main clearfix">
+        <div id="content-wrap">
+            <div id="site-content" class="site-content clearfix">
+                <div id="inner-content" class="inner-content-wrap">
+                    <div class="page-content">
+
+                        <!-- Service Details -->
+                        <div class="row-services-2">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-3">
+
+                                        <div class="product-type"><a>Savings Products</a></div>
+                                        <nav class="wprt-navbar style-1 font-size-14">
+                                            <ul class="menu">
+
+                                                {% for product in ourOffers %}
+
+                                                    {% if product.service_type.name == 'Savings' %}
+
+                                                        {% if product.slug == requestedServiceSlug %}
+
+                                                        <li class="nav-item current-nav-item">
+                                                            <a href="{% url 'mainAppNamespace:ProductDetailsName' %}?selected_product={{product.slug}}">{{product.title}}</a>
+                                                        </li>
+
+                                                        {% else %}
+
+                                                        <li class="nav-item">
+                                                            <a href="{% url 'mainAppNamespace:ProductDetailsName' %}?selected_product={{product.slug}}">{{product.title}}</a>
+                                                        </li>
+
+                                                        {% endif %}
+
+                                                    {% endif %}
+
+                                                {% endfor %}
+
+                                            </ul>
+                                        </nav>
+
+                                        <br/>
+                                        <div class="product-type"><a>Loan Products</a></div>
+                                        <nav class="wprt-navbar style-1 font-size-14">
+                                            <ul class="menu">
+
+                                                {% for product in ourOffers %}
+
+                                                    {% if product.service_type.name == 'Loan' %}
+
+                                                        {% if product.slug == requestedServiceSlug %}
+
+                                                        <li class="nav-item current-nav-item">
+                                                            <a href="{% url 'mainAppNamespace:ProductDetailsName' %}?selected_product={{product.slug}}">{{product.title}}</a>
+                                                        </li>
+
+                                                        {% else %}
+
+                                                        <li class="nav-item">
+                                                            <a href="{% url 'mainAppNamespace:ProductDetailsName' %}?selected_product={{product.slug}}">{{product.title}}</a>
+                                                        </li>
+
+                                                        {% endif %}
+
+                                                    {% endif %}
+
+                                                {% endfor %}
+
+                                            </ul>
+                                        </nav>
+                                        <!-- <div class="wprt-spacer clearfix" data-desktop="50" data-mobi="30" data-smobi="20"></div>
+
+                                        <div class="button-wrap has-icon icon-right">
+                                            <a href="#" target="_blank" class="wprt-button very-light btn-small">
+                                                <span>Download PDF</span>
+                                                <span class="icon"><i class="fa fa-download"></i></span>
+                                            </a>
+                                        </div> -->
+
+                                        <div class="wprt-spacer clearfix" data-desktop="47" data-mobi="30" data-smobi="20"></div>
+
+                                        <div class="wrap">
+                                            <div class="wprt-headings clearfix">
+                                                <h2 class="heading font-size-24 margin-bottom-5">How can we help you?</h2>
+                                                <div class="sub-heading font-size-14">Contact us for your compliments, inquiries, requests and support.</div>
+                                            </div>
+
+                                            <div class="wprt-spacer clearfix" data-desktop="20" data-mobi="10" data-smobi="10"></div>
+
+                                            <div class="wrap-button">
+                                                <a class="wprt-button btn-small" href="{% url 'mainAppNamespace:ContactName' %}">Contact Us</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="wprt-spacer clearfix" data-desktop="0" data-mobi="40" data-smobi="30"></div>
+                                    </div><!-- /.col-md-3 -->
+
+                                    <div class="col-md-9">
+
+                                        {% if noService == 'true' %}
+
+                                        <div class="image-wrap" style="text-align: center !important;">
+                                            No product found
+                                        </div>
+
+                                        {% endif %}
+
+                                        {% for product in requestedService %}
+
+                                        {% if product.service_image != '' and product.service_image != None and product.service_image != none %}
+
+                                        <div class="image-wrap">
+                                            <img src="{{product.service_image.url}}" alt="Image">
+                                        </div>
+
+                                        {% endif %}
+
+                                        {% endfor %}
+
+                                        <div class="wprt-spacer clearfix" data-desktop="23" data-mobi="20" data-smobi="20"></div>
+
+                                        {% for product in requestedService %}
+
+                                        <h3 class="heading font-size-20">{{product.title}}</h3>
+
+                                        <div class="desc">
+                                            <p>
+                                                {{product.description | safe}}
+                                            </p>
+                                        </div>
+
+                                        {% endfor %}
+
+                                        <div class="wprt-spacer clearfix" data-desktop="34" data-mobi="30" data-smobi="20"></div>
+
+                                        <div class="desc">
+                                            <!-- <h4>Apply Now</h4> -->
+                                            <p class="margin-bottom-13">
+                                                {% for form in product_application_form %}
+                                                <a href="{{form.resource.url}}"><button class="join-button">APPLY Now</button></a>
+                                                {% endfor %}
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                
+                                    <div class="col-md-12">
+                                        <div class="wprt-spacer clearfix" data-desktop="80" data-mobi="60" data-smobi="40"></div>
+                                    </div>
+                                </div><!-- /.Row -->
+                            </div><!-- /.container -->
+                        </div>
+                        <!-- /Service Details -->
+                    </div><!-- /.page-content -->
+                </div><!-- /#inner-content -->
+            </div><!-- /#site-content -->
+        </div><!-- /#content-wrap -->
+    </div>
+    <!-- /Main Content -->
+
+{% endblock %}

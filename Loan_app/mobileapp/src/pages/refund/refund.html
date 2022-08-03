@@ -1,0 +1,61 @@
+<ion-header>
+
+  <ion-navbar>
+  	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Pay Loan</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="viewNotifications()">        
+        <ion-icon name="notifications" class="top-bar-icons"></ion-icon>
+        <label class="top-bar-icons-labels">{{nbrOfNotifications}}</label>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+	<ion-card class="form-card" padding text-wrap *ngIf="showRefundForm == 'false'">
+		<h2 class="not-allowed">Sorry, you cannot take a loan at this moment</h2>
+	</ion-card>
+
+	<ion-card padding class="form-card" *ngIf="showRefundForm == 'true'">
+
+		<div *ngFor="let account of userAccountData">
+			<h2 class="current-loan-amount">Loan : KES {{account.current_loan_amount | number}} </h2>
+			<h2 class="pending-payment-amount" *ngIf="account.user_pending_refunds_amount != 0">Pending refund : KES {{account.user_pending_refunds_amount | number}} </h2>
+		</div>
+
+		<div *ngIf="showPayLoan == true">
+			<br/>
+
+			<ion-input class="amount-to-pay-input twenty-border-radius" #amountToRefund [ngModel]="amountToPayValue" type="number" placeholder="Amount to pay"></ion-input>
+			<br/>
+			<ion-textarea class="amount-to-pay-input" rows="5" #shortMessage placeholder="Do you have a message for us?"></ion-textarea>
+			<br/>
+			<button ion-button block  class="pay-button"color="secondary" (click)="payLoan()">Pay</button>
+		</div>
+
+	</ion-card>
+	
+	<ion-card #loanPaymentStepsElement class="lon-payment-steps" *ngFor="let request of loanRefundData">
+		<div *ngIf="showLoanPaymentSteps == true" padding>
+
+			<h2>Payment Procedure</h2>
+			<br/>
+
+		    <p>1. Select "Pay bill" from your Safaricom MPesa Menu.</p>
+		    <p>2. Select "Enter Business Number" and enter.</p>
+		    <p>3. Enter My-Fedha Business Number <b>{{request.mpesa_paybill_number}}</b>.</p>
+		    <p>4. Select "Enter Account Number".</p>
+		    <p>5. Enter the code <!-- <b>{{request.transaction_code}}</b> -->.</p>
+		    <p>6. Enter Amount {{request.transacted_amount}}</p>
+		    <p>7. Press "OK" Only when you are sure of all the sdetails You entered.</p>
+		    <p>8. You will then Receive a "Confirmation Message" from MPesa.</p>
+
+		</div>
+	</ion-card>	
+
+</ion-content>

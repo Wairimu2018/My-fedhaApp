@@ -1,0 +1,70 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	
+	<!-- <h3 class="form-title">Reservation</h3>
+ -->
+	<div class="form">
+	<br/>
+		<div class="form-left">
+			<label><ion-icon class="form-icons" name="person"></ion-icon> &nbsp; First Name :</label>
+
+			<ion-input class="inputs twenty-border-radius" type="text" placeholder="eg: Mark" name="firstName" #firstName required></ion-input>
+		</div>
+		<br/>
+
+		<div class="form-left">
+			<label><ion-icon class="form-icons" name="person"></ion-icon> &nbsp; Last Name :</label>
+
+			<ion-input class="inputs twenty-border-radius" type="text" placeholder="eg: Hailey" name="lastName" #lastName required></ion-input>
+		</div>
+		<br/>
+
+		<div class="form-left">
+			<label><ion-icon class="form-icons" name="person"></ion-icon> &nbsp; ID Number :</label>
+
+			<ion-input class="inputs twenty-border-radius" type="text" placeholder="eg: 1010101" name="idNumber" #idNumber required></ion-input>
+		</div>
+		<br/>
+
+		<div class="form-left">
+			<label><ion-icon class="form-icons" name="call"></ion-icon> &nbsp; Telephone :</label>
+
+			<ion-input class="inputs twenty-border-radius" type="tel" placeholder="eg: 0702121212" name="telephone" #telephone required></ion-input>
+		</div>
+		<br/>
+
+		<div class="form-left">
+			<label><ion-icon class="form-icons" name="mail"></ion-icon> &nbsp; Email Address :</label>
+
+			<ion-input class="inputs twenty-border-radius" type="email" placeholder="eg: marcus@hailey.com" name="email" #email required></ion-input>
+		</div>
+		<br/>
+
+		<div class="form-left">
+			<label><ion-icon class="form-icons" name="lock"></ion-icon> &nbsp; Password :</label>
+
+			<ion-input class="inputs twenty-border-radius" type="password" placeholder=" *********** " name="password" #password required></ion-input>
+		</div>
+		<br/>
+
+		<div class="form-left">
+			<label><ion-icon class="form-icons" name="lock"></ion-icon> &nbsp; Confirm Password :</label>
+
+			<ion-input class="inputs twenty-border-radius" type="password" placeholder=" *********** " name="passwordConfirmation" #passwordConfirmation required></ion-input>
+		</div>
+		<br/>
+
+		<button class="reserve-button" ion-button full (click)="createDjangoUser('default')"> <ion-icon name="log-in"></ion-icon> &nbsp;&nbsp; REGISTER </button>		<!-- createDjangoUser('ISVaVrzuILUePk4dWRmZ6k7JRPi1') createFirebaseUser() -->
+
+	</div>
+
+</ion-content>
+

@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+
+    {% load staticfiles %}
+
+<!-- Meta Tags -->
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta name="description" content="{{pageDescription}}" />
+<meta name="keywords" content="{{pageKeywords}}" />
+<meta name="author" content="Technologie Pene" />
+
+<!-- Page Title -->
+<title>{{pageTitle}}</title>
+
+<!-- Favicon and Touch Icons -->
+<link href="{% static 'main_app/images/favicon.png' %}" rel="shortcut icon" type="image/png">
+<link href="{% static 'main_app/images/apple-touch-icon.png' %}" rel="apple-touch-icon">
+<link href="{% static 'main_app/images/apple-touch-icon-72x72.png' %}" rel="apple-touch-icon" sizes="72x72">
+<link href="{% static 'main_app/images/apple-touch-icon-114x114.png' %}" rel="apple-touch-icon" sizes="114x114">
+<link href="{% static 'main_app/images/apple-touch-icon-144x144.png' %}" rel="apple-touch-icon" sizes="144x144">
+
+<!-- Stylesheet -->
+<link href="{% static 'main_app/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'main_app/css/jquery-ui.min.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'main_app/css/animate.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'main_app/css/css-plugin-collections.css' %}" rel="stylesheet"/>
+<!-- CSS | menuzord megamenu skins -->
+<link href="{% static 'main_app/css/menuzord-megamenu.css' %}" rel="stylesheet"/>
+<link id="menuzord-menu-skins" href="{% static 'main_app/css/menuzord-skins/menuzord-boxed.css' %}" rel="stylesheet"/>
+<!-- CSS | Main style file -->
+<link href="{% static 'main_app/css/style-main.css' %}" rel="stylesheet" type="text/css">
+
+<!-- CSS | Custom Margin Padding Collection -->
+<link href="{% static 'main_app/css/custom-bootstrap-margin-padding.css' %}" rel="stylesheet" type="text/css">
+<!-- CSS | Responsive media queries -->
+<link href="{% static 'main_app/css/responsive.css' %}" rel="stylesheet" type="text/css">
+<!-- CSS | Style css. This is the file where you can place your own custom css code. Just uncomment it and use it. -->
+<!-- <link href="css/style.css' %}" rel="stylesheet" type="text/css"> -->
+<link href="{% static 'main_app/css/custom.css' %}" rel="stylesheet" type="text/css">
+
+<!-- Revolution Slider 5.x CSS settings -->
+<link  href="{% static 'main_app/js/revolution-slider/css/settings.css' %}" rel="stylesheet" type="text/css"/>
+<link  href="{% static 'main_app/js/revolution-slider/css/layers.css' %}" rel="stylesheet" type="text/css"/>
+<link  href="{% static 'main_app/js/revolution-slider/css/navigation.css' %}" rel="stylesheet" type="text/css"/>
+
+<!-- CSS | Theme Color -->
+<link href="{% static 'main_app/css/colors/theme-skin-color-set3.css' %}" rel="stylesheet" type="text/css">
+
+<!-- external javascripts -->
+<script src="{% static 'main_app/js/jquery-2.2.4.min.js' %}"></script>
+<script src="{% static 'main_app/js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'main_app/js/bootstrap.min.js' %}"></script>
+<!-- JS | jquery plugin collection for this theme -->
+<script src="{% static 'main_app/js/jquery-plugin-collection.js' %}"></script>
+
+<!-- Revolution Slider 5.x SCRIPTS -->
+<script src="{% static 'main_app/js/revolution-slider/js/jquery.themepunch.tools.min.js' %}"></script>
+<script src="{% static 'main_app/js/revolution-slider/js/jquery.themepunch.revolution.min.js' %}"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+  <!-- <script src="{% static 'main_app/js/date_picker/jquery-1.12.4.js' %}"></script> -->
+
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css">
+
+  <!-- <script src="{% static 'main_app/js/date_picker/jquery-ui.js' %}"></script> -->
+  <script src="{% static 'main_app/js/date_picker/jquery-ui.js' %}"></script>
+
+  <link href="{% static 'main_app/css/custom.css' %}" rel="stylesheet" />
+
+  <script>
+    $( function() {
+      $( "#datepicker" ).datepicker();
+    } );
+    </script>  
+
+    <script>
+    $( function() {
+      $( "#datepicker1" ).datepicker();
+    } );
+    </script>  
+
+    <script>
+    $( function() {
+      $( "#datepicker2" ).datepicker();
+    } );
+  </script>
+
+
+
+
+<!-- HTML5 shim and Respond.js' %} for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js' %} doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js' %}"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js' %}"></script>
+<![endif]-->
+</head>
+<body class="">
+
+    {% for companyData in companyDetails %}
+
+<div id="wrapper" class="clearfix">
+  
+  <!-- Header -->
+  <header id="header" class="header modern-header modern-header-theme-colored">
+    <div class="header-top bg-theme-colored sm-text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="widget text-white">
+              <i class="fa fa-clock-o text-theme-colored2"></i> Working Hours:  24/7
+            </div>
+          </div>
+          <div class="col-md-4">
+            <!-- <div class="widget pull-right flip sm-pull-none">
+              <ul class="nav navbar-nav list-bordered language-switcher">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="{% static 'main_app/images/flags/en.png' %}" alt="En"> ENG <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#"><img src="{% static 'main_app/images/flags/fr.png' %}" alt="En"> France</a></li>
+                    <li><a href="#"><img src="{% static 'main_app/images/flags/de.png' %}" alt="En"> German</a></li>
+                    <li><a href="#"><img src="{% static 'main_app/images/flags/it.png' %}" alt="En"> Italy</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div> -->
+            <div class="widget">
+              <ul class="list-inline  text-right flip sm-text-center">
+
+                {% if userLogged == 'true' %}
+
+                    <li class="m-0 pl-10"> <a href="#" class="text-white">Hello, {{userLastName}} /</a> </li>
+                    <li class="m-0 pl-0 pr-10"> 
+                      <a href="{% url 'mainAppNamespace:LogoutName' %}" class="text-white">Logout</a> 
+                    </li>
+
+                {% else %}
+
+                    <li class="m-0 pl-10"> <a href="{% url 'mainAppNamespace:LoginName' %}" class="text-white"><i class="fa fa-user-o mr-5 text-theme-colored2"></i> Login /</a> </li>
+                    <!-- <li class="m-0 pl-0 pr-10"> 
+                      <a href="{% static 'main_app/ajax-load/register-form.html' %}" class="text-white ajaxload-popup"><i class="fa fa-edit mr-5 text-theme-colored2"></i>Register</a> 
+                    </li> -->
+
+                {% endif %}
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- messages -->
+
+    {% if messages %}
+
+        <div class="messages" style="text-align: center !important;">
+            {% for msg in messages %}
+
+            <div class="alert alert-{{msg.level_tag}}" role="alert">
+                {{msg.message}}
+            </div>
+                {% endfor %}
+        </div>
+
+    {% endif %}
+
+    <div class="header-middle p-0 bg-lightest xs-text-center pb-30">
+      <div class="container pt-20 pb-20">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-3">
+            <a class="menuzord-brand pull-left flip sm-pull-center mb-15" href="{% url 'mainAppNamespace:HomeName' %}"><img src="{% static 'main_app/images/logo-wide-red.png' %}" alt=""></a>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-9">
+            <div class="header-widget-contact-info-box sm-text-center">
+              <div class="media element contact-info">
+                <div class="media-left">
+                  <a href="#">
+                    <i class="fa fa-envelope text-theme-colored2 font-icon sm-display-block"></i>
+                  </a>
+                </div>
+                <div class="media-body">
+                  <a href="#" class="title">Mail Us Today</a>
+                  <h5 class="media-heading subtitle">{{companyData.email}}</h5>
+                </div>
+              </div>
+              <div class="media element contact-info">
+                <div class="media-left">
+                  <a href="#">
+                    <i class="fa fa-phone-square text-theme-colored2 font-icon sm-display-block"></i>
+                  </a>
+                </div>
+                <div class="media-body">
+                  <a href="#" class="title">Call us for more details</a>
+                  <h5 class="media-heading subtitle"> {{companyData.tel1}} </h5>
+                </div>
+              </div>
+              <div class="media element contact-info">
+                <div class="media-left">
+                  <a href="#">
+                    <i class="fa fa-building-o text-theme-colored2 font-icon sm-display-block"></i>
+                  </a>
+                </div>
+                <div class="media-body">
+                  <a href="#" class="title">Company Location</a>
+                  <h5 class="media-heading subtitle"> {{companyData.address}} </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header-nav">
+      <div class="header-nav-wrapper navbar-scrolltofixed">
+        <div class="container">
+          <nav id="menuzord" class="menuzord red">
+            <ul class="menuzord-menu onepage-nav">
+              <li class="active"><a href="{% url 'mainAppNamespace:HomeName' %}">Home</a></li>
+              <li><a href="{% url 'mainAppNamespace:HomeName' %}#about">About</a></li>
+              <li><a href="{% url 'mainAppNamespace:HomeName' %}#services">Services</a></li>
+              <li><a href="{% url 'mainAppNamespace:HomeName' %}#team">Team</a></li>
+              <li><a href="{% url 'mainAppNamespace:HomeName' %}#reservation">Contact</a></li>
+
+              {% if userLogged == 'true' %}
+                {% if userIsAdmin == true or userIsAdmin == 'true' or userIsAdmin == True or userIsAdmin == 'True' %}
+                    <li><a href="{% url 'mainAppNamespace:HomeName' %}#reservation">Admin</a></li>
+                {% endif %}
+              {% endif %}
+              
+            </ul>
+
+            <ul class="pull-right sm-pull-nonelist-inline nav-side-icon-list yellow-background">
+              <li>
+                <a href="#" class="white-color">Download App</a>
+              </li>
+            </ul>
+
+            <!-- <ul class="pull-right sm-pull-nonelist-inline nav-side-icon-list">
+              <li>
+                <a href="#fullscreen-search-form" id="fullscreen-search-btn"><i class="search-icon text-theme-colored2 fa fa-search"></i></a>
+                <div id="fullscreen-search-form">
+                  <button type="button" class="close">×</button>
+                  <form>
+                    <input type="search" value="" placeholder="Search keywords(s)" />
+                    <button type="submit"><i class="search-icon fa fa-search"></i></button>
+                  </form>
+                </div>
+              </li>
+            </ul> -->
+
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Start main-content -->
+  <div class="main-content">
+
+    {% for user in userData %}
+
+    {% if userLogged == 'true' %}
+        {% if userIsAdmin == true or userIsAdmin == 'true' or userIsAdmin == True or userIsAdmin == 'True' %}
+
+            <!-- Section: -->
+            <section class="blog" data-bg-img="{% static 'main_app/images/bg/bh6.jpg' %}">
+              <div class="container">
+                <div class="section-content">
+                  <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                      <h2>Administration</h2>
+                        <div class="diamond-line-left-theme-colored2"></div>
+                        <ul id="myTab" class="nav nav-tabs mt-30">
+                          <li class="active tab-title"><a href="#tab1" data-toggle="tab">User Profile</a></li>
+                          <li class="tab-title"><a href="#tab2" data-toggle="tab">Current Loan</a></li>
+                          <li class="tab-title"><a href="#tab3" data-toggle="tab">User Transactions</a></li>
+                          {% if canEditUserDetails == True %}
+                            <li class="tab-title"><a href="#tab4" data-toggle="tab">Edit Profile</a></li>
+                          {% endif %}
+                          {% if userIsAdmin == true or userIsAdmin == 'true' or userIsAdmin == True or userIsAdmin == 'True' %}
+                            <li class="tab-title"><a href="#tab5" data-toggle="tab">Manage Employee</a></li>
+                          {% endif %}
+                        </ul>
+                        <div id="myTabContent" class="tab-content bg-white">
+                          <div class="tab-pane fade in active" id="tab1">                            
+                            
+                                <div class="container">
+                                    <div class="section-content">
+                                      <div class="row">
+                                        <div class="col-md-6">
+                                          <div class="about-details mb-sm-30">
+                                            <h2 class="mt-0 text-theme-colored">{{user.official_designation.designation}} {{user.first_name}} {% if user.middle_name == None or user.middle_name == '' %} {% else %} {{user.middle_name}} {% endif %} {{user.last_name}} </h2>
+                                            <span>{% if user.active == True %} <span style="color: green !important;">Active</span> {% else %} <span style="color: red !important;">Deactive</span> {% endif %}</span>
+
+                                            <p>
+                                                <div class="wprt-toggles style-1 no-icon">
+                                                    <table style="border: 2px transparent solid !important;">
+                                                        {% if user.is_employee == True %}
+                                                            <tr>
+                                                                <th class="no-border-table-row">Position at loanApp</th>
+                                                                <th class="no-border-table-row no-bold"> :&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                                                    {% if user.is_admin == True %}
+                                                                        Admin and 
+                                                                    {% endif %}
+
+                                                                    {{user.position_at_loanApp}}
+                                                                </th>
+                                                            </tr>
+                                                            <!-- <tr>
+                                                                <th class="no-border-table-row">Access Level</th>
+                                                                <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;{{user.access_level}}</th>
+                                                            </tr> -->
+                                                        {% endif %}
+
+                                                        <tr>
+                                                            <th class="no-border-table-row">Id Number</th>
+                                                            <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;{{user.id_number}}</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Gender</th>
+                                                            <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;{{user.sex.gender}}</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Marital Status</th>
+                                                            <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;{{user.marital_status.status}}</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Date of birth</th>
+                                                            <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;{{user.dob}}</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Profession</th>
+                                                            <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;{{user.profession}}</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Employer</th>
+                                                            <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;{{user.employer}}</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Employer Address</th>
+                                                            <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;{{user.employer_address}}</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Terrm Of Service</th>
+                                                            <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;{{user.terms_of_service}}</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Day Of End Of Contract</th>
+                                                            <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;{{user.contract_ending_date}}</th>
+                                                        </tr>
+
+
+                                                        <tr>
+                                                            <th class="no-border-table-row">Email</th>
+                                                            <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;{{user.email}}</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Tel line 1</th>
+                                                            <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;{{user.tel1}}</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Tel line 2</th>
+                                                            <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;{{user.tel2}}</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Facebook</th>
+                                                            <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;<a href="{{user.facebook_profile_link}}" target="_blank">Profile</a></th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Twitter</th>
+                                                            <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;<a href="{{user.twitter_profile_link}}" target="_blank">Profile</a></th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Linkedin</th>
+                                                            <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;<a href="{{user.linkedin_profile_link}}" target="_blank">Profile</a></th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Address</th>
+                                                            {% if user.town == None or user.town == '' %}
+                                                                <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;{{user.address}}</th>
+                                                            {% else %}
+                                                                <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;{{user.address}}, {{user.town.town_name}}</th>
+                                                            {% endif %}
+                                                        </tr>
+
+                                                        <br/>
+                                                        <tr>
+                                                            <th class="no-border-table-row"> <hr/> </th>
+                                                            <th class="no-border-table-row no-bold"> <hr/> </th>
+                                                        </tr>
+                                                        <br/>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Next Of Kin Full Name </th>
+                                                            <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;{{user.next_of_kin_full_name}}</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Relation With Next Of Kin </th>
+                                                            <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;{{user.next_of_kin_relationship}}</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Next Of Kin Tel </th>
+                                                            <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;{{user.next_of_kin_tel}}</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Next Of Kin Email </th>
+                                                            <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;{{user.next_of_kin_email}}</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="no-border-table-row">Next Of Kin Email </th>
+                                                            {% if user.town == None or user.town == '' %}
+                                                                <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;{{user.next_of_kin_address}}</th>
+                                                            {% else %}
+                                                                <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;{{user.next_of_kin_address}}, {{user.next_of_kin_town.town_name}}</th>
+                                                            {% endif %}
+                                                        </tr>
+
+
+                                                      </table>
+
+                                                </div>
+
+                                            </p>
+
+                                            {% if userLogged == 'true' %}
+                                                {% if userIsAdmin == true or userIsAdmin == 'true' or userIsAdmin == True or userIsAdmin == 'True' %}
+
+                                                    <form action="" method="post" enctype="multipart/form-data" class="contact-form wpcf7-form">
+                                                        {% csrf_token %}
+
+                                                        <div class="wprt-contact-form-3">
+                                                            {# Include the hidden fields in the userRegistrationConfirmationForm #}
+                                                            {% if userRegistrationConfirmationForm.non_field_errors %}
+                                                            <div style="color:red !important">
+                                                                {% for err in userRegistrationConfirmationForm.non_field_errors %}
+                                                                <div style="color:red !important">{{ err }}</div>
+                                                                {% endfor %}
+                                                            </div>
+                                                            {% endif %}
+                                                            {% for hidden in userRegistrationConfirmationForm.hidden_fields %}
+                                                            {{ hidden }}
+                                                            {% endfor %}
+                                                            {% for field in userRegistrationConfirmationForm.visible_fields %}
+                                                            <div {% if field.errors %}class="field_error"{% endif %} class="wpcf7-form-control-wrap">
+                                                                {{ field.label_tag }}
+                                                                {{ field }}
+                                                                {% for err in field.errors %}
+                                                                <span style="color:red !important">{{ err }}</span>
+                                                                {% endfor %}
+                                                            </div>
+                                                            {% endfor %}
+
+                                                            {% if user.active == False or user.active == 'False' or user.active == 'false' or user.active == false %}
+                                                                <a href="{% url 'mainAppNamespace:UserProfileName' user_slug=user.slug %}?action=activate&user={{user.slug}}" class="btn btn-flat green-background btn-theme-colored2 mt-15 mr-15">Activate</a>
+                                                            {% else %}
+                                                                <a href="{% url 'mainAppNamespace:UserProfileName' user_slug=user.slug %}?action=deactivate&user={{user.slug}}" class="btn btn-flat btn-colored btn-theme-colored2 mt-15 mr-15">Deactivate</a>
+                                                            {% endif %}
+
+
+                                                            {% if user.account_verified == True or user.account_verified == 'True' or user.account_verified == 'true' or user.account_verified == true %}
+                                                                {% if user.is_employee == False or user.is_employee == 'False' or user.is_employee == 'false' or user.is_employee == false %}
+                                                                    <!-- <a href="{% url 'mainAppNamespace:ManageEmployeesName' user_slug=user.slug action='add' %}" class="btn btn-flat blue-background btn-theme-colored2 mt-15 mr-15">Add As Employee</a> -->
+                                                                {% else %}
+                                                                    <a href="{% url 'mainAppNamespace:ManageEmployeesName' user_slug=user.slug action='remove' %}" class="btn btn-flat btn-colored btn-default btn-theme-colored mt-15">Remove From Employee</a>
+                                                                {% endif %}
+                                                            {% endif %}
+                                                    
+                                                            {% if user.account_verified == False or user.account_verified == 'False' or user.account_verified == 'false' or user.account_verified == false %}
+                                                                <button type="submit" class="btn btn-flat btn-colored btn-default btn-theme-colored mt-15">I Have Verified The User</button>
+                                                            {% endif %}
+                                                        </div>
+                                                    </form>
+
+                                                {% endif %}
+
+                                            {% endif %}
+
+                                          </div>
+                                        </div>
+                                        <div class="col-md-6 hidden-sm">
+                                          <div class="row mb-10">                                            
+
+                                            {% if user.profile_image_url == None or profile_image_url == '' %}
+                                                <img class="img-fullwidth profile-image" src="{% static 'main_app/images/user.png' %}" alt="">
+                                            {% else %}
+                                                <img class="img-fullwidth profile-image" src="{{user.profile_image_url}}" alt="">
+                                            {% endif %}
+
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                          </div>
+                          <div class="tab-pane fade" id="tab2">
+                            <div class="about-details mb-sm-30">
+                                <h3 class="mt-0 text-theme-colored">KES {{user.current_loan_amount}} </h3>
+
+                                {% for userLoan in userCurrentLoan %}
+
+                                    <span>
+                                        {% if userLoan.defaulted == True or userLoan.defaulted == 'True' or userLoan.defaulted == true or userLoan.defaulted == 'true' %}
+                                            <span style="color: red !important;">Defaulted for {{userLoan.defaulted_for_number_of_days}} days</span> 
+                                        {% else %}
+                                            <span style="color: green !important;">Within Payment Period</span>
+                                        {% endif %}
+                                    </span>                                
+
+                                    <p>
+                                        <div class="wprt-toggles style-1 no-icon">
+                                            <table style="border: 2px transparent solid !important;">
+                                                <tr>
+                                                    <th class="no-border-loan-table-row">Code</th>
+                                                    <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{userLoan.loan_code}}</th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="no-border-loan-table-row">Intended Date To Refund</th>
+                                                    <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{userLoan.intended_date_to_repay_loan}}</th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="no-border-loan-table-row">Deadline</th>
+                                                    <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{user.loan_due_date}}</th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="no-border-loan-table-row">Loan Amount</th>
+                                                    <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KES {{userLoan.amount_taken}}</th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="no-border-loan-table-row">Original Interest</th>
+                                                    <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KES{{userLoan.loan_original_interest}}</th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="no-border-loan-table-row">Cumulative Interes</th>
+                                                    <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KES {{userLoan.cumulative_interest}}</th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="no-border-loan-table-row">Total Interest</th>
+                                                    <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KES {{userLoan.total_interest}}</th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="no-border-loan-table-row">Total Amount To Pay</th>
+                                                    <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KES {{userLoan.totalAmountToPay}}</th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="no-border-loan-table-row">Amount Already Paid</th>
+                                                    <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KES {{userLoan.current_amount_refunded}}</th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="no-border-loan-table-row">Amount Left To Refund </th>
+                                                    <th class="no-border-table-row no-bold">: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KES {{userLoan.amount_remained_to_refund}}</th>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </p>
+
+                                {% endfor %}
+
+                            </div>
+                            <br/><Br/>
+                            <h4>Transactions On Current Loan</h4>
+
+                            <table class="table table-striped table-hover text-left">
+                              <thead>
+                                <tr class="text-theme-colored">
+                                    <th>Transaction Code</th>
+                                    <th>Requested Amount</th>
+                                    <th>Status</th>
+                                    <th>Verified On</th>
+                                    <th>Verified By</th>
+                                    <th></th>
+                                </tr>
+                              </thead>
+                              <tbody class="text-theme-colored">
+                                
+                                {% for loanTransaction in userCurrentLoanTransactions %}
+
+                                    <tr>
+                                        <!-- <td><img src="{% static 'main_app/images/photos/4.png' %}" alt=""> Ripple</td> -->
+                                        <td>{{loanTransaction.transaction_code}}</td>
+                                        <td class="text-green"> KES {{loanTransaction.transacted_amount}} </td>
+                                        <td>
+                                            {% if loanTransaction.verified == False or loanTransaction.verified == 'False' or loanTransaction.verified == false or loanTransaction.verified == 'false' %}
+                                                <span style="color: orange !important;">Pending</span> 
+                                            {% else %}
+                                                <span style="color: green !important;">Verified</span>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if loanTransaction.verified == False or loanTransaction.verified == 'False' or loanTransaction.verified == false or loanTransaction.verified == 'false' %}
+                                                -
+                                            {% else %}
+                                                {{loanTransaction.transaction_verified_on}}
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if loanTransaction.verified == False or loanTransaction.verified == 'False' or loanTransaction.verified == false or loanTransaction.verified == 'false' %}
+                                                -
+                                            {% else %}
+                                                {% if loanTransaction.transaction_verified_by == None or loanTransaction.transaction_verified_by == '' %}
+                                                    System
+                                                {% else %}
+                                                    {{loanTransaction.transaction_verified_on.first_name}} {{loanTransaction.transaction_verified_on.last_name}}
+                                                {% endif %}
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if loanTransaction.verified == False or loanTransaction.verified == 'False' or loanTransaction.verified == false or loanTransaction.verified == 'false' %}
+                                                <a href="{% url 'mainAppNamespace:HomeName' %}?loan_payment_transfer=true&loan_transaction_slug={{loanTransaction.slug}}">
+                                                <button data-height="40px" class="btn text-white btn-xs m-0 font-14 green-background">Confirm Payment Reception</button>
+                                            {% endif %}
+                                            </a>
+                                        </td>
+                                    </tr>
+                                
+                                {% endfor %}
+
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class="tab-pane fade" id="tab3">
+                            <table class="table table-striped table-hover text-left">
+                              <thead>
+                                <tr class="text-theme-colored">
+                                    <th>Transaction Code</th>
+                                    <th>Requested Amount</th>
+                                    <th>Transaction Type</th>
+                                    <th>Status</th>
+                                    <th>Verified On</th>
+                                    <th>Verified By</th>
+                                    <!-- <th></th> -->
+                                </tr>
+                              </thead>
+                              <tbody class="text-theme-colored">
+                                
+                                {% for userTransaction in allUserTransactions %}
+
+                                    <tr>
+                                        <!-- <td><img src="{% static 'main_app/images/photos/4.png' %}" alt=""> Ripple</td> -->
+                                        <td>{{userTransaction.transaction_code}}</td>
+                                        <td class="text-green"> KES {{userTransaction.transacted_amount}} </td>
+                                        <td>{{userTransaction.transaction_type}}</td>
+                                        <td>
+                                            {% if userTransaction.verified == False or userTransaction.verified == 'False' or userTransaction.verified == false or userTransaction.verified == 'false' %}
+                                                <span style="color: orange !important;">Pending</span> 
+                                            {% else %}
+                                                <span style="color: green !important;">Verified</span>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if userTransaction.verified == False or userTransaction.verified == 'False' or userTransaction.verified == false or userTransaction.verified == 'false' %}
+                                                -
+                                            {% else %}
+                                                {{userTransaction.transaction_verified_on}}
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if userTransaction.verified == False or userTransaction.verified == 'False' or userTransaction.verified == false or userTransaction.verified == 'false' %}
+                                                -
+                                            {% else %}
+                                                {% if userTransaction.transaction_verified_by == None or userTransaction.transaction_verified_by == '' %}
+                                                    System
+                                                {% else %}
+                                                    {{userTransaction.transaction_verified_on.first_name}} {{userTransaction.transaction_verified_on.last_name}}
+                                                {% endif %}
+                                            {% endif %}
+                                        </td>
+                                        <!-- <td>
+                                            {% if userTransaction.verified == False or userTransaction.verified == 'False' or userTransaction.verified == false or userTransaction.verified == 'false' %}
+                                                <a href="{% url 'mainAppNamespace:HomeName' %}?loan_payment_transfer=true&loan_transaction_slug={{userTransaction.slug}}">
+                                                <button data-height="40px" class="btn text-white btn-xs m-0 font-14 green-background">Confirm Payment Reception</button>
+                                            {% endif %}
+                                            </a>
+                                        </td> -->
+                                    </tr>
+                                
+                                {% endfor %}
+
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class="tab-pane fade" id="tab4">
+                            <br/>
+                            <form action="{% url 'mainAppNamespace:UpdateUserProfileName' user_slug=user.slug %}" method="post" enctype="multipart/form-data" class="contact-form wpcf7-form" >
+                                {% csrf_token %}
+                                    <div class="wprt-contact-form-3">
+
+                                        {# Include the hidden fields in the form #}
+                                        {% if form.non_field_errors %}
+                                            <div style="color:red !important">
+                                                {% for err in form.non_field_errors %}
+                                                    <div style="color:red !important">{{ err }}</div>
+                                                {% endfor %}
+                                            </div>  
+                                        {% endif %}
+                                        {% for hidden in form.hidden_fields %}
+                                            {{ hidden }}
+                                        {% endfor %}
+                                        {% for field in form.visible_fields %}
+                                            <div {% if field.errors %}class="field_error"{% endif %} class="wpcf7-form-control-wrap">
+                                                {{ field.label_tag }}
+                                                {{ field }}
+
+                                                {% for err in field.errors %}
+                                                    <span style="color:red !important">{{ err }}</span>
+                                                {% endfor %}
+                                            </div>
+                                            <br/>
+                                        {% endfor %}
+
+                                        <button type="submit" class="btn btn-flat btn-colored btn-theme-colored2 mt-15 mr-15">UPDATE</button>
+                                    </div>
+                                </form>
+                                </div>
+
+
+
+
+
+
+                                <div class="tab-pane fade" id="tab5">
+
+                                    {% if user.is_employee == True %}
+                                        <a href="{% url 'mainAppNamespace:ManageEmployeesName' user_slug=user.slug action='remove' %}">
+                                            <button type="submit" class="btn btn-flat btn-colored btn-theme-colored2 mt-15 mr-15 centered">Remove From Employees</button>
+                                        </a>
+                                    {% else %}
+
+                                        <h3>Add Employee</h3>
+
+                                        <br/>
+                                        <form action="{% url 'mainAppNamespace:ManageEmployeesName' user_slug=user.slug action='add' %}" method="post" enctype="multipart/form-data" class="contact-form wpcf7-form" >
+                                            {% csrf_token %}
+                                                <div class="wprt-contact-form-3">
+
+                                                    {# Include the hidden fields in the AddEmployeeForm #}
+                                                    {% if AddEmployeeForm.non_field_errors %}
+                                                        <div style="color:red !important">
+                                                            {% for err in AddEmployeeForm.non_field_errors %}
+                                                                <div style="color:red !important">{{ err }}</div>
+                                                            {% endfor %}
+                                                        </div>  
+                                                    {% endif %}
+                                                    {% for hidden in AddEmployeeForm.hidden_fields %}
+                                                        {{ hidden }}
+                                                    {% endfor %}
+                                                    {% for field in AddEmployeeForm.visible_fields %}
+                                                        <div {% if field.errors %}class="field_error"{% endif %} class="wpcf7-form-control-wrap">
+                                                            {{ field.label_tag }}
+                                                            {{ field }}
+
+                                                            {% for err in field.errors %}
+                                                                <span style="color:red !important">{{ err }}</span>
+                                                            {% endfor %}
+                                                        </div>
+                                                        <br/>
+                                                    {% endfor %}
+
+                                                    <button type="submit" class="btn btn-flat btn-colored btn-theme-colored2 mt-15 mr-15">UPDATE</button>
+                                                </div>
+                                            </form>
+                                        {% endif %}
+                                    </div>
+
+
+                            </div>
+
+                    <!-- <div class="col-md-5">
+                      <div class="text-center">
+                        <canvas id="barChart" width="500" height="500"></canvas>
+                      </div>
+                      <div class="clear"></div>
+                      <script type="text/javascript">
+
+                        var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+                        var barChartData = {
+                          labels : ["January","February","March","April","May","June","July"],
+                          datasets : [
+                            {
+                              fillColor : "rgb(36,36,56)",
+                              strokeColor : "rgb(36,36,56)",
+                              highlightFill: "rgba(0, 0, 0, 0.75)",
+                              highlightStroke: "rgba(0, 0, 0, 1)",
+                              data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+                            },
+                            {
+                              fillColor : "rgb(242,27,81)",
+                              strokeColor : "rgb(242,27,81)",
+                              highlightFill : "rgba(151,187,205,0.75)",
+                              highlightStroke : "rgba(151,187,205,1)",
+                              data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+                            }
+                          ]
+
+                        }
+
+                        window.onload = function(){
+
+                          var chart_barChart = document.getElementById("barChart").getContext("2d");
+                          window.myBar = new Chart(chart_barChart).Bar(barChartData, {
+                            responsive : true
+                          });
+                        }
+                      </script>
+
+                      <script src="js/chart.js' %}"></script>
+
+                    </div> -->
+
+                  </div>
+                </div>
+              </div>
+            </section>
+
+        {% endif %}
+    {% endif %}
+
+    {% endfor %}
+
+
+  <!-- end main-content -->
+  </div>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer" data-bg-img="{% static 'main_app/images/footer-bg.png' %}" data-bg-color="#152029">
+    <div class="container pt-70 pb-40">
+      <div class="row">
+        <div class="col-sm-6 col-md-3">
+          <div class="widget dark">
+            <img class="mt-5 mb-20" alt="" src="{% static 'main_app/images/logo-white-footer.png' %}">
+            <p>{{companyData.address}}</p>
+            <ul class="list-inline mt-5">
+              <li class="m-0 pl-10 pr-10"> <i class="fa fa-phone text-theme-colored2 mr-5"></i> <a class="text-gray" href="#">{{companyData.tel1}}</a> </li>
+              <li class="m-0 pl-10 pr-10"> <i class="fa fa-envelope-o text-theme-colored2 mr-5"></i> <a class="text-gray" href="#">{{companyData.email}}</a> </li>
+              <!-- <li class="m-0 pl-10 pr-10"> <i class="fa fa-globe text-theme-colored2 mr-5"></i> <a class="text-gray" href="#">www.yourdomain.com</a> </li> -->
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="widget dark">
+            <h4 class="widget-title">Useful Links</h4>
+            <ul class="list angle-double-right list-border">
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#services">Our Service</a></li>
+              <li><a href="#">Download App</a></li>
+              <!-- <li><a href="page-project-style1.html">Project</a></li>    -->      
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="widget dark">
+            <h4 class="widget-title">Twitter Feed</h4>
+            <div class="twitter-feed list-border clearfix" data-username="" data-count="2"></div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="widget dark">
+            <h4 class="widget-title line-bottom-theme-colored-2">Office Opening Hours</h4>
+            <div class="opening-hours">
+              <ul class="list-border">
+                <li class="clearfix"> <span> Mon - Tues :  </span>
+                  <div class="value pull-right"> 6.00 am - 10.00 pm </div>
+                </li>
+                <li class="clearfix"> <span> Wednes - Thurs :</span>
+                  <div class="value pull-right"> 8.00 am - 6.00 pm </div>
+                </li>
+                <li class="clearfix"> <span> Fri : </span>
+                  <div class="value pull-right"> 3.00 pm - 8.00 pm </div>
+                </li>
+                <li class="clearfix"> <span> Sun : </span>
+                  <div class="value pull-right"> Closed </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-30">
+        <!-- <div class="col-md-2">
+          <div class="widget dark">
+            <h5 class="widget-title mb-10">Call Us Now</h5>
+            <div class="text-gray">
+              +61 3 1234 5678 <br>
+              +12 3 1234 5678
+            </div>
+          </div>
+        </div> -->
+        <div class="col-md-3">
+          <div class="widget dark">
+            <h5 class="widget-title mb-10">Connect With Us</h5>
+            <ul class="styled-icons icon-bordered icon-sm">
+              <li><a href="{{companyData.facebook_profile_link}}"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="{{companyData.twitter_profile_link}}"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="{{companyData.linkedin_profile_link}}"><i class="fa fa-linkedin"></i></a></li>
+
+              <!-- <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+              <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                -->
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-5 col-md-offset-2">
+          <div class="widget dark">
+            <h5 class="widget-title mb-10">Subscribe To Our Newsletters</h5>
+            <!-- Mailchimp Subscription Form Starts Here -->
+             <form action="{% url 'mainAppNamespace:HomeName' %}" method="post" class="newsletter-form">
+                {% csrf_token %}
+              <div class="input-group">
+                <input type="email" value="" name="newsletterEmail" placeholder="Your Email" class="form-control input-lg font-16" data-height="45px" id="mce-EMAIL-footer">
+                <span class="input-group-btn">
+                  <button data-height="45px" class="btn bg-theme-colored2 text-white btn-xs m-0 font-14" type="submit">Subscribe</button>
+                </span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom bg-theme-colored-transparent-5">
+      <div class="container pt-20 pb-20">
+        <div class="row">
+          <div class="col-md-6">
+            <p class="font-11 text-black-777 m-0">Copyright &copy;2019 Loan App. All Rights Reserved</p>
+          </div>
+          <div class="col-md-6 text-right">
+            <div class="widget no-border m-0">
+                <p class="font-11 text-black-777 m-0">Developped by <a href="technologiepene.com">Technologie Pene</a></p>
+              <!-- <ul class="list-inline sm-text-center mt-5 font-12">
+                <li>
+                  <a href="#">FAQ</a>
+                </li>
+                <li>|</li>
+                <li>
+                  <a href="#">Help Desk</a>
+                </li>
+                <li>|</li>
+                <li>
+                  <a href="#">Support</a>
+                </li>
+              </ul> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+</div>
+<!-- end wrapper -->
+
+{% endfor %}
+
+<!-- Footer Scripts -->
+<!-- JS | Custom script for all pages -->
+<script src="{% static 'main_app/js/custom.js' %}"></script>
+
+<!-- SLIDER REVOLUTION 5.0 EXTENSIONS  
+      (Load Extensions only on Local File Systems ! 
+       The following part can be removed on Server for On Demand Loading) -->
+<script type="text/javascript" src="{% static 'main_app/js/revolution-slider/js/extensions/revolution.extension.actions.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'main_app/js/revolution-slider/js/extensions/revolution.extension.carousel.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'main_app/js/revolution-slider/js/extensions/revolution.extension.kenburn.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'main_app/js/revolution-slider/js/extensions/revolution.extension.layeranimation.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'main_app/js/revolution-slider/js/extensions/revolution.extension.migration.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'main_app/js/revolution-slider/js/extensions/revolution.extension.navigation.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'main_app/js/revolution-slider/js/extensions/revolution.extension.parallax.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'main_app/js/revolution-slider/js/extensions/revolution.extension.slideanims.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'main_app/js/revolution-slider/js/extensions/revolution.extension.video.min.js' %}"></script>
+
+</body>
+
+<!-- Mirrored from thememascot.net/demo/personal/s/cryptopress/v3.0/demo/index-sp-layout1.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Dec 2018 08:35:26 GMT -->
+</html>

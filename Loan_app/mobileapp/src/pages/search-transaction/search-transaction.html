@@ -1,0 +1,36 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Search</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<ion-list>
+		<ion-item>
+		  <ion-label>Status</ion-label>
+		  <ion-select #status>
+		    <ion-option value="notifications">Pending</ion-option>
+		    <ion-option value="completed">Completed</ion-option>
+		  </ion-select>
+		</ion-item>
+
+		<ion-item>
+	      <ion-datetime displayFormat="DD-MMMM-YYYY" placeholder="From Date" #fromDate></ion-datetime>
+	    </ion-item>
+	    <ion-item>
+	      <ion-datetime displayFormat="DD-MMMM-YYYY" placeholder="To Date" #toDate></ion-datetime>
+	    </ion-item>
+
+		<ion-item>
+			<ion-input type="text" placeholder="Custom" #customSearch></ion-input>
+		</ion-item>
+
+    </ion-list>
+
+    <button ion-button block (click)="sendSearchData()">Search</button>
+
+</ion-content>

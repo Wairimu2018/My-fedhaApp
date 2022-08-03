@@ -1,0 +1,153 @@
+{% extends 'main_app/base.html' %}
+
+{% load staticfiles %}
+{% load humanize %}
+
+{% block content %}
+
+    <!-- Featured Title -->
+    <div id="featured-title" class="clearfix featured-title-left">
+        <div id="featured-title-inner" class="container clearfix">
+            <div class="featured-title-inner-wrap">
+                <div id="breadcrumbs">
+                    <div class="breadcrumbs-inner">
+                        <div class="breadcrumb-trail">
+                            <a href="{% url 'mainAppNamespace:HomeName' %}" title="Construct" rel="home" class="trail-begin">Home</a>
+                            <span class="sep"><span class="fa fa-angle-right" aria-hidden="true"></span></span>
+                            <a href="{% url 'mainAppNamespace:TendersListName' %}" title="Construct" rel="home" class="trail-begin">Tenders</a>
+                            <span class="sep"><span class="fa fa-angle-right" aria-hidden="true"></span></span>
+                            <span class="trail-end">Tender Details</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-title-heading-wrap">
+                    <h1 class="featured-title-heading">Details</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Featured Title -->
+
+    <!-- Main Content -->
+    <div id="main-content" class="site-main clearfix">
+        <div id="content-wrap">
+            <div id="site-content" class="site-content clearfix">
+                <div id="inner-content" class="inner-content-wrap">
+                    <div class="page-content">
+
+                        <!-- Portfolio -->
+                        <div class="row-portfolio-1">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="wprt-grid-image clearfix">
+                                            <ul class="grid clearfix">
+
+                                                {% for tender in tenderDetails %}
+
+                                                <li class="col-1 col">
+                                                    <img src="{{tender.project_image.url}}" alt="Image">
+                                                </li>
+
+                                                {% endfor %}
+
+                                                <!-- <li class="col-2 col">
+                                                    <img src="assets/img/services/service-detail/service-2.jpg" alt="Image">
+                                                </li>
+
+                                                <li class="col-2 col last">
+                                                    <img src="assets/img/services/service-detail/service-3.jpg" alt="Image">
+                                                </li>
+
+                                                <li class="col-1 col">
+                                                    <img src="assets/img/services/service-detail/service-4.jpg" alt="Image">
+                                                </li> -->
+
+
+
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    {% for tender in tenderDetails %}
+
+                                    <div class="col-md-6">
+                                        <div class="wprt-project-single clearfix">
+                                            <h3 class="product-name">{{tender.title}}</h3>
+                                            <a class="cat" href="#">{{tender.department.title}}</a>
+
+                                            <div class="project-desc">
+                                                <p>
+                                                    {{tender.description | safe}}
+                                                </p>
+                                            </div>
+
+                                            <ul class="list-info">
+                                                <li>Client: <span>{{tender.clients}}</span></li>
+
+                                                <li>Location: <span> {{tender.project_location}} </span></li>
+
+                                                <li>Realization Date: <span> {{tender.realization_date}} </span></li>
+
+
+                                                {% if tender.show_project_value == True %}
+
+                                                <li>Value: <span> KES {{tender.project_value | intcomma}}</span></li>
+
+                                                {% endif %}
+
+                                                <li>Project Manager: <span> {{tender.project_manager.first_name}} {{tender.project_manager.last_name}} </span></li>
+                                            </ul>
+
+                                            <!-- <ul class="socials clearfix">
+                                                <li class="facebook">
+                                                    <a target="_blank" href="http://yourlink.com">
+                                                        <i class="fa fa-facebook"></i>
+                                                    </a>
+                                                </li>
+
+                                                <li class="twitter">
+                                                    <a target="_blank" href="http://yourlink.com">
+                                                        <i class="fa fa-twitter"></i>
+                                                    </a>
+                                                </li>
+
+                                                <li class="google-plus">
+                                                    <a target="_blank" href="http://yourlink.com">
+                                                        <i class="fa fa-google-plus"></i>
+                                                    </a>
+                                                </li>
+
+                                                <li class="linkedin">
+                                                    <a target="_blank" href="http://yourlink.com">
+                                                        <i class="fa fa-linkedin"></i>
+                                                    </a>
+                                                </li>
+
+                                                <li class="share">
+                                                    <a target="_blank" href="http://yourlink.com">
+                                                        <i class="fa fa-share-alt"></i>
+                                                    </a>
+                                                </li>
+                                            </ul> -->
+                                        </div>
+                                    </div>
+
+                                    {% endfor %}
+
+                                    <div class="col-md-12">
+                                        <div class="wprt-spacer clearfix" data-desktop="80" data-mobi="60" data-smobi="40"></div>
+                                    </div><!-- /.cold-md-12 -->
+                                </div><!-- /.row -->
+                            </div><!-- /.container -->
+                        </div>
+                        <!-- /Portfolio -->
+                    </div><!-- /.page-content -->
+                </div><!-- /#inner-content -->
+            </div><!-- /#site-content -->
+        </div><!-- /#content-wrap -->
+    </div>
+    <!-- /Main Content -->
+
+{% endblock %}

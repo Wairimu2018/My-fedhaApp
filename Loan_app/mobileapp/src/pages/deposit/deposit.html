@@ -1,0 +1,121 @@
+<ion-header>
+
+  <ion-navbar>
+  	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Deposit</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="viewNotifications()">        
+        <ion-icon name="notifications" class="top-bar-icons"></ion-icon>
+        <label class="top-bar-icons-labels">{{nbrOfNotifications}}</label>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+	<ion-card class="form-card" padding>
+
+		<div *ngFor="let account of userAccountData">
+			<h2 class="current-amount-in-account">KES {{account.current_amount_in_account | number}} in account</h2>
+			<h2 class="currently-pending-amount-in-account" *ngIf="account.user_pending_deposits_amount != 0">KES {{account.user_pending_deposits_amount | number}} pending </h2>
+		</div>
+
+		<div *ngIf="showSaveMoney == true">
+			<p>Save more</p>
+			<br/>
+
+			<ion-item>
+				<ion-label class="label-name">Savings account: </ion-label>
+				<ion-select class="amount-to-dposit-input full-width" name="selectedSavingAccount" #selectedSavingAccount  required okText="Okay" cancelText="Dismiss">
+					<ion-option *ngFor="let myProduct of userSavingsAccountsData" value="{{myProduct.slug}}">{{myProduct.account_product_name}}</ion-option>
+				</ion-select>	      
+			</ion-item>
+			<br/>
+
+			<div *ngFor="let account of userAccountData">
+				<ion-item >
+					<ion-label class="label-name">M.Pesa number: </ion-label>
+					<ion-input class="amount-to-dposit-input" #mpesaNumber value="{{account.user_mpesa_number}}" type="text" placeholder="M.Pesa"></ion-input>
+				</ion-item>
+			</div>
+			<br/>
+
+			<ion-item>
+				<ion-label class="label-name">Amount to save: </ion-label>
+				<ion-input class="amount-to-dposit-input" #amountToDeposit [ngModel]="amountToDepositValue" type="number" placeholder="Amount"></ion-input>
+			</ion-item>
+			<br/>
+			<button ion-button block color="secondary" class="deposit-button" (click)="save()">Save</button>
+		</div>
+
+	</ion-card>
+	
+	<ion-card #depositStepsElement class="deposit-steps">
+		<div *ngIf="showDepositSteps == true" padding>
+			<div *ngFor="let request of makeDepositData">
+
+				<h2>Payment Procedure</h2>
+				<br/>
+
+			    <p>1. Select "Pay bill" from your Safaricom MPesa Menu.</p>
+			    <p>2. Select "Enter Business Number" and enter.</p>
+			    <p>3. Enter My-Fedha Business Number <b>{{request.mpesa_paybill_number}}</b>.</p>
+			    <p>4. Select "Enter Account Number".</p>
+			    <p>5. Enter the code <b>{{request.transaction_code}}</b>.</p>
+			    <p>6. Enter Amount <!-- {{request.transacted_amount}} --></p>
+			    <p>7. Press "OK" Only when you are sure of all the sdetails You entered.</p>
+			    <p>8. You will then Receive a "Confirmation Message" from MPesa.</p>
+
+			</div>
+		</div>
+	</ion-card>	
+	<br/>
+
+	<!-- My savings accounts -->
+
+	<div class="notifications-title">
+		<h6 class="centered">My savings accounts </h6>
+	</div>
+
+	<ion-card class="form-card" padding>
+
+		<div *ngIf="userSavingsAccountsData?.length == 0">
+			<h6 class="centered">No data found!  </h6>
+		</div>
+
+		<ion-item *ngFor="let myProduct of userSavingsAccountsData">
+			{{myProduct.account_product_name}} ( {{myProduct.account_code}} )
+			<h2 class="align-right green-color">KES {{myProduct.amount_in_account}}</h2> 
+		</ion-item>
+
+	</ion-card>
+	<br/>
+
+	<!-- Add new savings accounts -->
+
+	<div class="notifications-title">
+		<h6 class="centered">Register for new savings accounts </h6>
+	</div>
+
+	<ion-card class="form-card" padding>
+
+		<div *ngIf="productsData?.length == 0">
+			<h6 class="centered">No data found!  </h6>
+		</div>
+
+		<ion-item *ngFor="let product of productsData">
+			{{product.title}}
+			<button class="green-color" ion-button clear item-end (click)="register_for_account(product.slug)">Register Now</button>
+		</ion-item>
+
+	</ion-card>
+
+
+
+
+
+</ion-content>

@@ -1,0 +1,38 @@
+page-pending-activities {
+
+	ion-content {		
+		background-color: map-get($colors, background) !important;
+	}
+	.status
+	{
+		float: right !important;
+		font-size: 1.3rem !important;
+	}
+	.notifications-title
+	{
+		/*color: map-get($colors, primary) !important;*/
+		margin-top: 1em;
+    	font-size: 1.15em;
+    	/*font-weight: 800;*/
+    	/*text-transform: uppercase;*/
+    	margin-left: 20px;
+    	color: #4c4c4c;
+    	font-family: 'Open Sans', sans-serif;
+    	line-height: 1.1;
+	}
+	.pending
+	{
+		color: map-get($colors, secondary) !important;
+	}
+	.complete
+	{
+		color: map-get($colors, primary) !important;
+	}
+	.transacted-amount
+	{
+		color: map-get($colors, primary) !important;
+		margin-top: 7px !important;
+		margin-bottom: 7px !important;
+	}
+
+}

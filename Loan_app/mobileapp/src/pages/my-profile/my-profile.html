@@ -1,0 +1,123 @@
+<ion-header>	
+
+  <ion-navbar>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+	<div *ngFor="let data of userData">
+
+		<div class="top-background">		
+		</div>
+
+		<div class="top-image">
+
+			<div class="logo" *ngIf="data.profile_image_url">
+				<img src="{{data.profile_image_url}}">
+			</div>
+
+			<div class="logo" *ngIf="!data.profile_image_url">
+				<img src="assets/imgs/user.png">
+			</div>
+
+		</div>
+
+		<div class="edit-profile">
+				<ion-icon name="create"></ion-icon>
+			</div>
+
+		<h2 class="fullname">{{data.first_name}} {{data.middle_name}} {{data.last_name}}</h2>
+
+
+
+		<ion-card class="form-card">
+
+			<ion-grid>			  
+
+			  <ion-row>
+			  	<ion-col class="particulars-name" col-4>ID Number :</ion-col>
+			    <ion-col col-8>{{data.id_number}}</ion-col>
+			  </ion-row>
+
+			  <ion-row>
+			  	<ion-col class="particulars-name" col-4>Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</ion-col>
+			    <ion-col col-8>{{data.email}}</ion-col>
+			  </ion-row>
+
+			  <ion-row>
+			  	<ion-col class="particulars-name" col-4>Tel Line 1 &nbsp; :</ion-col>
+			    <ion-col col-8>{{data.tel1}}</ion-col>
+			  </ion-row>
+
+			  <ion-row>
+			  	<ion-col class="particulars-name" col-4>Tel Line 2 &nbsp; :</ion-col>
+			    <ion-col col-8>{{data.tel2}}</ion-col>
+			  </ion-row>			  
+
+			  <ion-row>
+			  	<ion-col class="particulars-name" col-4>Address &nbsp;&nbsp;&nbsp;&nbsp; :</ion-col>
+			    <ion-col col-8>{{data.address}}, {{data.town}}</ion-col>
+			  </ion-row>
+
+			  <ion-row>
+			  	<ion-col class="particulars-name" col-4>Profession&nbsp;:</ion-col>
+			    <ion-col col-8>{{data.profession}}</ion-col>
+			  </ion-row>
+
+			  <ion-row>
+			    <ion-col class="particulars-name" col-4>Birthday &nbsp;&nbsp;&nbsp;&nbsp;:</ion-col>
+			    <ion-col col-8>{{data.dob | date}}</ion-col>
+			  </ion-row>
+
+			  <ion-row>
+			  	<ion-col class="particulars-name" col-4>Account Verified &nbsp;&nbsp;&nbsp;&nbsp; :</ion-col>
+			    <ion-col col-8 class="error-message" *ngIf="data.account_verified == false">No</ion-col>
+			    <ion-col col-8 class="success-message" *ngIf="data.account_verified == true">Verified on {{data.account_verified_on_date_time | date}} {{data.account_verified_on_date_time | date:'shortTime'}}</ion-col>
+			  </ion-row>
+
+			  <ion-row>
+			  	<ion-col class="particulars-name" col-4>Cleared for loan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</ion-col>
+			    <ion-col col-8 class="error-message" *ngIf="data.cleared_for_loan == false">No</ion-col>
+			    <ion-col col-8 class="success-message" *ngIf="data.cleared_for_loan == true">Cleared on {{data.cleared_for_loan_on_date_time | date}} {{data.cleared_for_loan_on_date_time | date:'shortTime'}}</ion-col>
+			  </ion-row>
+
+			  <ion-row>
+			  	<ion-col class="particulars-name" col-4>Joined On &nbsp;:</ion-col>
+			    <ion-col col-8>{{data.added_on_date | date}} {{data.added_on_date | date:'shortTime'}}</ion-col>
+			  </ion-row>
+
+			</ion-grid>
+
+		</ion-card>
+
+		<ion-card class="form-card">
+
+			<div class="form-title">
+				Change password
+			</div>
+			<br/>
+
+			<ion-item>
+				<ion-input name="country" #oldPassword placeholder="Old password"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-input name="country" #newPassword placeholder="New password"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-input name="country" #confirmNewPassword placeholder="Confirm password"></ion-input>
+			</ion-item>
+			<br/><br/><br/>
+
+			<button ion-button class="login-button" type="submit" (click)="updatePassword()">CONFIGURE</button>
+
+		</ion-card>
+
+	</div>
+
+	
+
+</ion-content>

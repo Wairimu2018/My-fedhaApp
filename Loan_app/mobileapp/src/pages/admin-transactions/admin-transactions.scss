@@ -1,0 +1,58 @@
+page-admin-transactions {
+
+	ion-content {		
+		background-color: map-get($colors, background) !important;
+	}
+	.status
+	{
+		float: right !important;
+		font-size: 1.3rem !important;
+	}
+	.notifications-title
+	{
+		/*color: map-get($colors, primary) !important;*/
+		margin-top: 1em;
+    	font-size: 1.15em;
+    	/*font-weight: 800;*/
+    	/*text-transform: uppercase;*/
+    	margin-left: 20px;
+    	color: #4c4c4c;
+    	font-family: 'Open Sans', sans-serif;
+    	line-height: 1.1;
+	}
+	.sent
+	{
+		background-color: green !important;
+	}
+	.pending
+	{
+		color: map-get($colors, secondary) !important;
+	}
+	.complete
+	{
+		color: map-get($colors, primary) !important;
+	}
+	.transacted-amount
+	{
+		color: map-get($colors, primary) !important;
+		margin-top: 7px !important;
+		margin-bottom: 7px !important;
+	}
+	.transaction-title
+	{
+		margin: 0px;
+		background-color: white;
+		text-align: center;
+		position:fixed;
+		color: map-get($colors, secondary) !important;
+		z-index: 99;
+		padding: 13px;
+		font-size: 1.1em;
+		width: 100% !important;
+	}
+	.data
+	{
+		margin-top: 10px !important;
+	}
+
+}

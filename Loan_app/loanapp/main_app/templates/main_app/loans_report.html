@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+
+    {% load staticfiles %}
+    {% load humanize %}
+
+<!-- Meta Tags -->
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta name="description" content="{{pageDescription}}" />
+<meta name="keywords" content="{{pageKeywords}}" />
+<meta name="author" content="Technologie Pene" />
+
+<!-- Page Title -->
+<title>{{pageTitle}}</title>
+
+<!-- Favicon and Touch Icons -->
+<link href="{% static 'main_app/images/favicon.png' %}" rel="shortcut icon" type="image/png">
+<link href="{% static 'main_app/images/apple-touch-icon.png' %}" rel="apple-touch-icon">
+<link href="{% static 'main_app/images/apple-touch-icon-72x72.png' %}" rel="apple-touch-icon" sizes="72x72">
+<link href="{% static 'main_app/images/apple-touch-icon-114x114.png' %}" rel="apple-touch-icon" sizes="114x114">
+<link href="{% static 'main_app/images/apple-touch-icon-144x144.png' %}" rel="apple-touch-icon" sizes="144x144">
+
+<!-- Stylesheet -->
+<link href="{% static 'main_app/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'main_app/css/jquery-ui.min.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'main_app/css/animate.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'main_app/css/css-plugin-collections.css' %}" rel="stylesheet"/>
+
+<!-- CSS | Main style file -->
+<link href="{% static 'main_app/css/style-main.css' %}" rel="stylesheet" type="text/css">
+
+<!-- CSS | Custom Margin Padding Collection -->
+<link href="{% static 'main_app/css/custom-bootstrap-margin-padding.css' %}" rel="stylesheet" type="text/css">
+<!-- CSS | Responsive media queries -->
+<link href="{% static 'main_app/css/responsive.css' %}" rel="stylesheet" type="text/css">
+<!-- CSS | Style css. This is the file where you can place your own custom css code. Just uncomment it and use it. -->
+<!-- <link href="css/style.css' %}" rel="stylesheet" type="text/css"> -->
+<link href="{% static 'main_app/css/custom.css' %}" rel="stylesheet" type="text/css">
+
+<!-- CSS | Theme Color -->
+<link href="{% static 'main_app/css/colors/theme-skin-color-set3.css' %}" rel="stylesheet" type="text/css">
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+  <!-- <script src="{% static 'main_app/js/date_picker/jquery-1.12.4.js' %}"></script> -->
+
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css">
+
+  <!-- <script src="{% static 'main_app/js/date_picker/jquery-ui.js' %}"></script> -->
+  <script src="{% static 'main_app/js/date_picker/jquery-ui.js' %}"></script>
+
+  <link href="{% static 'main_app/css/custom.css' %}" rel="stylesheet" />
+
+  <script>
+    $( function() {
+      $( "#datepicker1" ).datepicker();
+    } );
+    </script>  
+
+    <script>
+    $( function() {
+      $( "#datepicker2" ).datepicker();
+    } );
+  </script>
+
+</head>
+<body class="" onload="loadFilter()">
+
+	<div id="wrapper" class="clearfix">
+
+		<!-- Header -->
+	  	<header id="header" class="header modern-header modern-header-theme-colored">
+	    	<div class="header-top bg-theme-colored sm-text-center">
+	      		<div class="container">
+	        		<div class="row">
+	          			<div class="col-md-8">
+	            			<div class="widget text-white">
+	            				<a href="{% url 'mainAppNamespace:HomeName' %}" style="color: #fff !important;">Go Back</a>
+	            			</div>
+	          			</div>
+	          			<div class="col-md-4">
+				            <!-- <div class="widget pull-right flip sm-pull-none">
+				              <ul class="nav navbar-nav list-bordered language-switcher">
+				                <li class="dropdown">
+				                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="{% static 'main_app/images/flags/en.png' %}" alt="En"> ENG <span class="caret"></span></a>
+				                  <ul class="dropdown-menu">
+				                    <li><a href="#"><img src="{% static 'main_app/images/flags/fr.png' %}" alt="En"> France</a></li>
+				                    <li><a href="#"><img src="{% static 'main_app/images/flags/de.png' %}" alt="En"> German</a></li>
+				                    <li><a href="#"><img src="{% static 'main_app/images/flags/it.png' %}" alt="En"> Italy</a></li>
+				                  </ul>
+				                </li>
+				              </ul>
+				            </div> -->
+				            <div class="widget">
+				              <ul class="list-inline  text-right flip sm-text-center">
+
+				                {% if userLogged == 'true' %}
+
+				                    <li class="m-0 pl-10"> <a href="#" class="text-white">Hello, {{userLastName}} /</a> </li>
+				                    <li class="m-0 pl-0 pr-10"> 
+				                      <a href="{% url 'mainAppNamespace:LogoutName' %}" class="text-white">Logout</a> 
+				                    </li>
+
+				                {% else %}
+
+				                    <li class="m-0 pl-10"> <a href="{% url 'mainAppNamespace:LoginName' %}" class="text-white"><i class="fa fa-user-o mr-5 text-theme-colored2"></i> Login /</a> </li>
+				                    <!-- <li class="m-0 pl-0 pr-10"> 
+				                      <a href="{% static 'main_app/ajax-load/register-form.html' %}" class="text-white ajaxload-popup"><i class="fa fa-edit mr-5 text-theme-colored2"></i>Register</a> 
+				                    </li> -->
+
+				                {% endif %}
+
+				              </ul>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+			</div>
+		</header>
+		<br/><Br/>
+
+		<div class="col-md-12">
+			
+			<form class="reservation-form mb-0 bg-silver-light p-30" method="get" action="" enctype="multipart/form-data">
+	            {% csrf_token %}
+
+	            <h4 class="float-right link-pointer" id="plus-button" style="margin-right: 2% !important;" onclick="showFilter()"><i class="fa fa-plus"></i></h4>
+				<h4 class="float-right link-pointer" id="lessButton" style="margin-right: 2% !important;" onclick="hideFilter()"><i class="fa fa-minus"></i></h4>
+
+	            <h3 class="mt-0 mb-30">Filter </h3>
+	            <div class="row" id="filter">
+
+	            	<div class="col-sm-6">
+		                <div class="form-group mb-30">
+		                  <input placeholder="Transactions From Date" name="transaction_from_date" id="datepicker1" class="form-control" type="text">
+		                </div>
+		            </div>
+		            <div class="col-sm-6">
+		                <div class="form-group mb-30">
+		                  <input placeholder="Transactions To Date" name="transaction_to_date" id="datepicker2" class="form-control" type="text">
+		                </div>
+		            </div>
+		            <div class="col-sm-6">
+		                <div class="form-group mb-30">
+		                	<select name="transaction_status" class="form-control">
+		                		<option>Please select transaction status</option>
+		                		<option value="completed">Completed</option>
+		                		<option value="rejected">Rejected</option>
+		                	</select>
+		                </div>
+		            </div>
+		            <div class="col-sm-6">
+		                <div class="form-group mb-30">
+		                	<select name="requested_by_client_slug" class="form-control">
+		                		<option>Please select client </option>
+		                		{% for client in clientsList %}
+		                			<option value="{{client.slug}}">{{client.first_name}} {{client.last_name}}</option>
+		                		{% endfor %}
+		                	</select>
+		                </div>
+		            </div>
+		            <div class="col-sm-12">
+		                <div class="form-group mb-30">
+		                  <input placeholder="Search term ..." name="custom_search" class="form-control" type="text">
+		                </div>
+		            </div>
+
+		            <div class="col-sm-12">
+		                <div class="form-group mb-0 mt-0">
+		                  <input name="form_botcheck" class="form-control" value="" type="hidden">
+		                  <button type="submit" class="btn btn-colored float-right btn-theme-colored2 text-white btn-lg btn-flat">Search</button>
+		                </div>
+		            </div>
+
+	            </div>
+	        </form>
+	        <br/><Br/>
+	    </div>
+
+		<div class="col-md-12">
+
+			<div class="reservation-form mb-0 bg-silver-light p-30">
+
+				<button class="btn btn-info float-right" onclick="printNow()">Print</button>
+
+					<h3 class="text-center mt-0 mb-30">{{report_title}}</h3>
+
+					<table class="table table-striped table-hover text-left">
+	                    <thead>
+	                    	<tr class="text-theme-colored">
+	                    		<th>Client</th>
+	                            <th>Requested Amount</th>
+	                            <th>Interest</th>
+	                            <th>Cumulative Interest</th>
+	                            <th>Remaining Amount To Pay</th>	                            
+	                            <th>Granted On</th>
+	                            <th>Granted By</th>
+	                            <th>Refunded On</th>
+	                            <th>Refund Received By</th>
+	                            <th>Status</th>
+	                        </tr>
+	                    </thead>
+	                    <tbody class="text-theme-colored">
+
+	                    	{% for loan in loansList %}
+
+	                    		<tr>
+	                    			<!-- <td><img src="{% static 'main_app/images/photos/4.png' %}" alt=""> Ripple</td> -->
+	                    			<td> <a href="{% url 'mainAppNamespace:UserProfileName' user_slug=loan.user.slug %}">{{loan.user.first_name}} {{loan.user.last_name}}</a> </td>
+	                                <td class="text-green"> KES {{loan.amount_taken | intcomma}} </td>
+	                                <td class="text-green"> KES {{loan.loan_original_interest | intcomma}} </td>
+	                                <td class="text-green"> KES {{loan.cumulative_interest | intcomma}} </td>
+	                                <td class="text-green"> KES {{loan.amount_remained_to_refund | intcomma}} </td>
+	                                <td> {{loan.granted_on_date_time}} </td>
+	                                <td> {{loan.granted_by.first_name}} {{loan.granted_by.last_name}} </td>
+	                                <td> 
+	                                	{% if loan.loan_refunded == True or loan.loan_refunded == 'True' or loan.loan_refunded == true or loan.loan_refunded == 'true' %}
+	                                		{{loan.refund_completed_on_date_time}}
+	                                	{% else %}
+	                                		-
+	                                	{% endif %}
+	                                </td>
+	                                <td> 
+	                                	{% if loan.loan_refunded == True or loan.loan_refunded == 'True' or loan.loan_refunded == true or loan.loan_refunded == 'true' %}
+	                                		{{loan.refund_verified_by.first_name}} {{loan.refund_verified_by.last_name}}
+	                                	{% else %}
+	                                		-
+	                                	{% endif %}
+	                                </td>
+
+	                                <td>
+	                                	{% if loan.loan_request_rejected == True or loan.loan_request_rejected == 'True' or loan.loan_request_rejected == true or loan.loan_request_rejected == 'true' %}
+	                                		<span class="danger">Cancelled</span>
+	                                	{% else %}
+	                                		{% if loan.loan_refunded == True or loan.loan_refunded == 'True' or loan.loan_refunded == true or loan.loan_refunded == 'true' %}
+		                                		<span class="success">Refunded</span>
+		                                	{% else %}
+		                                		<span class="warning">Unpaid</span>
+		                                	{% endif %}
+		                                {% endif %}
+		                                	
+	                                </td>
+	                            </tr>
+	                                
+	                        {% endfor %}
+
+	                    </tbody>
+	                </table>
+            </div>
+        </div>
+
+        <div class="bottom-info">
+        	<h5 class="text-uppercase text-theme-colored mt-0">Loans Given: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; KES {{amountOfLoansGiven | intcomma}} </h5>
+        	<h5 class="text-uppercase text-theme-colored mt-0">Paid Amount: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KES {{amountOfPaidLoans | intcomma}} </h5>
+        	<h5 class="text-uppercase text-theme-colored mt-0">Remaining Amount To Pay: &nbsp;&nbsp;&nbsp;&nbsp; KES {{amountLoanRemainedToRefund | intcomma}} </h5>
+        	<h5 class="text-uppercase text-theme-colored mt-0">Interests: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        	&nbsp;&nbsp;&nbsp;&nbsp; KES {{totalLoanInterest | intcomma}} </h5>
+        </div>
+
+
+
+        
+
+
+        <!--=======  Pagination  =======-->
+
+        {% if loansList.has_other_pages %}
+
+        	<div class="row centered">
+            	<div class="col-md-12">
+                	<nav>
+                      <ul class="pagination theme-colored">                        
+
+                        {% if loansList.has_previous %}
+                        	<li> <a href="?page={{ loansList.previous_page_number }}" aria-label="Previous"> <span aria-hidden="true">&laquo;</span> </a> </li>
+                        {% endif %}
+
+                        {% for i in loansList.paginator.page_range %}
+					        {% if loansList.number == i %}
+					        	<li><a class="active-page">{{ i }}</a></li>
+					        {% else %}
+					        	<li><a href="?page={{ i }}">{{ i }}</a></li>
+					        {% endif %}
+					    {% endfor %}
+
+					    {% if loansList.has_next %}
+					    	<li> <a href="?page={{ loansList.next_page_number }}" aria-label="Next"> <span aria-hidden="true">&raquo;</span> </a> </li>
+					    {% endif %}
+
+                        
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+
+        {% endif %}
+
+        <!--=======  End of Pagination  =======-->
+
+    </div>
+
+
+    <script>
+	    function printNow() {    
+	        window.print();
+	    }
+
+	    function loadFilter() {
+
+	    	document.getElementById('plus-button').style.display = 'block';
+	    	document.getElementById('lessButton').style.display = 'none';
+	    	document.getElementById('filter').style.display = 'none';
+
+	    }
+
+	    function showFilter() {
+
+	    	document.getElementById('plus-button').style.display = 'none';
+	    	document.getElementById('lessButton').style.display = 'block';
+	    	document.getElementById('filter').style.display = 'block';
+
+	    }
+
+	    function hideFilter() {
+
+	    	document.getElementById('plus-button').style.display = 'block';
+	    	document.getElementById('lessButton').style.display = 'none';
+	    	document.getElementById('filter').style.display = 'none';
+
+	    }
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,412 @@
+{% extends 'main_app/base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+    <!-- Featured Title -->
+    <div id="featured-title" class="clearfix featured-title-left">
+        <div id="featured-title-inner" class="container clearfix">
+            <div class="featured-title-inner-wrap">
+                <div id="breadcrumbs">
+                    <div class="breadcrumbs-inner">
+                        <div class="breadcrumb-trail">
+                            <a href="{% url 'mainAppNamespace:HomeName' %}" title="Construct" rel="home" class="trail-begin">Home</a>
+                            <span class="sep"><span class="fa fa-angle-right" aria-hidden="true"></span></span>
+                            <span class="trail-end">Authentication</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- /Featured Title -->
+
+    <!-- Main Content -->
+    <div id="main-content" class="site-main clearfix">
+        <div id="content-wrap">
+            <div id="site-content" class="site-content clearfix">
+                <div id="inner-content" class="inner-content-wrap">
+                    <div class="page-content">
+
+                        <!-- Service Details -->
+                        <div class="row-services-2">
+                            <div class="container">
+                                <div class="row">
+
+                                    <div class="col-md-3">
+
+                                        <!-- <div class="button-wrap has-icon icon-right">
+                                            <a href="#" target="_blank" class="wprt-button very-light btn-small">
+                                                <span>Download PDF</span>
+                                                <span class="icon"><i class="fa fa-download"></i></span>
+                                            </a>
+                                        </div>
+
+                                        <div class="wprt-spacer clearfix" data-desktop="47" data-mobi="30" data-smobi="20"></div> -->
+
+                                        <div class="wrap">
+                                            <div class="wprt-headings clearfix">
+                                                <h2 class="heading font-size-24 margin-bottom-5">How can we help you?</h2>
+                                                <div class="sub-heading font-size-14">Contact us for your compliments, inquiries, requests and support.</div>
+                                            </div>
+
+                                            <div class="wprt-spacer clearfix" data-desktop="20" data-mobi="10" data-smobi="10"></div>
+
+                                            <div class="wrap-button">
+                                                <a class="wprt-button btn-small" href="{% url 'mainAppNamespace:ContactName' %}">Contact Us</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="wprt-spacer clearfix" data-desktop="0" data-mobi="40" data-smobi="30"></div>
+                                    </div><!-- /.col-md-3 -->
+
+                                    <div class="col-md-9">
+
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+
+                                                <div class="wprt-tabs style-3 clearfix">
+
+                                                    <ul>
+                                                        {% if hideLogin == false or hideLogin == 'false' or hideLogin == False or hideLogin == 'False' %}
+                                                        <li class="active">LOGIN</li>                                                        
+                                                        <li>PRE-REGISTRATION</li>
+                                                        <li>MEMBERSHIP</li>
+
+                                                        {% endif %}
+                                                        <!-- <li>REGISTER</li> -->
+                                                    </ul>
+                                                    
+                                                    <div class="tab-content clearfix">
+
+                                                        {% if hideLogin == false or hideLogin == 'false' or hideLogin == False or hideLogin == 'False' %}
+                                                        <div class="content-1">
+                                                        {% else %}
+                                                        <div class="content-0">
+                                                        {% endif %}
+                                                        	<div class="wprt-spacer clearfix" data-desktop="25" data-mobi="20" data-smobi="20"></div>
+
+                                                        	<h3 class="heading font-size-22">User Login</h3>
+
+                                                            <div class="wprt-content-box text-center-991">
+				                                                <div class="wprt-spacer clearfix" data-desktop="34" data-mobi="25" data-smobi="20"></div>
+
+				                                                <form action="" method="post" class="contact-form wpcf7-form">
+				                                                {% csrf_token %}
+				                                                    <div class="wprt-contact-form-3">
+
+				                                                        <span class="wpcf7-form-control-wrap name">
+				                                                            <input type="text" tabindex="1" id="name" name="username" class="wpcf7-form-control" placeholder="Email Address" required>
+				                                                        </span>
+
+				                                                        <span class="wpcf7-form-control-wrap email">
+				                                                            <input type="password" tabindex="2" id="phone" name="password" class="wpcf7-form-control" placeholder="Password" required>
+				                                                        </span>
+
+				                                                        <!-- <div class="wrap-submit">
+				                                                            <input type="submit" value="SEND MESSAGE" class="submit wpcf7-form-control wpcf7-submit" id="submit" name="submit">
+				                                                        </div> -->
+
+				                                                        <div class="wrap-submit">
+					                                                        <div class="button-wrap has-icon icon-right">
+									                                            <button type="submit" class="wprt-button very-light btn-small">
+									                                                <span>Login</span>
+									                                                <span class="icon"><i class="fa fa-sign-in"></i></span>
+									                                            </button>
+									                                        </div>
+									                                    </div>
+
+				                                                    </div>
+				                                                </form>
+				                                            </div>
+                                                            
+                                                        </div>
+
+                                                        {% if showPreRegistration == true or showPreRegistration == 'true' or showPreRegistration == True or showPreRegistration == 'True' %}
+
+                                                        <div class="content-1">
+
+                                                        {% else %}
+
+                                                        <div class="content-2">
+
+                                                        {% endif %}
+                                                        	<div class="wprt-spacer clearfix" data-desktop="25" data-mobi="20" data-smobi="20"></div>
+
+                                                            <div class="wrap">
+                                                                <div class="wprt-headings clearfix">
+                                                                    <h2 class="heading font-size-24 margin-bottom-5">loanApp SACCO PRE-MEMBERSHIP DATA FORM  </h2>
+
+                                                                    &nbsp;&nbsp;Are you a Non Governmental Organization, an International Organization, an Embassy and Mission or Other reputable organization? Do you wish to join loanApp Sacco?<br/>
+                                                                    Fill a pre-membership form and attach your prospectus. The management committee will meet to review and approve your application.<br/>
+
+                                                                    &nbsp;&nbsp;Fill in the pre-registration form below then 
+
+                                                                    {% for membershipForm in preMembershipApplicationForm %}
+
+                                                                    {% if membershipForm.resource == '' %}
+
+                                                                    <a href="" target="_blank" style="font-size: 1.4rem !important; font-weight: bold !important">download the pre-membership form</a> 
+                                                                    {% else %}
+                                                                    <a href="{{membershipForm.resource.url}}" target="_blank" style="font-size: 1.4rem !important; font-weight: bold !important">download the physical pre-membership form</a>
+                                                                    {% endif %} to fill and return to loanApp office.
+
+                                                                    {% endfor %}
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="wprt-content-box text-center-991">
+				                                                <div class="wprt-spacer clearfix" data-desktop="34" data-mobi="25" data-smobi="20"></div>
+
+				                                                <form action="" method="post" enctype="multipart/form-data" class="contact-form wpcf7-form">
+				                                                {% csrf_token %}
+				                                                
+				                                                    <div class="wprt-contact-form-3">
+
+				                                                        <!-- <span class="wpcf7-form-control-wrap name">
+				                                                            <input type="text" tabindex="1" id="name" name="name_of_organization" class="wpcf7-form-control" placeholder="Name of Organization" required>
+				                                                        </span>
+
+				                                                        <span class="wpcf7-form-control-wrap name">
+				                                                            <input type="text" tabindex="1" id="name" name="organization_physical_address" class="wpcf7-form-control" placeholder="Physical Address" required>
+				                                                        </span>
+
+				                                                        <span class="wpcf7-form-control-wrap name">
+				                                                            <input type="text" tabindex="1" id="name" name="organization_postal_address" class="wpcf7-form-control" placeholder="Postal Address" required>
+				                                                        </span>
+
+				                                                        <span class="wpcf7-form-control-wrap email">
+				                                                            <input type="tel" tabindex="2" id="phone" name="organization_telephone" class="wpcf7-form-control" placeholder="Organization Telephone" required>
+				                                                        </span>
+
+                                                                        <span class="wpcf7-form-control-wrap email">
+                                                                            <input type="text" tabindex="2" id="phone" name="organization_fax" class="wpcf7-form-control" placeholder="Organization Fax" required>
+                                                                        </span>
+
+				                                                        <span class="wpcf7-form-control-wrap email">
+				                                                            <input type="email" tabindex="2" id="phone" name="organization_email" class="wpcf7-form-control" placeholder="Organization Email" required>
+				                                                        </span>
+
+                                                                        <span class="wpcf7-form-control-wrap menu">
+                                                                            <select name="menu" class="wpcf7-form-control wpcf7-select" aria-invalid="false">
+                                                                                <option value="ngo">Non-Governmental Organization (NGO)</option>
+                                                                                <option value="International Organization">International Organization</option>
+                                                                                <option value="Embassy/High Commission">Embassy/High Commission</option>
+                                                                                <option value="Other">Others</option>
+                                                                            </select>
+                                                                        </span>
+
+                                                                        <span class="wpcf7-form-control-wrap email">
+                                                                            <input type="text" tabindex="2" id="phone" name="other_organization_type" class="wpcf7-form-control" placeholder="Specify Organization if not listed" required>
+                                                                        </span>
+
+                                                                        <span class="wpcf7-form-control-wrap email">
+                                                                            <input type="text" tabindex="2" id="phone" name="organization_date_of_registration" class="wpcf7-form-control" placeholder="Date of registration" required>
+                                                                        </span>
+
+                                                                        <span class="wpcf7-form-control-wrap email">
+                                                                            <input type="text" tabindex="2" id="phone" name="organization_total_number_of_staff" class="wpcf7-form-control" placeholder="Total number of Staff" required>
+                                                                        </span>
+
+                                                                        <span class="wpcf7-form-control-wrap email">
+                                                                            <input type="text" tabindex="2" id="phone" name="how_did_you_know_about_loanApp" class="wpcf7-form-control" placeholder="How did you know about loanApp?" required>
+                                                                        </span> -->
+
+                                                                        {# Include the hidden fields in the form #}
+                                                                        {% if form.non_field_errors %}
+                                                                        <div style="color:red !important">
+                                                                          {% for err in form.non_field_errors %}
+                                                                          <div style="color:red !important">{{ err }}</div>
+                                                                          {% endfor %}
+                                                                        </div>  
+                                                                        {% endif %}
+                                                                        {% for hidden in form.hidden_fields %}
+                                                                           {{ hidden }}
+                                                                        {% endfor %}
+                                                                        {% for field in form.visible_fields %}
+                                                                          <div class="wpcf7-form-control-wrap" {% if field.errors %}class="field_error"{% endif %}>
+                                                                            {{ field.label_tag }}
+                                                                            {% for err in field.errors %}
+                                                                            <span style="color:red !important">{{ err }}</span>
+                                                                            <br/>
+                                                                            {% endfor %}
+                                                                            {{ field }}
+                                                                          </div>
+                                                                        {% endfor %}
+
+                                                                        <div class="wrap">
+                                                                            <div class="wprt-headings clearfix">    
+                                                                                The organization does not object to its employees joining loanApp SACCO and hereby undertakes to remit members’ monthly contributions and loan deductions directly to loanApp SACCO.
+                                                                            </div>
+                                                                        </div>
+
+				                                                        <div class="wrap-submit">
+				                                                            <input type="submit" value="SUBMIT" class="submit wpcf7-form-control wpcf7-submit" id="submit" name="submit">
+				                                                        </div>
+				                                                    </div>
+				                                                </form>
+				                                            </div>
+                                                        </div>
+
+                                                        {% if showRegistration == true or showRegistration == 'true' or showRegistration == True or showRegistration == 'True' %}
+
+                                                        <div class="content-1">
+
+                                                        {% else %}
+
+                                                        <div class="content-3">
+
+                                                        {% endif %}
+                                                            <div class="wprt-spacer clearfix" data-desktop="25" data-mobi="20" data-smobi="20"></div>
+
+                                                            <div class="wrap">
+                                                                <div class="wprt-headings clearfix">
+                                                                    <h2 class="heading font-size-24 margin-bottom-5">loanApp SACCO MEMBERSHIP DATA FORM  </h2>
+                                                                    <br/>
+
+                                                                    &nbsp;&nbsp;Individuals who are not from a member organization/ on a check off system can now join loanApp SACCO.<br/>
+
+
+                                                                    &nbsp;&nbsp;Fill in the registration form below then 
+
+
+                                                                    {% for membershipForm in membershipApplicationForm %}
+
+                                                                    {% if membershipForm.resource == '' %}
+
+                                                                    <a href="" target="_blank style="font-size: 1.4rem !important; font-weight: bold !important"">download the membership form</a> 
+                                                                    {% else %}
+                                                                    <a href="{{membershipForm.resource.url}}" target="_blank" style="font-size: 1.4rem !important; font-weight: bold !important">download the membership form</a>
+                                                                    {% endif %} to fill and return to loanApp office.
+
+                                                                    {% endfor %}
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="wprt-content-box text-center-991">
+                                                                <div class="wprt-spacer clearfix" data-desktop="34" data-mobi="25" data-smobi="20"></div>
+
+                                                                <form action="" method="post" class="contact-form wpcf7-form">
+                                                                {% csrf_token %}
+                                                                
+                                                                    <div class="wprt-contact-form-3">
+
+                                                                        {# Include the hidden fields in the form #}
+                                                                        {% if userForm.non_field_errors %}
+                                                                        <div style="color:red !important">
+                                                                          {% for err in userForm.non_field_errors %}
+                                                                          <div style="color:red !important">{{ err }}</div>
+                                                                          {% endfor %}
+                                                                        </div>  
+                                                                        {% endif %}
+                                                                        {% for hidden in userForm.hidden_fields %}
+                                                                           {{ hidden }}
+                                                                        {% endfor %}
+                                                                        {% for field in userForm.visible_fields %}
+                                                                          <div class="wpcf7-form-control-wrap" {% if field.errors %}class="field_error"{% endif %}>
+                                                                            {{ field.label_tag }}
+                                                                            {% for err in field.errors %}
+                                                                            <span style="color:red !important">{{ err }}</span>
+                                                                            <br/>
+                                                                            {% endfor %}
+                                                                            {{ field }}
+                                                                          </div>
+                                                                        {% endfor %}
+
+                                                                        <div class="wrap-submit">
+                                                                            <input type="submit" value="SUBMIT" class="submit wpcf7-form-control wpcf7-submit" id="submit" name="submit">
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <div class="content-4">
+                                                            <div class="wprt-spacer clearfix" data-desktop="25" data-mobi="20" data-smobi="20"></div>
+
+                                                            <h3 class="heading font-size-22">New User</h3>
+
+                                                            <div class="wprt-content-box text-center-991">
+                                                                <div class="wprt-spacer clearfix" data-desktop="34" data-mobi="25" data-smobi="20"></div>
+
+                                                                <form action="" method="post" class="contact-form wpcf7-form">
+                                                                {% csrf_token %}
+                                                                
+                                                                    <div class="wprt-contact-form-3">
+                                                                        <!-- <span class="wpcf7-form-control-wrap menu">
+                                                                            <select name="menu" class="wpcf7-form-control wpcf7-select" aria-invalid="false">
+                                                                                <option value="Corporate Finance">Corporate Finance</option>
+                                                                                <option value="Strategy Marketing">Strategy Marketing</option>
+                                                                                <option value="Private Equity">Private Equity</option>
+                                                                                <option value="Avanced Analytics">Avanced Analytics</option>
+                                                                                <option value="Information Technology">Information Technology</option>
+                                                                                <option value="Resources planning">Resources planning</option>
+                                                                            </select>
+                                                                        </span> -->
+
+                                                                        <span class="wpcf7-form-control-wrap name">
+                                                                            <input type="text" tabindex="1" id="name" name="firstName" class="wpcf7-form-control" placeholder="First Name" required>
+                                                                        </span>
+
+                                                                        <span class="wpcf7-form-control-wrap name">
+                                                                            <input type="text" tabindex="1" id="name" name="lastName" class="wpcf7-form-control" placeholder="Last Name" required>
+                                                                        </span>
+
+                                                                        <span class="wpcf7-form-control-wrap name">
+                                                                            <input type="text" tabindex="1" id="name" name="idNumber" class="wpcf7-form-control" placeholder="Id number" required>
+                                                                        </span>
+
+                                                                        <span class="wpcf7-form-control-wrap email">
+                                                                            <input type="email" tabindex="2" id="phone" name="createUserEmail" class="wpcf7-form-control" placeholder="Email Address" required>
+                                                                        </span>
+
+                                                                        <span class="wpcf7-form-control-wrap email">
+                                                                            <input type="tel" tabindex="2" id="phone" name="telephone" class="wpcf7-form-control" placeholder="Telephone" required>
+                                                                        </span>
+
+                                                                        <span class="wpcf7-form-control-wrap email">
+                                                                            <input type="password" tabindex="2" id="phone" name="createUserPassword" class="wpcf7-form-control" placeholder="Password" required>
+                                                                        </span>
+
+                                                                        <span class="wpcf7-form-control-wrap email">
+                                                                            <input type="password" tabindex="2" id="phone" name="passwordConfirmation" class="wpcf7-form-control" placeholder="Confirm Password" required>
+                                                                        </span>
+
+                                                                        <div class="wrap-submit">
+                                                                            <input type="submit" value="CREATE ACCOUNT" class="submit wpcf7-form-control wpcf7-submit" id="submit" name="submit">
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="col-md-12">
+                                        <div class="wprt-spacer clearfix" data-desktop="80" data-mobi="60" data-smobi="40"></div>
+                                    </div>
+                                </div><!-- /.Row -->
+                            </div><!-- /.container -->
+                        </div>
+                        <!-- /Service Details -->
+                    </div><!-- /.page-content -->
+                </div><!-- /#inner-content -->
+            </div><!-- /#site-content -->
+        </div><!-- /#content-wrap -->
+    </div>
+    <!-- /Main Content -->
+
+{% endblock %}

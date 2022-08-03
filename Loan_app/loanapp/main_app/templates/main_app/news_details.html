@@ -1,0 +1,79 @@
+{% extends 'main_app/base.html' %}
+
+{% load staticfiles %}
+{% load humanize %}
+
+{% block content %}
+
+    <!-- Featured Title -->
+    <div id="featured-title" class="clearfix featured-title-left">
+        <div id="featured-title-inner" class="container clearfix">
+            <div class="featured-title-inner-wrap">
+                <div id="breadcrumbs">
+                    <div class="breadcrumbs-inner">
+                        <div class="breadcrumb-trail">
+                            <a href="{% url 'mainAppNamespace:HomeName' %}" title="Construct" rel="home" class="trail-begin">Home</a>
+                            <span class="sep"><span class="fa fa-angle-right" aria-hidden="true"></span></span>
+                            <a href="{% url 'mainAppNamespace:NewsName' %}" title="Construct" rel="home" class="trail-begin">News</a>
+                            <span class="sep"><span class="fa fa-angle-right" aria-hidden="true"></span></span>
+                            <span class="trail-end">News details</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-title-heading-wrap">
+                    <h1 class="featured-title-heading">Details</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Featured Title -->
+
+    <!-- Main Content -->
+    <div id="main-content" class="site-main clearfix">
+        <div id="content-wrap" class="container clearfix">
+            <div class="row">
+                <div class="col-md-12">
+                    <article class="clearfix news-item single">
+                        <div class="post-content-single-wrap">
+
+                            {% for news in newsDetails %}
+
+                            <div class="post-media clearfix">
+                                <img src="{{news.image.url}}" alt="Image">
+                            </div><!-- /.post image -->
+                            
+                            <div class="post-content-wrap">                                
+
+                                <h2 class="post-title">{{news.title}}</h2> 
+
+                                 <div class="post-meta">
+                                    <span class="meta author"><a href="#">{{news.author.first_name}} {{news.author.last_name}}</a></span>
+                                    <span class="meta sep">|</span>
+                                    <span class="meta date">{{news.posted_on_date_time}}</span>
+                                    <!-- <span class="meta sep">|</span>
+                                    <span class="meta category"><a href="#">Lifestyle</a></span> -->
+                                </div><!-- /.post meta -->
+
+                                <div class="post-content">
+                                    <p>
+                                        {{news.news | safe}}
+                                    </p>
+                                    
+                                </div>                                
+
+                            </div>
+
+                            {% endfor %}
+
+                        </div>
+                    </article>
+
+                    <div class="spacer clearfix" data-desktop="80" data-mobi="60" data-smobi="40"></div>
+                </div>
+            </div><!-- /.row -->
+        </div><!-- /#content-wrap -->
+    </div>
+    <!-- /Main Content -->
+
+{% endblock %}

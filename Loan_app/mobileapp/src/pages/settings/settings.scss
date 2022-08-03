@@ -1,0 +1,39 @@
+page-settings {
+
+	ion-content {
+		
+		background-color: map-get($colors, background) !important;
+		/*background-color: white !important;*/
+	}
+
+	.top-bar-icons
+	{
+		font-size: 22px !important;
+	}
+	.icons {
+		color: map-get($colors, primary);
+	    font-size: 20px;
+	    margin-top: 20px !important;
+	}
+	.secondary-color {
+		color: map-get($colors, secondary) !important;
+	    /*font-size: 20px;*/
+	}
+	.float-left
+	{
+		float: left !important;
+	}
+	.float-right
+	{
+		float: right !important;
+	}
+	.settings-img-items
+	{
+		margin-top: 3px !important;
+	}
+	.settings-list-items
+	{
+		margin-left: 20px !important;
+	}
+
+}

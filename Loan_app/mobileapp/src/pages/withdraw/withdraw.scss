@@ -1,0 +1,35 @@
+page-withdraw {
+
+	ion-content {		
+		background-color: map-get($colors, background) !important;
+	}
+	.amount-to-withdraw-input
+	{
+		border: 1px solid rgb(102, 102, 103) !important;
+		padding-left: 20px !important;
+	}
+	.withdrawal-limit
+	{
+		color: map-get($colors, primary) !important;
+		font-size: 2.2rem !important;
+		font-weight: bold !important;
+	}
+	.pending-amount-to-withdraw
+	{
+		color: map-get($colors, secondary) !important;
+		margin-top: 10px !important;
+	}
+	.deposit-steps
+	{
+		line-height: 2.5rem !important;
+	}
+	.form-card
+	{
+		border-radius: 10px !important;
+	}
+	.withdraw-button
+	{
+		border-radius: 20px !important;
+	}
+
+}

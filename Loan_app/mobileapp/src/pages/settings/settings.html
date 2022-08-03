@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>  
+</ion-header>
+
+<ion-content>
+
+
+	<ion-card-header>
+		Account
+	</ion-card-header>
+
+	<ion-list>
+
+	    <button ion-item (click)="viewHistory()">
+	    	<!-- <ion-icon name="timer" item-start class="icons"></ion-icon> -->
+	    	<div class="float-left">
+	    	<img class="icon settings-img-items" src="assets/imgs/history_icon.png">
+	    	</div>
+	    	<div class="float-left settings-list-items">History</div>
+	    </button>
+
+	    <button ion-item (click)="viewProfile()">
+	    	<!-- <ion-icon name="timer" item-start class="icons"></ion-icon> -->
+	    	<div class="float-left">
+	    	<img class="icon settings-img-items" src="assets/imgs/profile_settings.png">
+	    	</div>
+	    	<div class="float-left settings-list-items">My Profile</div>
+	    </button>
+
+	    <button ion-item (click)="requestLogout()">
+	    	<!-- <ion-icon name="timer" item-start class="icons"></ion-icon> -->
+	    	<div class="float-left">
+	    	<img class="icon settings-img-items" src="assets/imgs/logout_settings.png">
+	    	</div>
+	    	<div class="float-left settings-list-items">Sign out</div>
+	    </button>
+
+    <ion-card-header>
+		General
+	</ion-card-header>
+
+	    <button ion-item (click)="viewPolicy()">
+	    	<!-- <ion-icon name="timer" item-start class="icons"></ion-icon> -->
+	    	<div class="float-left">
+	    	<img class="icon settings-img-items" src="assets/imgs/our_policy_settings.png">
+	    	</div>
+	    	<div class="float-left settings-list-items">Our Policy</div>
+	    </button>
+
+	    <button ion-item (click)="viewHelp()">
+	    	<!-- <ion-icon name="timer" item-start class="icons"></ion-icon> -->
+	    	<div class="float-left">
+	    	<img class="icon settings-img-items" src="assets/imgs/help_settings.png">
+	    	</div>
+	    	<div class="float-left settings-list-items">Help</div>
+	    </button>
+
+	    <button ion-item (click)="viewAboutUs()">
+	    	<!-- <ion-icon name="timer" item-start class="icons"></ion-icon> -->
+	    	<div class="float-left">
+	    	<img class="icon settings-img-items" src="assets/imgs/about_us_settings.png">
+	    	</div>
+	    	<div class="float-left settings-list-items">About Us</div>
+	    </button>
+	    
+    </ion-list>
+
+</ion-content>
+

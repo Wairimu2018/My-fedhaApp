@@ -1,0 +1,164 @@
+{% extends 'main_app/base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+    <!-- Featured Title -->
+    <div id="featured-title" class="clearfix featured-title-left">
+        <div id="featured-title-inner" class="container clearfix">
+            <div class="featured-title-inner-wrap">
+                <div id="breadcrumbs">
+                    <div class="breadcrumbs-inner">
+                        <div class="breadcrumb-trail">
+                            <a href="{% url 'mainAppNamespace:HomeName' %}" title="Construct" rel="home" class="trail-begin">Home</a>
+                            <span class="sep"><span class="fa fa-angle-right" aria-hidden="true"></span></span>
+                            <span class="trail-end">Membership</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-title-heading-wrap">
+                    <h1 class="featured-title-heading">Membership</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Featured Title -->
+
+    <!-- Main Content -->
+    <div id="main-content" class="site-main clearfix">
+        <div id="content-wrap">
+            <div id="site-content" class="site-content clearfix">
+                <div id="inner-content" class="inner-content-wrap">
+                    <div class="page-content">
+
+                        <!-- About Company -->
+                        <div class="row-about-2">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <nav class="wprt-navbar style-1">
+                                            <ul class="menu">
+                                                <li class="nav-item">
+                                                    <a href="{% url 'mainAppNamespace:CompanyOverviewName' %}">Company Overview</a>
+                                                </li>
+
+                                                <!-- <li class="nav-item">
+                                                    <a href="{% url 'mainAppNamespace:CompanyHistoryName' %}">Company History</a>
+                                                </li> -->
+
+                                                <li class="nav-item">
+                                                    <a href="{% url 'mainAppNamespace:CareersName' %}">Careers</a>
+                                                </li>
+
+                                                <li class="nav-item">
+                                                    <a href="{% url 'mainAppNamespace:MsaccoName' %}">MSacco</a>
+                                                </li>
+
+                                                <!-- <li class="nav-item">
+                                                    <a href="{% url 'mainAppNamespace:ResourcesName' %}">Resources</a>
+                                                </li> -->
+
+                                                <li class="nav-item current-nav-item">
+                                                    <a href="{% url 'mainAppNamespace:MembershipName' %}">Membership</a>
+                                                </li>
+
+                                                <!-- <li class="nav-item">
+                                                    <a href="page-team-grid.html">Our Team</a>
+                                                </li> -->
+                                            </ul>
+                                        </nav>
+
+                                        <div class="wprt-spacer clearfix" data-desktop="47" data-mobi="30" data-smobi="20"></div>
+
+                                        <div class="wrap">
+                                            <div class="wprt-headings clearfix">
+                                                <h2 class="heading font-size-24 margin-bottom-5">How can we help you?</h2>
+                                                <div class="sub-heading font-size-14">Contact us for your compliments, inquiries, requests and support.</div>
+                                            </div>
+
+                                            <div class="wprt-spacer clearfix" data-desktop="20" data-mobi="10" data-smobi="10"></div>
+
+                                            <div class="wrap-button">
+                                                <a class="wprt-button btn-small" href="{% url 'mainAppNamespace:ContactName' %}">Contact Us</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="wprt-spacer clearfix" data-desktop="0" data-mobi="40" data-smobi="30"></div>
+                                    </div><!-- /.col-md-3 -->
+
+                                    <div class="col-md-9">
+                                        <div class="image-wrap">
+                                            <img src="{% static 'main_app/img/abouts/about-4.jpg' %}" alt="Image">
+                                        </div>
+
+                                        <div class="wprt-spacer clearfix" data-desktop="23" data-mobi="20" data-smobi="20"></div>
+
+                                        <h3 class="heading font-size-24 margin-bottom-8">MEMBERSHIP RECRUITMEMNT WITHIN THE COMMON BOND!</h3>
+
+                                        <div class="desc">
+                                            <p class="margin-bottom-13">
+                                                Individuals who are not from a member organization/ on a check off system can now join loanApp.
+                                            </p>
+                                        </div>
+
+                                        <div class="desc">
+                                            <h5>Requirements for open membership</h5>
+                                            <p class="margin-bottom-13">
+                                                <ul>
+                                                    <li>Dully filled membership form</li>
+                                                    <li>Attach ID/Passport</li>
+                                                    <li>Attach Copy of KRA Pin Certificate</li>
+                                                    <li>Copy of employment contract or letter from Human Resource</li>
+                                                    <li>2 Certified copies of latest payslip</li>
+                                                    <li>Joining fee of Ksh 1,000 and Share capital of Ksh. 30,000 by year 2020</li>
+                                                    <li>Minimum monthly contribution of Ksh.3,000</li>
+                                                </ul>
+                                            </p>
+                                        </div>
+
+                                        <div class="desc">
+                                            <h2>Diaspora Membership</h2>
+                                            <p>The diaspora recruitment is now open to all members who have a proof of being in the diaspora and are able to make regular contribution. Requirements for Diaspora membership</p>
+                                            <p class="margin-bottom-13">
+                                                <ul>
+                                                    <li>Dully filled membership form</li>
+                                                    <li>Attach ID/Passport</li>
+                                                    <li>Attach Copy of KRA Pin Certificate</li>
+                                                    <li>Passport size photograph</li>
+
+
+                                                    <li>Know your Customer(KYC)-To be introduced by an existing member</li>
+                                                    <li>Joining fee of Ksh 1,000 and Share capital of Ksh. 30,000 by year 2020</li>
+                                                    <li>Minimum monthly contribution of Ksh.3,000</li>
+                                                </ul>
+                                            </p>
+                                        </div>
+
+                                        <div class="desc">
+                                            <h2>Join loanApp SACCO</h2>
+                                            <p class="margin-bottom-13">
+                                                <a href="{% url 'mainAppNamespace:AuthenticationName' %}?action=requesting-membership&type=pre-registration"><button class="join-button">PRE-MEMBERSHIP</button></a>
+                                                <a href="{% url 'mainAppNamespace:AuthenticationName' %}?action=requesting-membership&type=registration"><button class="join-button">MEMBERSHIP</button></a>
+                                            </p>
+                                        </div>
+                                        
+                                    </div>
+                                
+                                    <div class="col-md-12">
+                                        <div class="wprt-spacer clearfix" data-desktop="80" data-mobi="60" data-smobi="40"></div>
+                                    </div>
+                                </div><!-- /.Row -->
+                            </div><!-- /.container -->
+                        </div>
+                        <!-- /About Company -->
+                    </div><!-- /.page-content -->
+                </div><!-- /#inner-content -->
+            </div><!-- /#site-content -->
+        </div><!-- /#content-wrap -->
+    </div>
+    <!-- /Main Content -->
+
+{% endblock %}
+

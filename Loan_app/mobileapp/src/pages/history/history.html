@@ -1,0 +1,130 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{historyTitle}}</ion-title>
+
+    <ion-buttons *ngIf="isAdmin == 'true'" right>
+      <button ion-button class="border-top-button" (click)="viewAdminTransactions()">        
+        Admin
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+	<!-- <h2 class="notifications-title">
+		Deposits
+	</h2>
+
+	<div class="notifications-title" *ngIf="depositsHistoryData?.length == 0">
+		<h6 class="centered">No data found!  </h6>
+	</div>
+
+	<div *ngIf="showDepositSpinner == true" class="centered">
+      <ion-spinner name="bubbles" color="primary"></ion-spinner>
+    </div>
+
+	<ion-card class="centered" *ngFor="let notification of depositsHistoryData" padding>
+		
+		<div class="status pending" *ngIf="notification.verified == false">Pending</div>
+		<div class="status complete" *ngIf="notification.verified == true">Complete</div>
+		<h2>{{notification.transaction_code}}</h2>
+
+		<h2 class="transacted-amount">KES {{notification.transacted_amount}}</h2>
+		
+		<p>Requested on {{notification.transaction_carried_out_on_date_time | date}} {{notification.transaction_carried_out_on_date_time | date:'shortTime'}}  </p>
+		<br/>
+
+		<button ion-button block outline color="secondary" *ngIf="notification.verified == false" (click)="viewMPesaPaymentProcedures(notification.transaction_code, notification.used_paybill_number, notification.transacted_amount)">Payment Procedure</button>
+
+		<button ion-button block outline color="primary" *ngIf="notification.verified == true && notification.notify_user == true" (click)="acknowledge(notification.slug, 'deposit')">OK</button>
+
+	</ion-card> -->
+
+
+	<!-- <h2 class="notifications-title">
+		Withdrawal
+	</h2>
+
+	<div class="notifications-title" *ngIf="withdrawalsHistoryData?.length == 0">
+		<h6 class="centered">No data found!  </h6>
+	</div>
+
+	<div *ngIf="showWithdrawalSpinner == true" class="centered">
+      <ion-spinner name="bubbles" color="primary"></ion-spinner>
+    </div>
+
+	<ion-card class="centered" *ngFor="let notification of withdrawalsHistoryData" padding>
+		
+		<div class="status pending" *ngIf="notification.verified == false">Pending</div>
+		<div class="status complete" *ngIf="notification.verified == true">Complete</div>
+		<h2>{{notification.transaction_code}}</h2>
+		
+		<p>Requested on {{notification.transaction_carried_out_on_date_time | date}} {{notification.transaction_carried_out_on_date_time | date:'shortTime'}}  </p>
+		<br/>
+
+		<button ion-button block outline color="primary" *ngIf="notification.verified == true && notification.notify_user == true" (click)="acknowledge(notification.slug, 'withdrawal')">OK</button>
+
+	</ion-card> -->
+
+
+	<h2 class="notifications-title">
+		Loan Requests
+	</h2>
+
+	<div class="notifications-title" *ngIf="borrowalHistoryData?.length == 0">
+		<h6 class="centered">No data found!  </h6>
+	</div>
+
+	<div *ngIf="showBorrowalSpinner == true" class="centered">
+      <ion-spinner name="bubbles" color="primary"></ion-spinner>
+    </div>
+
+	<ion-card class="centered" *ngFor="let notification of borrowalHistoryData" padding>
+		
+		<div class="status pending" *ngIf="notification.verified == false">Pending</div>
+		<div class="status complete" *ngIf="notification.verified == true">Complete</div>
+		<h2>{{notification.transaction_code}}</h2>
+		
+		<p>Requested on {{notification.transaction_carried_out_on_date_time | date}} {{notification.transaction_carried_out_on_date_time | date:'shortTime'}}  </p>
+		<br/>
+
+		<button ion-button block outline color="primary" *ngIf="notification.verified == true && notification.notify_user == true" (click)="acknowledge(notification.slug, 'borrow')">OK</button>
+		
+	</ion-card>
+
+
+
+	<h2 class="notifications-title">
+		Loan Refunds
+	</h2>
+
+	<div class="notifications-title" *ngIf="refundsHistoryData?.length == 0">
+		<h6 class="centered">No data found!  </h6>
+	</div>
+
+	<div *ngIf="showRefundSpinner == true" class="centered">
+      <ion-spinner name="bubbles" color="primary"></ion-spinner>
+    </div>
+
+	<ion-card class="centered" *ngFor="let notification of refundsHistoryData" padding>
+		
+		<div class="status pending" *ngIf="notification.verified == false">Pending</div>
+		<div class="status complete" *ngIf="notification.verified == true">Complete</div>
+		<h2>{{notification.transaction_code}}</h2>
+		
+		<p>Requested on {{notification.transaction_carried_out_on_date_time | date}} {{notification.transaction_carried_out_on_date_time | date:'shortTime'}}  </p>
+		<br/>
+
+		<button ion-button block outline color="secondary" *ngIf="notification.verified == false" (click)="viewMPesaPaymentProcedures(notification.transaction_code, notification.used_paybill_number, notification.transacted_amount)">Payment Procedure</button>
+
+		<button ion-button block outline color="primary" *ngIf="notification.verified == true && notification.notify_user == true" (click)="acknowledge(notification.slug, 'refund')">OK</button>
+
+	</ion-card>
+
+
+
+</ion-content>

@@ -1,0 +1,176 @@
+{% extends 'main_app/base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+    <!-- Featured Title -->
+    <div id="featured-title" class="clearfix featured-title-left">
+        <div id="featured-title-inner" class="container clearfix">
+            <div class="featured-title-inner-wrap">
+                <div id="breadcrumbs">
+                    <div class="breadcrumbs-inner">
+                        <div class="breadcrumb-trail">
+                            <a href="{% url 'mainAppNamespace:HomeName' %}" title="Construct" rel="home" class="trail-begin">Home</a>
+                            <span class="sep"><span class="fa fa-angle-right" aria-hidden="true"></span></span>
+                            <span class="trail-end">Company Overview</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-title-heading-wrap">
+                    <h1 class="featured-title-heading">Company Overview</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Featured Title -->
+
+    <!-- Main Content -->
+    <div id="main-content" class="site-main clearfix">
+        <div id="content-wrap">
+            <div id="site-content" class="site-content clearfix">
+                <div id="inner-content" class="inner-content-wrap">
+                    <div class="page-content">
+
+                        <!-- About Company -->
+                        <div class="row-about-2">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <nav class="wprt-navbar style-1">
+                                            <ul class="menu">
+                                                <li class="nav-item current-nav-item">
+                                                    <a href="{% url 'mainAppNamespace:CompanyOverviewName' %}">Company Overview</a>
+                                                </li>
+
+                                                <!-- <li class="nav-item">
+                                                    <a href="{% url 'mainAppNamespace:CompanyHistoryName' %}">Company History</a>
+                                                </li> -->
+
+                                                <li class="nav-item">
+                                                    <a href="{% url 'mainAppNamespace:CareersName' %}">Careers</a>
+                                                </li>
+
+                                                <li class="nav-item">
+                                                    <a href="{% url 'mainAppNamespace:MsaccoName' %}">MSacco</a>
+                                                </li>
+
+                                                <!-- <li class="nav-item">
+                                                    <a href="{% url 'mainAppNamespace:ResourcesName' %}">Resources</a>
+                                                </li> -->
+
+                                                <li class="nav-item">
+                                                    <a href="{% url 'mainAppNamespace:MembershipName' %}">Membership</a>
+                                                </li>
+
+                                                <!-- <li class="nav-item">
+                                                    <a href="page-team-grid.html">Our Team</a>
+                                                </li> -->
+                                            </ul>
+                                        </nav>
+
+                                        <div class="wprt-spacer clearfix" data-desktop="47" data-mobi="30" data-smobi="20"></div>
+
+                                        <div class="wrap">
+                                            <div class="wprt-headings clearfix">
+                                                <h2 class="heading font-size-24 margin-bottom-5">How can we help you?</h2>
+                                                <div class="sub-heading font-size-14">Contact us for your compliments, inquiries, requests and support.</div>
+                                            </div>
+
+                                            <div class="wprt-spacer clearfix" data-desktop="20" data-mobi="10" data-smobi="10"></div>
+
+                                            <div class="wrap-button">
+                                                <a class="wprt-button btn-small" href="{% url 'mainAppNamespace:ContactName' %}">Contact Us</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="wprt-spacer clearfix" data-desktop="0" data-mobi="40" data-smobi="30"></div>
+                                    </div><!-- /.col-md-3 -->
+
+                                    <div class="col-md-9">
+                                        <div class="image-wrap">
+                                            <img src="{% static 'main_app/img/abouts/about-1.jpg' %}" alt="Image">
+                                        </div>
+
+                                        <div class="wprt-spacer clearfix" data-desktop="23" data-mobi="20" data-smobi="20"></div>
+
+                                        <h3 class="heading font-size-20">About Us</h3>
+
+                                        <div class="desc">
+                                            <p>
+                                                loanApp Sacco was registered on March 19, 2018.<br/>
+                                                We aim to positively transform our members lives by offering them an opportunity to save securely and earn returns at attractive interest rates.
+                                            </p>
+                                        </div>
+
+                                        <div class="wprt-spacer clearfix" data-desktop="10" data-mobi="10" data-smobi="5"></div>
+
+                                        <h3 class="heading font-size-20">Our Mission</h3>
+
+                                        <div class="desc">
+                                            <p>
+                                                To provide affordable financial services to our members to empower them to accomplish their financial goals.
+                                            </p>
+                                        </div>
+
+                                        <div class="wprt-spacer clearfix" data-desktop="8" data-mobi="8" data-smobi="5"></div>
+
+                                        <h3 class="heading font-size-20">Our Vision</h3>
+
+                                        <div class="desc">
+                                            <p>
+                                                To be the best-managed Cooperative Savings and Credit Society in Kenya.
+                                            </p>
+                                        </div>
+
+                                        <div class="wprt-spacer clearfix" data-desktop="8" data-mobi="8" data-smobi="5"></div>
+
+                                        <h3 class="heading font-size-20">Our Objectives</h3>
+
+                                        <div class="desc">
+                                            <p>
+                                                Our main objective is to serve our clients who have the desire to improve themselves, their businesses and/or build assets that give them economic power. The Sacco promotes a culture of saving by providing members with an opportunity to accumulate deposits from which loans are made available at attractive rates of interest.
+                                                
+                                                <!-- The objective of establishing loanApp Sacco was to enhance members’ individual socio-economic status by way of:
+                                                <ul>
+                                                    <li>Mobilization Of savings</li>
+                                                    <li>Afford them credit at fair and reasonable rates</li>
+                                                </ul> -->
+                                            </p>
+                                        </div>
+
+                                        <div class="wprt-spacer clearfix" data-desktop="8" data-mobi="8" data-smobi="5"></div>
+
+                                        <h3 class="heading font-size-20">Our Core Values</h3>
+
+                                        <div class="desc">
+                                            <p>
+                                                <ul>
+                                                    <li>Teamwork</li>
+                                                    <li>Responsiveness</li>
+                                                    <li>Integrity</li>
+                                                    <li>Innovation</li>
+                                                    <li>Professionalism</li>
+                                                    <li>Listening and Caring</li>
+                                                </ul>
+                                            </p>
+                                        </div>
+                                        <!-- </div> -->
+                                    </div><!-- /.col-md-9 -->
+                                
+                                    <div class="col-md-12">
+                                        <div class="wprt-spacer clearfix" data-desktop="65" data-mobi="36" data-smobi="36"></div>
+                                    </div>
+                                </div><!-- /.Row -->
+                            </div><!-- /.container -->
+                        </div>
+                        <!-- /About Company -->
+                    </div><!-- /.page-content -->
+                </div><!-- /#inner-content -->
+            </div><!-- /#site-content -->
+        </div><!-- /#content-wrap -->
+    </div>
+    <!-- /Main Content -->
+
+{% endblock %}

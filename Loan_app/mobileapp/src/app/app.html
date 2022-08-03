@@ -1,0 +1,50 @@
+<ion-menu [content]="content">
+  <!-- <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+
+  <ion-content class="menu-background">
+
+    <!-- <ion-list>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+    </ion-list> -->
+
+    <div class="user-profile-data">
+
+      <img *ngIf="userImage == 'empty'" class="profile-image2" src="assets/imgs/user.png">
+      <img *ngIf="userImage != 'empty'" class="profile-image2" src="assets/imgs/user.png"> <!-- {{userImage}} -->
+      <br/>
+      <h4 class="profile-name2" *ngIf="userFullName == 'empty'">Welcome To My-Fedha</h4>
+      <h4 class="profile-name2" *ngIf="userFullName != 'empty'">{{userFullName}} </h4>
+      
+    </div>
+
+    <div class="menu-lists-names" menuClose *ngFor="let p of pages" (click)="openPage(p)">
+      <ion-icon class="menu-icons" *ngIf="p.title=='Home'" item-left name="home"> &nbsp;&nbsp;&nbsp; </ion-icon>
+      <ion-icon class="menu-icons" *ngIf="p.title=='Deposit'" item-left name="card"> &nbsp;&nbsp;&nbsp;</ion-icon>
+      <ion-icon class="menu-icons" *ngIf="p.title=='Withdraw'" item-left name="cash"> &nbsp;&nbsp;&nbsp;</ion-icon>
+      <ion-icon class="menu-icons" *ngIf="p.title=='Borrow'" item-left name="briefcase"> &nbsp;&nbsp;&nbsp;&nbsp; </ion-icon>
+      <ion-icon class="menu-icons" *ngIf="p.title=='Refund'" item-left name="git-merge"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </ion-icon>
+      <ion-icon class="menu-icons" *ngIf="p.title=='Pending Transactions'" name="infinite"> &nbsp;&nbsp;&nbsp;&nbsp; </ion-icon>
+      <ion-icon class="menu-icons" *ngIf="p.title=='Settings'" item-left name="construct"> &nbsp;&nbsp;&nbsp; </ion-icon>
+
+      <div *ngIf="p.title=='Administrator' && isAdmin == 'true'">
+        <br/>
+        <hr>
+        <ion-icon class="menu-icons" item-left name="construct"> &nbsp;&nbsp;&nbsp; </ion-icon>
+        <span>Administrator</span>
+      </div>
+
+      <span *ngIf="p.title!='Administrator'">{{p.title}}</span>
+    </div>
+
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

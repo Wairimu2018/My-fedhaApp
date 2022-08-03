@@ -1,0 +1,50 @@
+page-deposit {
+
+	ion-content {		
+		background-color: map-get($colors, background) !important;
+	}
+	.amount-to-dposit-input
+	{
+		border: 1px solid rgb(102, 102, 103) !important;
+		padding-left: 20px !important;
+	}
+	.current-amount-in-account
+	{
+		color: map-get($colors, primary) !important;
+		font-size: 1.9rem !important;
+		font-weight: bold !important;
+	}
+	.currently-pending-amount-in-account
+	{
+		color: map-get($colors, secondary) !important;
+		margin-top: 10px !important;
+	}
+	.deposit-steps
+	{
+		line-height: 2.5rem !important;
+	}
+	.form-card
+	{
+		border-radius: 10px !important;
+	}
+	.deposit-button
+	{
+		border-radius: 20px !important;
+	}
+	.align-right
+	{
+		float: right !important;
+	}
+	.green-color
+	{
+		color: green !important;
+	}
+	.full-width
+	{
+		width: 100% !important;
+	}
+	ion-select {
+	    max-width: 93%;
+	}
+
+}

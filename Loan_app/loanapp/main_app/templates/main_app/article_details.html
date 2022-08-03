@@ -1,0 +1,244 @@
+{% extends 'main_app/base.html' %}
+
+{% load staticfiles %}
+{% load humanize %}
+
+{% block content %}
+
+    <!-- Featured Title -->
+    <div id="featured-title" class="clearfix featured-title-left">
+        <div id="featured-title-inner" class="container clearfix">
+            <div class="featured-title-inner-wrap">
+                <div id="breadcrumbs">
+                    <div class="breadcrumbs-inner">
+                        <div class="breadcrumb-trail">
+                            <a href="{% url 'mainAppNamespace:HomeName' %}" title="Construct" rel="home" class="trail-begin">Home</a>
+                            <span class="sep"><span class="fa fa-angle-right" aria-hidden="true"></span></span>
+                            <span class="trail-end">Article</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-title-heading-wrap">
+                    <h1 class="featured-title-heading">Article Details</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Featured Title -->
+
+    <!-- Main Content -->
+    <div id="main-content" class="site-main clearfix">
+        <div id="content-wrap" class="container clearfix">
+            <div class="row">
+                <div class="col-md-3">
+                    <div id="sidebar">
+                        <div id="inner-sidebar" class="inner-content-wrap">
+                            
+                            <div class="widget widget_recent_news clearfix">
+                                <h2 class="widget-title"><span>Recent Articles</span></h2>
+
+                                <ul class="recent-news clearfix">
+
+                                    {% for recent_article in recentArticlesList %}
+
+                                    <li class="clearfix">
+                                        <div class="texts">
+                                            <h3><a href="{% url 'mainAppNamespace:BlogArticleName' article_slug=recent_article.slug %}">{{recent_article.title}}</a></h3> 
+                                            <span class="post-date">
+                                                <span class="entry-date">{{recent_article.posted_on_date_time}}</span>
+                                            </span>
+                                        </div>
+                                    </li>
+
+                                    {% endfor %}
+
+                                </ul>
+                            </div>
+
+                        </div><!-- /#inner-sidebar -->
+                    </div><!-- /#sidebar -->
+                </div><!-- /.col-md-3 -->
+
+                <div class="col-md-9">
+                    <div id="inner-content" class="inner-content-wrap clearfix">
+                        <article class="clearfix news-item single">
+
+                            {% for article in articleDetails %}
+
+                            <div class="post-content-single-wrap">
+                                <div class="post-media clearfix">
+                                    <img src="{{article.image.url}}" alt="Image">
+                                </div><!-- /.post image -->
+                                
+                                <div class="post-content-wrap">
+                                    <h2 class="post-title font-size-30">{{article.title}}</h2> 
+
+                                     <div class="post-meta">
+                                        <span class="meta author"><a href="#">{{article.posted_by.first_name}} {{article.posted_by.last_name}}</a></span>
+                                        <span class="meta sep">|</span>
+                                        <span class="meta date">{{article.posted_on_date_time}}</span>
+                                        <span class="meta sep">|</span>
+                                        <span class="meta category"><a href="#">{{article.category.name}}</a></span>
+                                    </div><!-- /.post meta -->
+
+                                    <div class="post-content">
+                                        <p>
+                                            {{article.article | safe}}
+                                        </p>
+
+                                        <!-- <div class="spacer clearfix" data-desktop="25" data-mobi="20" data-smobi="15"></div>
+
+                                        <div class="post-author">
+                                            <div class="author-desc">"You can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future. You have to trust in something your gut, destiny, life, karma, whatever. This approach has never let me down, and it has made all the difference in my life"</div>
+
+                                            <h4 class="author-name"><a href="#">David Bull</a></h4>
+                                            <span class="author-position">CEO Consultech</span>
+                                        </div> -->
+                                    </div>
+
+                                    <!-- <div class="post-link clearfix">
+                                        <div class="post-tag cleafix">
+                                            <a href="#">Construction</a>
+                                            <a href="#">Design</a>
+                                            <a href="#">Ideas</a>
+                                        </div>
+
+                                        <div class="post-share-icon clearfix">
+                                            <a href="#" title="Share on Facebook"><i class="fa fa-facebook"></i></a>
+                                            <a href="#" title="Share on Twitter"><i class="fa fa-twitter"></i></a>
+                                            <a href="#" title="Share on LinkedIn"><i class="fa fa-linkedin"></i></a>
+                                            <a href="#" title="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+                                            <a href="#" title="Share on Pinterest"><i class="fa fa-pinterest-p"></i></a>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+
+                            {% endfor %}
+
+                        </article>
+                        
+                        <!-- <div id="comments" class="comments-area clearfix">
+                            <h2 class="comments-title">3 Comments</h2>
+            
+                            <ol class="comment-list">         
+                                <li class="comment">
+                                     <article class="comment-wrap clearfix">
+                                        <div class="gravatar">
+                                            <img src="assets/img/client-1.png" alt="Image">
+                                        </div>
+
+                                        <div class="comment-content clearfix">
+                                            <div class="comment-meta-post clearfix">                                         
+                                                <span class="time-date">October 19, 2018 </span>
+                                                <span class="comment-reply">
+                                                    <a rel="nofollow" class="comment-reply-link" href="#" aria-label="Reply to admin">Reply</a>
+                                                </span>
+                                            </div>
+
+                                            <h6 class="comment-author">Brandon Kelley</h6>
+
+                                            <div class="comment-text clearfix">
+                                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam.</p>
+                                            </div>
+                                        </div>
+                                    </article>
+
+                                    <ul class="children">
+                                        <li class="comment">
+                                            <article class="comment-wrap clearfix">
+                                                <div class="gravatar">
+                                                    <img src="assets/img/client-2.png" alt="Image">
+                                                </div>
+
+                                                <div class="comment-content clearfix">
+                                                    <div class="comment-meta-post clearfix">                                         
+                                                        <span class="time-date">October 19, 2018 </span>
+
+                                                        <span class="comment-reply">
+                                                            <a rel="nofollow" class="comment-reply-link" href="#" aria-label="Reply to admin">Reply</a>
+                                                        </span>
+                                                    </div>
+
+                                                    <h6 class="comment-author">Nicholas Rodriguez</h6>
+
+                                                    <div class="comment-text clearfix">
+                                                        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam.</p>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </li>
+                                    </ul>
+                                </li>
+                            
+                                <li class="comment">
+                                    <article class="comment-wrap clearfix">
+                                        <div class="gravatar">
+                                            <img src="assets/img/client-3.png" alt="Image">
+                                        </div>
+
+                                        <div class="comment-content clearfix">
+                                            <div class="comment-meta-post clearfix">                                         
+                                                <span class="time-date">October 19, 2018 </span>
+
+                                                <span class="comment-reply">
+                                                    <a rel="nofollow" class="comment-reply-link" href="#" aria-label="Reply to admin">Reply</a>
+                                                </span>
+                                            </div>
+
+                                            <h6 class="comment-author">Millie Lamb</h6>
+
+                                            <div class="comment-text clearfix">
+                                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam.</p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </li>
+                            </ol>
+
+                            <div class="wprt-spacer clearfix" data-desktop="13" data-mobi="10" data-smobi="0"></div>
+
+
+                            <div id="respond" class="wprt-respond-form-2 clearfix">
+                                <h3 id="reply-title" class="comment-reply-title">Leave A Comment</h3>
+
+                                <form action="#" method="post" id="commentform" class="comment-form">
+                                    <fieldset class="name-wrap">
+                                        <input type="text" id="author" class="tb-my-input" name="author" tabindex="1" placeholder="Name *" size="32" aria-required="true">
+                                    </fieldset>
+
+                                    <fieldset class="email-wrap">
+                                        <input type="text" id="email" class="tb-my-input" name="email" tabindex="2" placeholder="E-mail *" size="32" aria-required="true">
+                                    </fieldset>
+
+                                    <fieldset class="website-wrap">
+                                        <input type="text" id="website" class="tb-my-input" name="website" tabindex="3" placeholder="Website" size="32" aria-required="true">
+                                    </fieldset>
+
+                                    <div class="textarea-wrap clearfix">
+                                        <fieldset class="message-wrap">
+                                            <textarea id="comment-message" name="comment" rows="10" tabindex="4" placeholder="Messages *"></textarea>
+                                        </fieldset>
+                                    </div>
+
+                                    <p class="form-submit clearfix">
+                                        <input name="submit" type="submit" id="comment-reply" class="submit" value="send messages">
+                                        <input type="hidden" name="comment_post_ID" value="132" id="comment_post_ID">
+                                        <input type="hidden" name="comment_parent" id="comment_parent" value="0">
+                                    </p>
+                                </form>
+                            </div>
+                        </div> -->
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="spacer clearfix" data-desktop="80" data-mobi="60" data-smobi="40"></div>
+                    </div>  
+                </div>
+            </div><!-- /.row -->
+        </div><!-- /#content-wrap -->
+    </div>
+    <!-- /Main Content -->
+
+{% endblock %}

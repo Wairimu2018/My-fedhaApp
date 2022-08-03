@@ -1,0 +1,29 @@
+<ion-content class="login-container" padding>
+	
+	<span class="login-form-logo">
+		<ion-icon item-left name="person" color="primary"></ion-icon>
+	</span>
+
+	<!-- <span class="login100-form-title">
+		Log in
+	</span> -->
+
+	<ion-item>
+		<ion-icon color="white" item-left name="person"></ion-icon>
+		<ion-input class="login-input" type="email" placeholder="Username" name="email or telephone" #username required></ion-input>
+	</ion-item>
+
+	<ion-item>
+		<ion-icon color="white" item-left name="lock"></ion-icon>
+		<ion-input class="login-input" type="password" placeholder="Password" name="loginPassword" #loginPassword required></ion-input>
+	</ion-item>
+	<br/><Br/>
+
+	<button class="top-margin-10px" ion-button block outline color="light" type="submit" (click)="proceedToDjangoLogin('default')">Login</button> <!-- proceedToDjangoLogin('ISVaVrzuILUePk4dWRmZ6k7JRPi1') -->
+
+	<br/><br/>
+	<div class="forgot-password" (click)="forgotPassword()"><br/><b> Help! I forgot my password! </b> </div>
+
+	<button ion-button full (click)="goToCreateNewUser()" class="sign-up"> <ion-icon name="log-in"></ion-icon> &nbsp;&nbsp; Sign Up </button>
+
+</ion-content>

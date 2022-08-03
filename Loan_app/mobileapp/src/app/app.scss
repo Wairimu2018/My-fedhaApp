@@ -1,0 +1,150 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+.toolbar-background {
+	/*border-bottom: 2px solid map-get($colors, primary);*/
+	color: #fff;
+	background: map-get($colors, primary);
+}
+.toolbar-title {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #fff;
+    padding: 0px 12px;
+}
+.bar-button-default, .bar-button-clear-default, .bar-button-default {
+	color: #fff;
+}
+.success-message
+{
+	color: green !important;
+}
+.error-message
+{
+	color: map-get($colors, danger);
+}
+.centered
+{
+	text-align: center;
+}
+.menu-items-list
+{
+	font-size: 15px;
+	padding: 2px;
+}
+.menu-icons
+{
+	font-size: 18px !important;
+	padding: 5px !important;
+	color: map-get($colors, secondary);
+}
+.user-data
+{
+	border-bottom: 1px solid black;
+	height: 100px !important;
+	padding: 10px;
+}
+.profile-image
+{
+	border-radius: 50px;
+	height: 80px;
+	width: 30%;
+	float: left;
+}
+.profile-name
+{
+	font-weight: bold;
+	width: 60%;
+	float: right;
+}
+.menu-list
+{
+	float: left;
+	clear: both;
+	width: 100% !important;
+}
+.menu-background
+{
+	background-color: #fff !important;
+	/*background-color: map-get($colors, secondary) !important;*/
+
+	/*background: linear-gradient(217deg, map-get($colors, primary), rgba(255,0,0,0) 70.71%),
+            linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+            linear-gradient(336deg, #10265f, rgba(0,0,255,0) 70.71%);*/
+}
+.top-bar-icons
+{
+	font-size: 25px !important;
+}
+.top-bar-icons-labels
+{
+	font-size: 15px !important;
+	margin-top: -7px !important;
+	margin-left: -5px !important;
+	color: map-get($colors, secondary) !important;
+}
+.user-profile-data
+{
+	border-bottom: 1px solid #c8c7cc;
+	height: 230px !important;
+	padding: 10px;
+	text-align: center !important;
+}
+.profile-image2
+{
+	border-radius: 70px;
+	border: 3px solid map-get($colors, primary);
+	height: 130px;
+	width: 50%;
+	/*float: left;*/
+}
+.profile-name2
+{
+	/*color: map-get($colors, primary) !important;*/
+	/*float: right;*/
+}
+.menu-lists-names
+{
+	line-height: 48px;
+    padding-left: 16px;
+    font-size: 1.6rem;
+    font-weight: 500;
+    border-bottom: 1px solid #c8c7cc;
+}
+
+.menu-icons
+{
+	color: map-get($colors, primary) !important;
+}
+
+.menu-lists-names span
+{
+	color: #665 !important;
+}
+.border-top-button
+{
+	border: 1px solid #fff !important;
+	padding-right: 5px !important;
+	padding-left: 5px !important;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,136 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="viewNotifications()">        
+        <ion-icon name="notifications" class="top-bar-icons"></ion-icon>
+        <label class="top-bar-icons-labels">{{nbrOfNotifications}}</label>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="top-background"></div>
+
+  <div class="user-profile-data">
+
+    <h4 class="user-fullname" *ngIf="userFullName == 'empty'">Welcome To My-Fedha</h4>
+    <h4 class="user-fullname" *ngIf="userFullName != 'empty'">{{userFullName}} </h4>
+
+    <img *ngIf="userImage == 'empty'" class="profile-image" src="assets/imgs/user.png">
+    <img *ngIf="userImage != 'empty'" class="profile-image" src="assets/imgs/user.png">
+
+  </div>
+
+  <div class="urgent-action-card" *ngFor="let action of userUrgentActionData" padding>
+
+    <div *ngIf="showSpinner == true" class="centered">
+      <ion-spinner name="bubbles" color="white"></ion-spinner>
+    </div>
+
+    <ion-card class="centered" padding *ngIf="action.urgent_action == 'deposit'">
+      <p class="urgent-action-info">You have currently in your account </p>
+      <br/>
+      <h2 class="urgent-action-amount">KES {{action.current_amount_in_account | number}} </h2>
+      <br/>
+
+      <div class="border-urgent-action-button" (click)="goToDeposit()">
+        <div class="urgent-action-button">
+          <img src="assets/imgs/wallet.png">
+          <h2 class="urgent-action-button-title">Deposit</h2>
+        </div>
+      </div>
+    </ion-card>
+
+    <ion-card class="centered" padding *ngIf="action.urgent_action == 'borrow'">
+      <p class="urgent-action-info">Your loan limit is</p>
+      <br/>
+      <h2 class="urgent-action-amount">KES {{action.loan_limit | number}} </h2>
+      <br/>
+
+      <div class="border-urgent-action-button" (click)="goToBorrow()">
+        <div class="urgent-action-button">
+          <img src="assets/imgs/loan.png">
+          <h2 class="urgent-action-button-title">Borrow</h2>
+        </div>
+      </div>
+    </ion-card>
+
+    <ion-card class="centered" padding *ngIf="action.urgent_action == 'refund'">
+      <p class="urgent-action-info">Please refund by {{action.loan_due_date | date}}</p>
+      <br/>
+      <h2 class="urgent-action-amount">KES {{action.current_loan_amount | number}} </h2>
+      <br/>
+
+      <div class="border-urgent-action-button" (click)="goToRefund()">
+        <div class="urgent-action-button">
+          <img src="assets/imgs/money-refund.png">
+          <h2 class="urgent-action-button-title">Refund</h2>
+        </div>
+      </div>
+    </ion-card>
+
+  </div>
+  
+  <!-- <div padding>
+    <ion-card class="home-functions-card">
+
+      <div class="home-functions home-functions-border-right home-functions-border-bottom" (click)="goToDeposit()">
+        <img src="assets/imgs/wallet-primary-color.png">
+        <p class="home-function-title">Deposit</p>
+      </div>
+
+      <div class="home-functions home-functions-border-left home-functions-border-bottom" (click)="goToWithdraw()">
+        <img src="assets/imgs/atm-primary-color.png">
+        <p class="home-function-title">Withdraw</p>
+      </div>
+
+      <div class="home-functions home-functions-border-top home-functions-border-right" (click)="goToBorrow()">
+        <img src="assets/imgs/loan-primary-color.png">
+        <p class="home-function-title">Borrow</p>
+      </div>
+
+      <div class="home-functions home-functions-border-top home-functions-border-left" (click)="goToRefund()">
+        <img src="assets/imgs/money-refund-primary-color.png">
+        <p class="home-function-title">Refund</p>
+      </div>
+
+    </ion-card>
+  </div> -->
+
+  <ion-card-header>
+    SHARE WITH FRIENDS
+  </ion-card-header>
+
+  <div class="social-icons">
+
+    <div class="social-share-logos whatsapp-share" (click)="whatsappShare()">
+      <ion-icon name="logo-whatsapp"></ion-icon>
+    </div>
+    <div class="social-share-logos facebook-share" (click)="facebookShare()">
+      <ion-icon name="logo-facebook"></ion-icon>
+    </div>
+    <div class="social-share-logos twitter-share" (click)="twitterShare()">
+      <ion-icon name="logo-twitter"></ion-icon>
+    </div>
+    <div class="social-share-logos email-share" (click)="emailShare()">
+      <ion-icon name="mail"></ion-icon>
+    </div>
+
+  </div>
+
+  <!-- <ion-card class="centered" padding>
+
+    <h2>Invite your friends</h2>
+    <br/>
+
+    <button ion-button block color="primary" (click)="inviteFriends()">Invite</button>
+      
+  </ion-card> -->
+
+</ion-content>

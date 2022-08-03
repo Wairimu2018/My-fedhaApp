@@ -1,0 +1,217 @@
+{% extends 'main_app/base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+    <!-- Featured Title -->
+    <div id="featured-title" class="clearfix featured-title-left">
+        <div id="featured-title-inner" class="container clearfix">
+            <div class="featured-title-inner-wrap">
+                <div id="breadcrumbs">
+                    <div class="breadcrumbs-inner">
+                        <div class="breadcrumb-trail">
+                            <a href="{% url 'mainAppNamespace:HomeName' %}" title="Construct" rel="home" class="trail-begin">Home</a>
+                            <span class="sep"><span class="fa fa-angle-right" aria-hidden="true"></span></span>
+                            <span class="trail-end">Careers</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-title-heading-wrap">
+                    <h1 class="featured-title-heading">Careers</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Featured Title -->
+
+    <!-- Main Content -->
+    <div id="main-content" class="site-main clearfix">
+        <div id="content-wrap">
+            <div id="site-content" class="site-content clearfix">
+                <div id="inner-content" class="inner-content-wrap">
+                    <div class="page-content">
+
+                        <!-- About Company -->
+                        <div class="row-about-2">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <nav class="wprt-navbar style-1">
+                                            <ul class="menu">
+                                                <li class="nav-item">
+                                                    <a href="{% url 'mainAppNamespace:CompanyOverviewName' %}">Company Overview</a>
+                                                </li>
+
+                                                <!-- <li class="nav-item">
+                                                    <a href="{% url 'mainAppNamespace:CompanyHistoryName' %}">Company History</a>
+                                                </li> -->
+
+                                                <li class="nav-item current-nav-item">
+                                                    <a href="{% url 'mainAppNamespace:CareersName' %}">Careers</a>
+                                                </li>
+
+                                                <li class="nav-item">
+                                                    <a href="{% url 'mainAppNamespace:MsaccoName' %}">MSacco</a>
+                                                </li>
+
+                                                <!-- <li class="nav-item">
+                                                    <a href="{% url 'mainAppNamespace:ResourcesName' %}">Resources</a>
+                                                </li> -->
+
+                                                <li class="nav-item">
+                                                    <a href="{% url 'mainAppNamespace:MembershipName' %}">Membership</a>
+                                                </li>
+
+                                                <!-- <li class="nav-item">
+                                                    <a href="page-team-grid.html">Our Team</a>
+                                                </li> -->
+                                            </ul>
+                                        </nav>
+
+                                        <div class="wprt-spacer clearfix" data-desktop="47" data-mobi="30" data-smobi="20"></div>
+
+                                        <div class="wrap">
+                                            <div class="wprt-headings clearfix">
+                                                <h2 class="heading font-size-24 margin-bottom-5">How can we help you?</h2>
+                                                <div class="sub-heading font-size-14">Contact us for your compliments, inquiries, requests and support.</div>
+                                            </div>
+
+                                            <div class="wprt-spacer clearfix" data-desktop="20" data-mobi="10" data-smobi="10"></div>
+
+                                            <div class="wrap-button">
+                                                <a class="wprt-button btn-small" href="{% url 'mainAppNamespace:ContactName' %}">Contact Us</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="wprt-spacer clearfix" data-desktop="0" data-mobi="40" data-smobi="30"></div>
+                                    </div><!-- /.col-md-3 -->
+
+                                    <div class="col-md-9">
+                                        <div class="image-wrap">
+                                            <img src="{% static 'main_app/img/abouts/about-3.jpg' %}" alt="Image">
+                                        </div>
+
+                                        <div class="wprt-spacer clearfix" data-desktop="23" data-mobi="20" data-smobi="20"></div>
+
+                                        <h3 class="heading font-size-24 margin-bottom-8">Begin your career with us!</h3>
+
+                                        <div class="desc">
+                                            <p class="margin-bottom-13">loanApp Sacco is always looking for highly motivated and talented individuals with an entrepreneurial spirit and global mindset to join our team!.</p>
+
+                                            <p class="margin-bottom-13">loanApp Sacco  is a growing organization with a dynamic, entrepreneurial culture.  Our sacco is dedicated to creating a challenging, yet fun, work environment that offers meaningful participation on a variety of engagements.  Our innovative and team-oriented approach allows us to deliver highly specialized and forward thinking business solutions to our members.</p>
+
+                                            <p class="margin-bottom-13">By launching your career at loanApp, you'll have a unique opportunity to work across a broad range of industries, and connect with a global network of entrepreneurs and business experts from around the world.  </p>
+                                        </div>
+
+                                        <div class="wprt-spacer clearfix" data-desktop="30" data-mobi="30" data-smobi="20"></div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="wprt-image-video w60">
+                                                    <img alt="image" src="{% static 'main_app/img/bg-video-1.jpg' %}">
+                                                    <a class="icon-wrap popup-video" href="https://www.youtube.com/watch?v=4aqPRS6YwDs"></a>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="wprt-spacer clearfix" data-desktop="0" data-mobi="30" data-smobi="30"></div>
+
+                                                <div class="wprt-toggles style-1 no-icon">
+                                                    <div class="toggle-item active">
+                                                        <h3 class="toggle-heading">
+                                                            <span class="inner">
+                                                                <span class="icon-wrap"><i class="fa fa-plus"></i></span>
+                                                                Tell me about yourself?
+                                                            </span>
+                                                        </h3>
+
+                                                        <div class="toggle-content">
+                                                            <p>loanApp focus is on doing what it takes to get client results. As a result, staffing approaches need to be flexible within offices and regions to accommodate the needs of our members. </p>
+                                                        </div>
+                                                    </div><!-- /.toggles-item -->
+
+                                                    <div class="toggle-item">
+                                                        <h3 class="toggle-heading">
+                                                            <span class="inner">
+                                                                <span class="icon-wrap"><i class="fa fa-plus-square"></i></span>
+                                                                What are your strengths?
+                                                            </span>
+                                                        </h3>
+
+                                                        <div class="toggle-content">
+                                                            <p>At loanApp we join all our forces in creating the best business opportunities for our members. </p>
+                                                        </div>
+                                                    </div><!-- /.toggles-item -->
+
+                                                    <div class="toggle-item end">
+                                                        <h3 class="toggle-heading">
+                                                            <span class="inner">
+                                                                <span class="icon-wrap"><i class="fa fa-plus-square"></i></span>
+                                                                What kind of salary do you expect?
+                                                            </span>
+                                                        </h3>
+
+                                                        <div class="toggle-content">
+                                                            <p>loanApp offers a good salary and great working conditions. </p>
+                                                        </div>
+                                                    </div><!-- /.toggles-item -->
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="wprt-spacer clearfix" data-desktop="40" data-mobi="30" data-smobi="30"></div>
+
+                                                 <h4 class="font-size-24">Current Opportunities</h4>
+
+                                                 <table class="wprt-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Job posting title</td>
+                                                            <td>Locations</td>
+                                                            <td>Department</td>
+                                                            <td>Deadline</td>
+                                                            <td>Download</td>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody>
+
+                                                        {% for position in availablePositions %}
+
+                                                        <tr>
+                                                            <td><a href="#">{{position.title}}</a></td>
+                                                            <td><a href="#">{{position.location}}</a></td>
+                                                            <td>{{position.department.title}}</td>
+                                                            <td>{{position.position_to_be_filled_on_date}}</td>
+                                                            <td><a href="{{position.position_file.url}}" target="_blank">Download document</a></td>
+                                                        </tr>
+
+                                                        {% endfor %}
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="col-md-12">
+                                        <div class="wprt-spacer clearfix" data-desktop="80" data-mobi="60" data-smobi="40"></div>
+                                    </div>
+                                </div><!-- /.Row -->
+                            </div><!-- /.container -->
+                        </div>
+                        <!-- /About Company -->
+                    </div><!-- /.page-content -->
+                </div><!-- /#inner-content -->
+            </div><!-- /#site-content -->
+        </div><!-- /#content-wrap -->
+    </div>
+    <!-- /Main Content -->
+
+    {% endblock %}

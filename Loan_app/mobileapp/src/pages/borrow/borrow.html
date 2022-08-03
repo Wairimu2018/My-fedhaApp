@@ -1,0 +1,45 @@
+<ion-header>
+
+  <ion-navbar>
+  	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Borrow Money</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="viewNotifications()">        
+        <ion-icon name="notifications" class="top-bar-icons"></ion-icon>
+        <label class="top-bar-icons-labels">{{nbrOfNotifications}}</label>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+	<ion-card class="form-card" padding text-wrap *ngIf="showBorrowForm == 'false'">
+		<h2 class="not-allowed">Sorry, you cannot take a loan at this moment</h2>
+	</ion-card>
+
+	<ion-card class="form-card" padding *ngIf="showBorrowForm == 'true'">
+
+		<div *ngFor="let account of userAccountData">
+			<h2 class="borrow-limit">Limit : KES {{account.loan_limit | number}} </h2>
+			<br/>
+
+			<h2 class="pending-amount-to-borrow" *ngIf="account.user_pending_loan_requests_amount != 0">KES {{account.user_pending_loan_requests_amount | number}} pending loan request </h2>
+		</div>
+
+		<h2 class="loan-info" *ngIf="showLoanData == true" text-wrap>You will receive KES {{loanTogiveOut}}. The transaction fee is KES {{loanInterest}}</h2>
+
+		<ion-input class="amount-to-borrow-input twenty-border-radius" #amountToBorrow [ngModel]="amountToBorrowValue" type="number" placeholder="Amount to borrow" (change)="checkLoanInfo()"></ion-input>
+		<br/>
+		<ion-input class="amount-to-borrow-input twenty-border-radius" #numberOfIntendedDaysToRefund [ngModel]="numberOfIntendedDaysToRefund" type="number" placeholder="Repayment (in days)"></ion-input>
+		<br/>
+		<ion-textarea class="amount-to-borrow-input" rows="5" #loanDescription [ngModel]="loanDescriptionValue" placeholder="What do you need the loan for?"></ion-textarea>
+		<br/>
+		<button ion-button block color="secondary" class="borrow-button" (click)="requestForLoan()" *ngIf="showTakeLoanButton == true">TAKE LOAN</button>
+
+	</ion-card>
+	
+</ion-content>

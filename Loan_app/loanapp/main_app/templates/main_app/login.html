@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+
+    {% load staticfiles %}
+
+<!-- Meta Tags -->
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta name="description" content="{{pageDescription}}" />
+<meta name="keywords" content="{{pageKeywords}}" />
+<meta name="author" content="Technologie Pene" />
+
+<!-- Page Title -->
+<title>{{pageTitle}}</title>
+
+<!-- Favicon and Touch Icons -->
+<link href="{% static 'main_app/images/favicon.png' %}" rel="shortcut icon" type="image/png">
+<link href="{% static 'main_app/images/apple-touch-icon.png' %}" rel="apple-touch-icon">
+<link href="{% static 'main_app/images/apple-touch-icon-72x72.png' %}" rel="apple-touch-icon" sizes="72x72">
+<link href="{% static 'main_app/images/apple-touch-icon-114x114.png' %}" rel="apple-touch-icon" sizes="114x114">
+<link href="{% static 'main_app/images/apple-touch-icon-144x144.png' %}" rel="apple-touch-icon" sizes="144x144">
+
+<!-- Stylesheet -->
+<link href="{% static 'main_app/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'main_app/css/jquery-ui.min.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'main_app/css/animate.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'main_app/css/css-plugin-collections.css' %}" rel="stylesheet"/>
+
+<!-- CSS | Main style file -->
+<link href="{% static 'main_app/css/style-main.css' %}" rel="stylesheet" type="text/css">
+
+<!-- CSS | Custom Margin Padding Collection -->
+<link href="{% static 'main_app/css/custom-bootstrap-margin-padding.css' %}" rel="stylesheet" type="text/css">
+<!-- CSS | Responsive media queries -->
+<link href="{% static 'main_app/css/responsive.css' %}" rel="stylesheet" type="text/css">
+<!-- CSS | Style css. This is the file where you can place your own custom css code. Just uncomment it and use it. -->
+<!-- <link href="css/style.css' %}" rel="stylesheet" type="text/css"> -->
+<link href="{% static 'main_app/css/custom.css' %}" rel="stylesheet" type="text/css">
+
+<!-- CSS | Theme Color -->
+<link href="{% static 'main_app/css/colors/theme-skin-color-set3.css' %}" rel="stylesheet" type="text/css">
+
+</head>
+<body class="">
+	<br/><Br/>
+
+	<div class="col-md-9" style="margin-left: 10% !important;">
+		<form class="reservation-form mb-0 bg-silver-light p-30" method="post" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <h3 class="text-center mt-0 mb-30">login to your registered account!</h3>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group mb-30">
+                  <input placeholder="Enter Email" name="username" required="" class="form-control" type="text">
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="form-group mb-30">
+                  <input placeholder="Password" name="password" class="form-control" required="" type="password">
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="form-group mb-0 mt-0">
+                  <input name="form_botcheck" class="form-control" value="" type="hidden">
+                  <button type="submit" class="btn btn-colored btn-block btn-theme-colored2 text-white btn-lg btn-flat" data-loading-text="Please wait...">Submit Now</button>
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="form-group mt-15 text-center">
+                  <p>Don't have an account? <a href="#" class="text-theme-colored2 text-underline">Download our App and register</a> </p>
+                </div>
+              </div>
+            </div>
+        </form>
+    </div>
+
+
+
+</body>
+</html>

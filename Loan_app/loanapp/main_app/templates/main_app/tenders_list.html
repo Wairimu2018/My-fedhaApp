@@ -1,0 +1,160 @@
+{% extends 'main_app/base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+    <!-- Featured Title -->
+    <div id="featured-title" class="clearfix featured-title-left">
+        <div id="featured-title-inner" class="container clearfix">
+            <div class="featured-title-inner-wrap">
+                <div id="breadcrumbs">
+                    <div class="breadcrumbs-inner">
+                        <div class="breadcrumb-trail">
+                            <a href="{% url 'mainAppNamespace:HomeName' %}" title="Construct" rel="home" class="trail-begin">Home</a>
+                            <span class="sep"><span class="fa fa-angle-right" aria-hidden="true"></span></span>
+                            <span class="trail-end">Tenders</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-title-heading-wrap">
+                    <h1 class="featured-title-heading">Tenders</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Featured Title -->
+
+    <!-- Main Content -->
+    <div id="main-content" class="site-main clearfix">
+        <div id="content-wrap">
+            <div id="site-content" class="site-content clearfix">
+                <div id="inner-content" class="inner-content-wrap">
+                    <div class="page-content">
+
+                        {% if not tendersList %}
+
+                        <div class="image-wrap" style="text-align: center !important;">
+                             No tender found
+                             <br/><Br/>
+                         </div>
+
+                         {% endif %}
+
+                        <!-- Portfolio -->
+
+                        <div class="row-portfolio-1">
+                            <div class="container">
+
+                                <div class="contact-form wpcf7-form">
+                                    <div class="wprt-contact-form-3">
+                                        <span class="wpcf7-form-control-wrap menu">
+
+                                            <select id="tendersStatus" name="menu" class="wpcf7-form-control wpcf7-select" aria-invalid="false" onChange="viewTenderByStatus()">
+                                                <option vlaue="">Status</option>
+                                                <option>Open</option>
+                                                <option>Fulfilled</option>
+                                            </select>
+
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="wprt-portfolio-grid" data-column="4" data-column2="3" data-column3="2" data-column4="1" data-gaph="30" data-gapv="30">
+                                            <div id="project-filter" class="filter-dark">
+                                                <div class="inner">
+                                                    <div data-filter="*" class="cbp-filter-item"><span>All Projects</span></div>
+
+                                                    {% for department in departmentsList %}
+                                                        <div data-filter=".{{department.slug}}" class="cbp-filter-item"><span>{{department.title}}</span></div>
+                                                    {% endfor %}
+                                                    
+                                                </div>
+                                            </div>
+
+                                            <div id="projects" class="cbp">
+
+                                                {% for tender in tendersList %}
+
+                                                <div class="cbp-item equity {{tender.department.slug}}">
+                                                    <div class="project-item style-2">
+                                                        <div class="inner">
+                                                            <div class="project-image">
+                                                                <img src="{{tender.project_image.url}}" alt="image">             
+                                                            </div>
+
+                                                            <div class="text">
+                                                                <div>
+                                                                    <h2><a href="{% url 'mainAppNamespace:TenderDetailsName' tender_slug=tender.slug %}" title="">{{tender.title}}</a></h2>
+                                                                    <a title="">{{tender.department.title}}</a>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <a class="zoom-popup cbp-lightbox" href="{{tender.project_image.url}}" data-title="{{tender.title}}">
+                                                                <i class="fa fa-arrows"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                {% endfor %}
+
+                                            </div>
+                                        </div>
+
+                                        <div class="wprt-spacer clearfix" data-desktop="80" data-mobi="60" data-smobi="40"></div>
+
+
+                                        <div class="col-md-12">
+                                            <div class="pagination-page clearfix">
+                                                <ul>
+                                                    {% if tendersList.has_previous %}
+                                                        <li><a class="page prev" href="?page={{ tendersList.previous_page_number }}"><i class="fa fa-angle-left"></i></a></li> <!-- aria-hidden="true" -->
+                                                    {% endif %}
+
+                                                    <li><a class="page curent">{{ tendersList.number }}</a></li>
+
+                                                    {% if tendersList.has_next %}
+                                                        <li><a class="page next" href="?page={{ tendersList.next_page_number }}"><i class="fa fa-angle-right"></i></a></li> <!-- aria-hidden="true" -->
+                                                    {% endif %}
+
+                                                    <br/><br/><br/><br/>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- /Portfolio -->
+                    </div><!-- /.page-content -->
+                </div><!-- /#inner-content -->
+            </div><!-- /#site-content -->
+        </div><!-- /#content-wrap -->
+    </div>
+    <!-- /Main Content -->
+
+    <input id="openedTendersUrl" type="hidden" value="{% url 'mainAppNamespace:TendersListName' %}?realized=false">
+    <input id="fulfilledTendersUrl" type="hidden" value="{% url 'mainAppNamespace:TendersListName' %}?realized=true">
+
+    <script type="text/javascript">
+        function viewTenderByStatus () {
+            var selectedStatus = document.getElementById('tendersStatus').value;
+            if(selectedStatus == 'Open') {
+                window.location.href = 'https://'+window.location.hostname+''+document.getElementById('openedTendersUrl').value;
+            }
+            else if(selectedStatus == 'Fulfilled') {
+                window.location.href = 'https://'+window.location.hostname+''+document.getElementById('fulfilledTendersUrl').value;
+            }
+            else
+            {}
+        }
+    </script>
+
+{% endblock %}
+

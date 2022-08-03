@@ -1,0 +1,11 @@
+page-mpesa-payment-procedure {
+
+	ion-content {		
+		background-color: map-get($colors, background) !important;
+	}
+	.deposit-steps
+	{
+		line-height: 2.5rem !important;
+	}
+
+}

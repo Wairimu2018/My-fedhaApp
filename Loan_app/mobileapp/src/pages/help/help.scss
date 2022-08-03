@@ -1,0 +1,13 @@
+page-help {
+
+	.help-list
+	{
+		line-height: 2.5rem !important;
+		font-size: 1.5rem !important;
+	}
+	.help-title
+	{
+		color: map-get($colors, secondary) !important;
+	} 
+
+}

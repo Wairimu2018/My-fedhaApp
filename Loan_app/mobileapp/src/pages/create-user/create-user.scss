@@ -1,0 +1,83 @@
+page-create-user {
+
+	.form-title {
+	    color: #464646;
+	    margin: 20px 0;
+	    font-size: 21px;
+		text-align: center;
+		background-color: blue;
+	}
+	.form label {
+        font-size: 1em;
+	    color: blue;
+	    margin-bottom: 0.5em;
+	    text-align: left;
+	    display: block;
+	    font-weight: bold;
+	    text-transform: uppercase
+	}
+	.form label i{   
+	     font-size: 0.9em;
+	    margin-right: 10px;
+		color: #333;
+	}
+	.inputs {
+	    width: 100%;
+	    color: #777;
+		font-size:0.9em;
+		border: 2px solid;
+	    // border: 2px solid map-get($colors, danger);
+	    margin-bottom: 1.5em;
+		line-height: 1em;
+		padding: 2px;
+		padding-left: 10px;
+	}
+	.twenty-border-radius
+	{
+		border-radius: 20px !important;
+	}
+	.select-input {
+		width: 1500px !important;
+	    font-size: 0.9em;
+	    border-radius: 0;
+	    height: 40px;
+	    color: #777;
+	    border: 2px solid map-get($colors, primary);
+	}
+	.form-icons {
+		color: #464646;
+	    font-size: 2em;
+	    vertical-align: middle;
+	}
+	.full-select
+	{
+		width: 100% !important;
+		font-size: 0.9em;
+		height: 40px;
+		border: 2px solid map-get($colors, primary);
+		color: #777;
+	}
+	ion-select {
+	    max-width: 100%;
+	}
+	.clear-black-color
+	{
+		color: #464646;
+	}
+
+
+	.reserve-button
+	{
+		height: 45px;
+	    text-align: center;	    
+	    padding: 1em 2em;
+	    font-size: 1em;
+	    cursor: pointer;
+	    border: 2px solid map-get($colors, primary);
+	    background: map-get($colors, primary);
+	    color: map-get($colors, primary);
+	    color: #fff;
+		
+	}
+
+}

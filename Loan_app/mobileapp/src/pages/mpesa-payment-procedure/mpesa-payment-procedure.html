@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>MPesa Payment Procedure</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<ion-card class="deposit-steps">
+		<div padding>
+
+			<h2>Payment Procedure</h2>
+			<br/>
+
+			<p>1. Select "Pay bill" from your Safaricom MPesa Menu.</p>
+			<p>2. Select "Enter Business Number" and enter.</p>
+			<p>3. Enter My-Fedha Business Number <b>{{paybillNumber}}</b>.</p>
+			<p>4. Select "Enter Account Number".</p>
+			<p>5. Enter the code <b>{{transactionCode}}</b>.</p>
+			<p>6. Enter Amount {{transactedAmount}}</p>
+			<p>7. Press "OK" Only when you are sure of all the sdetails You entered.</p>
+			<p>8. You will then Receive a "Confirmation Message" from MPesa.</p>
+
+		</div>
+	</ion-card>	
+
+</ion-content>

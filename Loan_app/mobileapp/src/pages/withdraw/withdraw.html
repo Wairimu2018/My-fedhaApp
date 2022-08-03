@@ -1,0 +1,34 @@
+<ion-header>
+
+  <ion-navbar>
+  	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Withdraw</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="viewNotifications()">        
+        <ion-icon name="notifications" class="top-bar-icons"></ion-icon>
+        <label class="top-bar-icons-labels">{{nbrOfNotifications}}</label>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+	<ion-card padding class="form-card">
+
+    <div *ngFor="let account of userAccountData">
+      <h2 class="withdrawal-limit">Limit : KES {{account.current_amount_in_account | number}} </h2>
+      <br/>
+      <h2 class="pending-amount-to-withdraw" *ngIf="account.user_pending_withdrawal_amount != 0">KES {{account.user_pending_withdrawal_amount | number}} pending withdrawal </h2>
+		</div>
+
+		<ion-input class="amount-to-withdraw-input" #amountToWithdraw [ngModel]="amountToWithdrawValue" type="number" placeholder="Amount to withdraw"></ion-input>
+		<br/>
+		<button ion-button block color="secondary" class="withdraw-button" (click)="proceedToWithdraw()" *ngIf="showWithdrawalButton == true">Withdraw</button>
+
+	</ion-card>
+	
+</ion-content>

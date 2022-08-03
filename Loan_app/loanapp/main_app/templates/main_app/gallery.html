@@ -1,0 +1,127 @@
+{% extends 'main_app/base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+    <!-- Featured Title -->
+    <div id="featured-title" class="clearfix featured-title-left" >
+        <div id="featured-title-inner" class="container clearfix">
+            <div class="featured-title-inner-wrap">
+                <div id="breadcrumbs">
+                    <div class="breadcrumbs-inner">
+                        <div class="breadcrumb-trail">
+                            <a href="{% url 'mainAppNamespace:HomeName' %}" title="Construct" rel="home" class="trail-begin">Home</a>
+                            <span class="sep"><span class="fa fa-angle-right" aria-hidden="true"></span></span>
+                            <span class="trail-end">Gallery</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-title-heading-wrap">
+                    <h1 class="featured-title-heading">Gallery</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Featured Title -->
+
+    <!-- Main Content -->
+    <div id="main-content" class="site-main clearfix">
+        <div id="content-wrap">
+            <div id="site-content" class="site-content clearfix">
+                <div id="inner-content" class="inner-content-wrap">
+                    <div class="page-content">
+
+                        <!-- Gallery  -->
+
+                        <div class="row-contact-2">
+                            <div class="container">
+                                <div class="row">
+
+                                    <div class="col-md-12">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+
+                                        <!-- The expanding image container -->
+                                        <div class="images-container">
+                                          <!-- Close the image -->
+                                          <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+
+                                          <!-- Expanded image -->
+                                          <img id="expandedImg" style="width:100%">
+
+                                          <!-- Image text -->
+                                          <div id="imgtext"></div>
+                                        </div>
+
+                                        <div class="row">
+                                            {% for image in gallery %}
+                                              <div class="column">
+                                                <img src="{{image.image.url}}" alt="Nature" onclick="openImg(this);">
+                                              </div>
+                                            {% endfor %}
+                                        </div>
+
+
+
+
+
+
+
+
+
+
+
+                                        
+                                    </div>
+                                    <div class="wprt-spacer clearfix" data-desktop="80" data-mobi="60" data-smobi="40"></div>
+                                </div><!-- /.row -->
+                            </div><!-- /.container -->
+                        </div>
+
+                        <!-- /Contact  -->
+                    </div><!-- /.page-content -->
+                </div><!-- /#inner-content -->
+            </div><!-- /#site-content -->
+        </div><!-- /#content-wrap -->
+    </div>
+    <!-- /Main Content -->
+
+<script>
+function openImg(imgs) {
+    var expandImg = document.getElementById("expandedImg");
+    var imgText = document.getElementById("imgtext");
+    expandImg.src = imgs.src;
+    imgText.innerHTML = imgs.alt;
+    expandImg.parentElement.style.display = "block";
+}
+</script>
+
+{% endblock %}
+
+
+
+
+
+

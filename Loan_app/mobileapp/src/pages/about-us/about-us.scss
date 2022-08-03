@@ -1,0 +1,100 @@
+page-about-us {
+
+	ion-content
+	{
+		background-image: url('../assets/imgs/about.jpg') !important;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+	.ion-content::before {
+		content: "";
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		/*background-color: #fff;*/
+
+
+
+
+		background: map-get($colors, secondary);
+		opacity: 0.4;
+	}
+	.company-logo
+	{
+		border-radius: 50%;
+		z-index: 1;
+		text-align: center !important;
+	}
+	.company-logo img
+	{
+		width: 50% !important;
+	}
+	.company-name
+	{
+		text-align: center;
+		padding: 15px;
+		/*color: map-get($colors, secondary) !important;*/
+		font-weight: bold;
+		font-size: 2rem;
+		margin-top: 10px !important;
+		text-transform: uppercase;
+	}
+	.learn-more
+	{
+		font-size: 1.2rem !important;
+		color: map-get($colors, secondary) !important;
+	}
+	.company-details
+	{
+		line-height: 2rem !important;
+	}
+	.button-group {
+
+	  .col {
+	    &:first-child:not(:last-child) {
+	      padding-right: 0;
+	      .button {
+	        border-top-right-radius: 0;
+	        border-bottom-right-radius: 0;
+	      }
+	    }
+	    &:not(:first-child):not(:last-child) {
+	      padding-right: 0;
+	      padding-left: 0;
+	      .button {
+	        border-radius: 0;
+	      }
+	    }
+	    &:last-child:not(:first-child) {
+	      padding-left: 0;
+	      .button {
+	        border-top-left-radius: 0;
+	        border-bottom-left-radius: 0;
+	      }
+	    }
+	  }
+	}
+
+	.facebook-button
+	{
+		background-color: #4267b2 !important;
+		color: #fff !important;
+		padding: 20px !important;
+	}
+	.twitter-button
+	{
+		background-color: #1b95e0 !important;
+		color: #fff !important;
+		padding: 20px !important;
+	}
+	.email-button
+	{
+		background-color: #d93025 !important;
+		color: #fff !important;
+		padding: 20px !important;
+	}
+
+}

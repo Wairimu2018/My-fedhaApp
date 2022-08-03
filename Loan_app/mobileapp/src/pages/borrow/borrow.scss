@@ -1,0 +1,56 @@
+page-borrow {
+
+	ion-content {		
+		background-color: map-get($colors, background) !important;
+	}
+	.amount-to-borrow-input
+	{
+		border: 1px solid map-get($colors, primary) !important;
+		padding-left: 20px !important;
+	}
+	.borrow-limit
+	{
+		color: map-get($colors, secondary) !important;
+		font-size: 1.9rem !important;
+		font-weight: bold !important;
+		text-align: center !important;
+		padding: 10px !important;
+	}
+	.not-allowed
+	{
+		/*color: map-get($colors, primary) !important;*/
+		font-size: 1.9rem !important;
+		text-align: center !important;
+		padding: 10px !important;
+	}
+	.twenty-border-radius
+	{
+		border-radius: 20px !important;
+	}
+	.pending-amount-to-borrow
+	{
+		color: map-get($colors, secondary) !important;
+		margin-top: 10px !important;
+	}
+	.deposit-steps
+	{
+		line-height: 2.5rem !important;
+	}
+	.form-card
+	{
+		border-radius: 10px !important;
+	}
+	.borrow-button
+	{
+		border-radius: 20px !important;
+		background-color: map-get($colors, primary) !important;
+		color: #fff !important;
+	}
+	.loan-info
+	{
+		color: map-get($colors, primary) !important;
+		margin-bottom: 10px !important;
+		line-height: 2.5rem !important;
+	}
+
+}

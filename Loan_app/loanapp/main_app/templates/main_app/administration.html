@@ -1,0 +1,225 @@
+{% extends 'main_app/base.html' %}
+
+{% load staticfiles %}
+{% load humanize %}
+
+{% block content %}
+
+    <!-- Featured Title -->
+    <div id="featured-title" class="clearfix featured-title-left">
+        <div id="featured-title-inner" class="container clearfix">
+            <div class="featured-title-inner-wrap">
+                <div id="breadcrumbs">
+                    <div class="breadcrumbs-inner">
+                        <div class="breadcrumb-trail">
+                            <a href="{% url 'mainAppNamespace:HomeName' %}" title="Construct" rel="home" class="trail-begin">Home</a>
+                            <span class="sep"><span class="fa fa-angle-right" aria-hidden="true"></span></span>
+                            <span class="trail-end">Administrator</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-title-heading-wrap">
+                    <h1 class="featured-title-heading">Admin Page</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Featured Title -->
+
+    <!-- Main Content -->
+    <div id="main-content" class="site-main clearfix">
+        <div id="content-wrap">
+            <div id="site-content" class="site-content clearfix">
+                <div id="inner-content" class="inner-content-wrap">
+                    <div class="page-content">
+
+                        <!-- Service Details -->
+                        <div class="row-services-2">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="wprt-spacer clearfix" data-desktop="34" data-mobi="30" data-smobi="20"></div>
+
+                                        <div class="row">
+
+                                            <div class="col-md-12">
+                                                <div class="wprt-spacer clearfix" data-desktop="25" data-mobi="20" data-smobi="20"></div>
+
+                                                <div class="wprt-tabs style-5 clearfix">
+                                                    <ul>
+                                                        <li class="active">PRE-MEMBERSHIP REQUESTS</li>
+                                                        <li class="active">MEMBERSHIP REQUESTS</li>
+                                                        <li class="active">MESSAGES</li>
+                                                    </ul>
+                                                    
+                                                    <div class="tab-content clearfix">
+                                                        <div class="content-1">
+                                                            <div class="wprt-spacer clearfix" data-desktop="25" data-mobi="20" data-smobi="20"></div>
+
+                                                            <!-- Services -->
+									                        <div class="row-service-1" id="services">
+									                            <div class="container">
+									                                <div class="row">
+									                                    <div class="col-md-12">
+									                                        <div class="wprt-spacer clearfix" data-desktop="80" data-mobi="60" data-smobi="40"></div>
+
+									                                        <div class="wprt-headings text-center clearfix">
+									                                            <h2 class="heading">Pre-membership requests </h2>
+									                                            <div class="sub-heading"> {{numberOfPreMembershipRequests}} requests to process.</div>
+									                                        </div>
+
+									                                        <div class="wprt-spacer clearfix" data-desktop="42" data-mobi="30" data-smobi="20"></div>
+									                                    </div>
+
+									                                    {% for membership in newMemberOrganizations %}
+
+									                                    <div class="col-md-4 col-sm-6">
+									                                        <div class="wprt-content-box style-1 hover hover-1 hover-2">
+									                                            <div class="inner">
+									                                                <a href="{% url 'mainAppNamespace:OrganizationDetailsName' organization_slug=membership.slug %}">
+									                                                    <div class="wprt-icon-box clearfix icon-top align-center">
+
+									                                                        <div class="icon-wrap"><i class="fa fa-users"></i></div>
+
+									                                                        <h3 class="heading">{{membership.name_of_organization}}</h3>
+
+									                                                        <div class="desc">Request sent on {{membership.membership_requested_on_date_time}}</div>
+									                                                    </div>
+									                                                </a>
+									                                            </div>
+									                                        </div>
+
+									                                        <div class="wprt-spacer clearfix" data-desktop="30" data-mobi="30" data-smobi="30"></div>
+									                                    </div>
+
+									                                    {% endfor %}
+
+									                                    <div class="col-md-12">
+									                                        <div class="wprt-spacer clearfix" data-desktop="80" data-mobi="60" data-smobi="40"></div>
+									                                    </div>
+									                                </div><!-- /.row -->
+									                            </div><!-- /.container -->
+									                        </div>
+									                        <!-- Services -->
+
+                                                        </div>
+
+                                                        <div class="content-2">
+                                                            <div class="wprt-spacer clearfix" data-desktop="25" data-mobi="20" data-smobi="20"></div>
+
+                                                            
+                                                            <!-- Services -->
+									                        <div class="row-service-1" id="services">
+									                            <div class="container">
+									                                <div class="row">
+									                                    <div class="col-md-12">
+									                                        <div class="wprt-spacer clearfix" data-desktop="80" data-mobi="60" data-smobi="40"></div>
+
+									                                        <div class="wprt-headings text-center clearfix">
+									                                            <h2 class="heading">Membership requests </h2>
+									                                            <div class="sub-heading"> {{numberOfNewMembershipRegistrationRequests}} requests to process.</div>
+									                                        </div>
+
+									                                        <div class="wprt-spacer clearfix" data-desktop="42" data-mobi="30" data-smobi="20"></div>
+									                                    </div>
+
+									                                    {% for membership in newMembershipRegistrationRequests %}
+
+									                                    <div class="col-md-4 col-sm-6">
+									                                        <div class="wprt-content-box style-1 hover hover-1 hover-2">
+									                                            <div class="inner">
+									                                                <a href="{% url 'mainAppNamespace:UserProfileName' user_slug=membership.slug %}">
+									                                                    <div class="wprt-icon-box clearfix icon-top align-center">
+
+									                                                        <div class="icon-wrap"><i class="fa fa-address-book"></i></div>
+
+									                                                        <h3 class="heading">{{membership.first_name}} {{membership.last_name}}</h3>
+
+									                                                        <div class="desc">Request sent on {{membership.added_on_date}}</div>
+									                                                    </div>
+									                                                </a>
+									                                            </div>
+									                                        </div>
+
+									                                        <div class="wprt-spacer clearfix" data-desktop="30" data-mobi="30" data-smobi="30"></div>
+									                                    </div>
+
+									                                    {% endfor %}
+
+									                                    <div class="col-md-12">
+									                                        <div class="wprt-spacer clearfix" data-desktop="80" data-mobi="60" data-smobi="40"></div>
+									                                    </div>
+									                                </div><!-- /.row -->
+									                            </div><!-- /.container -->
+									                        </div>
+									                        <!-- Services -->
+
+
+                                                        </div>
+
+                                                        <div class="content-3">
+                                                            <div class="wprt-spacer clearfix" data-desktop="25" data-mobi="20" data-smobi="20"></div>
+
+                                                             <div class="wprt-content-box text-center-991">
+                                                                <div class="wprt-spacer clearfix" data-desktop="34" data-mobi="25" data-smobi="20"></div>
+
+                                                                <div class="col-md-12">
+                                                                	<div class="wprt-spacer clearfix" data-desktop="80" data-mobi="60" data-smobi="40"></div>
+
+                                                                	<div class="wprt-headings text-center clearfix">
+                                                                		<h2 class="heading">Messages </h2>
+                                                                		<div class="sub-heading"> {{numberOfNewMessages}} messages to process.</div>
+                                                                	</div>
+
+                                                                	<div class="wprt-spacer clearfix" data-desktop="42" data-mobi="30" data-smobi="20"></div>
+                                                                </div>
+
+                                                                {% for message in newMessages %}
+
+                                                                <div class="text-wrap">
+				                                                    <h4 class="name"><a href="page-team-single.html">{{message.subject}}</a></h4>
+
+				                                                    <div class="position">By {{message.full_name}} on {{message.added_on_date_time}}</div>
+
+				                                                    <div class="desc">
+				                                                    	{{message.message}}
+				                                                    	<br/>
+				                                                    	{{message.email}}
+				                                                    </div>
+				                                                    <br/>
+
+				                                                    <div class="wprt-link">
+				                                                        <a class="simple-link" style="color: rgb(56, 207, 105) !important;" href="{% url 'mainAppNamespace:AdministrationName' %}?message_slug={{message.slug}}&action=processed">DONE</a>
+				                                                    </div>
+				                                                </div>
+
+				                                                {% endfor %}
+
+                                                            </div>
+
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                
+                                    <div class="col-md-12">
+                                        <div class="wprt-spacer clearfix" data-desktop="80" data-mobi="60" data-smobi="40"></div>
+                                    </div>
+                                </div><!-- /.Row -->
+                            </div><!-- /.container -->
+                        </div>
+                        <!-- /Service Details -->
+                    </div><!-- /.page-content -->
+                </div><!-- /#inner-content -->
+            </div><!-- /#site-content -->
+        </div><!-- /#content-wrap -->
+    </div>
+    <!-- /Main Content -->
+
+{% endblock %}
